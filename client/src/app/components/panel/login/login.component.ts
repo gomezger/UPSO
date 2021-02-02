@@ -5,7 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/users/user.service';
 
 @Component({
-  selector: 'app-login',
+  selector: 'upso-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
