@@ -6,15 +6,20 @@ import { UsersComponent } from './layout/users/users.component';
 import { AdminGuard } from '../../guards/admin.guard';
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+
   {
     path: '',
+
     component: PanelComponent,
-    children:[
-      { path: 'usuarios', component: UsersComponent}
+
+    children: [
+      { path: 'usuarios', component: UsersComponent }
     ],
+
     canActivateChild: [AdminGuard],
     canActivate: [AdminGuard]
+
   }
 ];
 

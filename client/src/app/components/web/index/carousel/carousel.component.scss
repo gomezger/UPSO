@@ -1,0 +1,48 @@
+.carousel-inner {
+  position: relative;
+}
+
+.title {
+  background-color: rgba(0, 0, 0, 0.507);
+  position        : absolute;
+  top             : 0;
+}
+
+.title h1 {
+  bottom     : 0;
+  color      : #EEE;
+  font-family: 'Montserrat', cursive;
+  font-size  : 70px;
+  font-weight: bold;
+  height     : 200px;
+  left       : 0;
+  margin     : auto;
+  position   : absolute;
+  right      : 0;
+  text-align : center;
+  top        : 0;
+  width      : 100%;
+}
+
+
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (max-width: 992px) {
+
+  .title h1 {
+    font-size: 20px;
+    height   : 50px;
+  }
+
+  .carousel-indicators {
+    display: none;
+  }
+
+  .carousel-control {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {}
+
+@media only screen and (max-width: 576px) {}
