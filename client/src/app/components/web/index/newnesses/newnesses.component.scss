@@ -1,0 +1,23 @@
+.newnesses {
+  background-color: #f8f8f8;
+  display        : flex;
+  justify-content: space-around;
+  padding-top: 30px;
+  padding-bottom: 70px;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+
+.newnesses h1 {
+  color         : rgb(33, 59, 59);
+  float         : left;
+  font-family   : 'gilroy-ligth', 'Lexend Giga', sans-serif;
+  margin-top    : 15px;
+  text-transform: uppercase;
+}
+
+.newnesses .newness {
+  display: inline-block;
+  padding: 0 !important;
+}

@@ -1,5 +1,5 @@
 .navbar {
-  background        : #820024 !important;
+  background        : #141414 !important;
   box-shadow        : 0px 10px 17px -9px rgba(0, 0, 0, 0.12);
   -moz-box-shadow   : 0px 10px 17px -9px rgba(0, 0, 0, 0.12);
   -webkit-box-shadow: 0px 10px 17px -9px rgba(0, 0, 0, 0.12);
@@ -24,8 +24,6 @@
 
 .navbar-dark .navbar-nav .nav-link:hover {
   border-bottom: 2px rgba(245, 245, 245, 1) solid;
-  color        : #f8f8f8 !important;
-  font-size    : 16px;
   transition   : 0.5s;
 }
 

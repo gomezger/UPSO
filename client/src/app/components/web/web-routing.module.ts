@@ -7,8 +7,8 @@ const routes: Routes = [
   {
     path: '',
     component: WebComponent,
-    children:[
-      { path: '', component: IndexComponent}
+    children: [
+      { path: '', component: IndexComponent }
     ]
   }
 ];

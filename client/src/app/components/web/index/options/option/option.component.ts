@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'upso-option',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./option.component.scss']
 })
 export class OptionComponent implements OnInit {
+  @Input() title = '';
+  @Input() text = '';
+  @Input() img = '';
+  @Input() url = '';
+
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

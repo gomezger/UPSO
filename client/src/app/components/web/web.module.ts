@@ -11,6 +11,7 @@ import { AboutUsComponent } from './index/about-us/about-us.component';
 import { OptionsComponent } from './index/options/options.component';
 import { NewnessesComponent as NewnessesIndexComponent } from './index/newnesses/newnesses.component';
 import { OptionComponent } from './index/options/option/option.component';
+import { NewnessComponent } from './index/newnesses/newness/newness.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { OptionComponent } from './index/options/option/option.component';
     OptionsComponent,
     NewnessesIndexComponent,
     OptionComponent,
+    NewnessComponent,
   ],
   imports: [
     CommonModule,
