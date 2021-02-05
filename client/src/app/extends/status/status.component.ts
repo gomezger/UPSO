@@ -70,6 +70,7 @@ export class StatusComponent {
       return false;
     } else {
       this.setDefaultError();
+      console.warn(data);
       return false;
     }
   }

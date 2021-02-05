@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Users;
 
 use Carbon\Carbon;
@@ -10,7 +11,8 @@ use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
-    public function signup(Request $request){
+    public function signup(Request $request)
+    {
         $data = $request->all();
         $data['password'] = bcrypt($data['password']);
         $user = UserRepo::insert($data);
@@ -18,12 +20,13 @@ class AuthController extends Controller
         return Response::success('Usuario creado', 'usuario', $user);
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
 
         $data = $request->all();
         $credentials = request(['email', 'password']);
         if (!Auth::attempt($credentials))
-            return Response::error("401","Error login",['Email o contraseña incorrecto/s']);
+            return Response::error("401", "Error login", ['Email o contraseña incorrecto/s']);
 
         $user = $request->user();
         $tokenResult = $user->createToken('Personal Access Token');
@@ -37,42 +40,26 @@ class AuthController extends Controller
         $expires = Carbon::parse($tokenResult->token->expires_at)->toDateTimeString();
 
         return Response::success(
-                "Usuario logueado",
-                [
-                    "access_token" => $tokenResult->accessToken,
-                    "token_type" => 'Bearer',
-                    "expires_at" => $expires,
-                    "user" => $user
-                ]
-            );
+            "Usuario logueado",
+            [
+                "access_token" => $tokenResult->accessToken,
+                "token_type" => 'Bearer',
+                "expires_at" => $expires,
+                "user" => $user
+            ]
+        );
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
 
         $request->user()->token()->revoke();
         return Response::success('Cerró sesión');
     }
 
-    public function user(Request $request) {
+    public function user(Request $request)
+    {
 
         return response()->json($request->user());
     }
-
-    public function delete(Request $request) {
-
-        $user = UserRepo::delete($request->all()['email']);
-
-        return Response::success('Usuario eliminado');
-
-    }
-
-    public function update(Request $request) {
-        $user = UserRepo::update($request->all()['id'], $request->all());
-        return Response::success('Usuario actualizado', 'usuario', $user);
-    }
-
-    public function userById(Request $request, $id) {
-        return Response::success('Usuario existente', 'usuario', UserRepo::find($id));
-    }
-
 }

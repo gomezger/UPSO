@@ -67,6 +67,13 @@ class Kernel extends HttpKernel
         //auth
         'auth.login' => \App\Http\Middleware\Auth\LoginMiddleware::class,
         'auth.signup' => \App\Http\Middleware\Auth\SignupMiddleware::class,
-        
+
+        //user
+        'user.data' => \App\Http\Middleware\Auth\UserData::class,
+        'user.password' => \App\Http\Middleware\Auth\UserPassword::class,
+        'user.email' => \App\Http\Middleware\Auth\UserEmail::class,
+        'user.email.repeat' => \App\Http\Middleware\Auth\UserEmailRepeat::class,
+
+
     ];
 }

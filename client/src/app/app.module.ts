@@ -3,10 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WebComponent } from './components/web/web.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { DBConfig, NgxIndexedDBModule } from 'ngx-indexed-db';
+
 
 
 const dbConfig: DBConfig = {
@@ -29,7 +28,7 @@ const dbConfig: DBConfig = {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxIndexedDBModule.forRoot(dbConfig)
+    NgxIndexedDBModule.forRoot(dbConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]
