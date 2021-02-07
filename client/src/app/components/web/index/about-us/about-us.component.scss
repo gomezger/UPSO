@@ -1,20 +1,18 @@
-
-
-.about{
+.about {
   background-image: url('/assets/img/textures/bg-white.jpg');
-  background-size: 100% auto;
-  font-size: 19px;
+  background-size : 100% auto;
+  font-size       : 19px;
 }
 
-.iconos{
+.iconos {
   font-size: 50px;
 }
 
-h1{
-  color: rgb(33, 59, 59);
-  float: left;
-  font-family: 'gilroy-ligth', 'Lexend Giga', sans-serif;
-  margin-top: 15px;
+h1 {
+  color         : rgb(33, 59, 59);
+  float         : left;
+  font-family   : 'gilroy-ligth', 'Lexend Giga', sans-serif;
+  margin-top    : 15px;
   text-transform: uppercase;
 }
 
@@ -23,16 +21,19 @@ h1{
 @media only screen and (max-width: 1200px) {}
 
 @media only screen and (max-width: 992px) {
-  .about{
-      font-size: 14px;
+  .about {
+    font-size      : 14px;
+    background-size: auto 100%;
   }
 
-  .iconos{
-      font-size: 35px;
+  .iconos {
+    font-size: 35px;
   }
-  h1{
-      font-size: 20px;
+
+  h1 {
+    font-size: 20px;
   }
+
 }
 
 @media only screen and (max-width: 768px) {}

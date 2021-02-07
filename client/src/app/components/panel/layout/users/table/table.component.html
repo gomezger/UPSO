@@ -9,7 +9,6 @@
       <tr>
         <th scope="col">Nombre</th>
         <th scope="col">E-mail</th>
-        <th scope="col">Tipo</th>
         <th scope="col">Acciones</th>
       </tr>
     </thead>
@@ -21,7 +20,6 @@
           <!-- | paginate: { itemsPerPage: cant_por_pag, currentPage: pag } -->
           <td>{{ user.nombre }}</td>
           <td>{{ user.email }}</td>
-          <td>{{ user.tipo }}</td>
           <td>
             <upso-form-user [title]="'Editar usuario'" [user]="user" [users]="users" (updateList)="users_filter = $event"></upso-form-user>
             <upso-delete-user [user]="user" [users]="users" (updateList)="users_filter = $event"></upso-delete-user>

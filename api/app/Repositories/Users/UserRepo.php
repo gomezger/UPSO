@@ -15,7 +15,7 @@ class UserRepo {
     }
 
     public static function all(){
-        return User::all();
+        return User::orderBy('nombre','ASC')->get();
     }
 
     public static function insert($data){

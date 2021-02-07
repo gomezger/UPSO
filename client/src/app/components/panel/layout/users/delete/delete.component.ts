@@ -33,7 +33,8 @@ export class DeleteComponent extends StatusComponent implements OnInit {
       (response) => {
         if (this.validate(response)) {
           this.closebutton.nativeElement.click();
-          this.updateList.emit([...this.users.splice(this.users.indexOf(this.user),1)]);
+          this.users.splice(this.users.indexOf(this.user),1); // eliminar usuario
+          this.updateList.emit([...this.users]); // enviar una copia sin el elemento
         }
       },
       (error) => {
