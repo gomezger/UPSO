@@ -2,7 +2,10 @@
   <input class="filtro" type="text" placeholder="filtro" (input)="filtrar($event)"
     placeholder="Filtrar por nombre..." />
 
-  <upso-form-user [title]="'Crear usuario'" [users]="users" (updateList)="users_filter = $event"></upso-form-user>
+  <upso-form-user
+    [title]="'Crear usuario'"
+    (updateTable)="insertElement($event)"
+  ></upso-form-user>
 
   <table class="table table-hover fixed text-center">
     <thead>
@@ -16,13 +19,19 @@
       <div *ngIf="users.length > 0; then thenBlock; else elseBlock"></div>
 
       <ng-template #thenBlock>
-        <tr *ngFor=" let user of users_filter  ">
-          <!-- | paginate: { itemsPerPage: cant_por_pag, currentPage: pag } -->
+        <tr *ngFor=" let user of users_filter  | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
           <td>{{ user.nombre }}</td>
           <td>{{ user.email }}</td>
           <td>
-            <upso-form-user [title]="'Editar usuario'" [user]="user" [users]="users" (updateList)="users_filter = $event"></upso-form-user>
-            <upso-delete-user [user]="user" [users]="users" (updateList)="users_filter = $event"></upso-delete-user>
+            <upso-form-user
+              [title]="'Editar usuario'"
+              [user]="user"
+              (updateTable)="resetFilter()"
+            ></upso-form-user>
+            <upso-delete-user
+              [user]="user"
+              (updateTable)="deleteElement($event)"
+            ></upso-delete-user>
           </td>
         </tr>
       </ng-template>
@@ -34,6 +43,6 @@
     </tbody>
   </table>
 
-  <!-- <pagination-controls class="pagination" (pageChange)="pag = $event" autoHide="true" responsive="true"
-    directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente" maxSize="6"></pagination-controls> -->
+  <pagination-controls class="pagination" (pageChange)="currentPage = $event" autoHide="true" responsive="true"
+    directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente" maxSize="6"></pagination-controls>
 </div>

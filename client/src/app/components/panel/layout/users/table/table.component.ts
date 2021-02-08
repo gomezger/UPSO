@@ -10,7 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TableComponent implements OnInit {
   @Input() users: Array<User>;
   @Input() users_filter: Array<User>;
-  public cant_por_pag = 10;
+  public itemsPerPage = 10;
   public currentPage = 1;
 
   constructor(
@@ -21,9 +21,29 @@ export class TableComponent implements OnInit {
     this.users_filter = [...this.users];
   }
 
-  filtrar( { target : { value } }) {
+  filtrar({ target: { value } }) {
     this.users_filter = this._filter.filtrar(value, this.users, ['nombre', 'email', 'tipo']);
   }
+
+  resetFilter() {
+    this.users_filter = [...this.users];
+  }
+
+  insertElement(user: User): void {
+    this.users = [user, ...this.users];
+    this.resetFilter();
+  }
+
+  deleteElement(user: User): void {
+    this.users.splice(this.users.indexOf(user), 1); // eliminar usuario
+    if (this.users.length / this.itemsPerPage < this.currentPage) {
+      this.currentPage--;
+    }
+    this.resetFilter();
+  }
+
+
+
 
 
 }

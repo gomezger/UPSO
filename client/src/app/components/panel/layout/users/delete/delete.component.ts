@@ -12,8 +12,7 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild }
 export class DeleteComponent extends StatusComponent implements OnInit {
   @ViewChild('closebutton', { static: false }) closebutton: ElementRef;
   @Input() user: User;
-  @Input() users: Array<User>;
-  @Output() updateList: EventEmitter<Array<User>> = new EventEmitter();
+  @Output() updateTable: EventEmitter<User> = new EventEmitter();
 
   constructor(
     protected _router: Router,
@@ -33,8 +32,7 @@ export class DeleteComponent extends StatusComponent implements OnInit {
       (response) => {
         if (this.validate(response)) {
           this.closebutton.nativeElement.click();
-          this.users.splice(this.users.indexOf(this.user),1); // eliminar usuario
-          this.updateList.emit([...this.users]); // enviar una copia sin el elemento
+          this.updateTable.emit(this.user);
         }
       },
       (error) => {

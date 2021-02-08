@@ -10,12 +10,10 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild }
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent extends StatusComponent implements OnInit {
-  @ViewChild('closebutton', { static: false }) closebutton: ElementRef;
-
   @Input() user: User;
-  @Input() users: Array<User>;
   @Input() title: string;
-  @Output() updateList: EventEmitter<Array<User>> = new EventEmitter();
+  @Output() updateTable: EventEmitter<User> = new EventEmitter();
+  @ViewChild('closebutton', { static: false }) closebutton: ElementRef;
 
   constructor(
     protected _router: Router,
@@ -39,9 +37,8 @@ export class FormComponent extends StatusComponent implements OnInit {
       (response) => {
         if (this.validate(response)) {
           this.closebutton.nativeElement.click();
-          this.users = [response.user, ...this.users];
           this.user = this._user.dummyUser();
-          this.updateList.emit([...this.users]);
+          this.updateTable.emit(response.user);
         }
       },
       (error) => {
@@ -58,7 +55,8 @@ export class FormComponent extends StatusComponent implements OnInit {
       (response) => {
         if (this.validate(response)) {
           this.closebutton.nativeElement.click();
-          this.updateList.emit([...this.users]);
+          this.user = response.user;
+          this.updateTable.emit(this.user);
         }
       },
       (error) => {
