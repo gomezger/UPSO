@@ -1,13 +1,13 @@
-<a *ngIf="user && user.id!==0" type="button" title="Editar" class="text-info ml-2" data-toggle="modal"
-  [attr.data-target]="'#modalEditUser-'+user.id">
+<a *ngIf="myUser && myUser.id!==0" type="button" title="Editar" class="text-info ml-2" data-toggle="modal"
+  [attr.data-target]="'#modalEditUser-'+myUser.id">
   <i class="far fa-edit"></i>
 </a>
 
-<div *ngIf="user && user.id===0" class="btn btn-danger btn-sm float-left float-md-right mb-2 mb-md-0"
-  data-toggle="modal" [attr.data-target]="'#modalEditUser-'+user.id">Agregar usuario</div>
+<div *ngIf="myUser && myUser.id===0" class="btn btn-danger btn-sm float-left float-md-right mb-2 mb-md-0"
+  data-toggle="modal" [attr.data-target]="'#modalEditUser-'+myUser.id">Agregar usuario</div>
 
 <!-- Modal -->
-<div *ngIf="user" class="modal fade" [attr.id]="'modalEditUser-'+user.id" tabindex="-1" role="dialog"
+<div *ngIf="myUser" class="modal fade" [attr.id]="'modalEditUser-'+myUser.id" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -24,31 +24,31 @@
 
             <div class="form-group col-12 order-first order-md-2">
               <label for="nombre">Nombre *</label>
-              <input class="form-control" name="nombre" type="text" #nombre="ngModel" [(ngModel)]="user.nombre" required
+              <input class="form-control" name="nombre" type="text" #nombre="ngModel" [(ngModel)]="myUser.nombre" required
                 placeholder="Nombre del usuario">
               <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alerta">
                 <div *ngIf="nombre.errors.required">
-                  Debe ingresar un nombre para el user.
+                  Debe ingresar un nombre para el usuario
                 </div>
               </div>
             </div>
 
             <div class="form-group col-12 order-first order-md-2">
               <label for="nombre">E-mail *</label>
-              <input class="form-control" name="email" type="text" #email="ngModel" [(ngModel)]="user.email" required
+              <input class="form-control" name="email" type="text" #email="ngModel" [(ngModel)]="myUser.email" required
                 placeholder="E-mail del usuario">
               <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alerta">
                 <div *ngIf="email.errors.required">
-                  Debe ingresar un email para el user.
+                  Debe ingresar un email para el usuario
                 </div>
               </div>
             </div>
 
             <div class="form-group col-12 order-first order-md-2">
               <label for="nombre">Password *</label>
-              <input class="form-control" name="password" type="password" #password="ngModel" [(ngModel)]="user.password" required autocomplete="nope"
+              <input class="form-control" name="password" type="password" #password="ngModel" [(ngModel)]="myUser.password" required autocomplete="nope"
                 placeholder="Contraseña del usuario">
-                <small *ngIf="user.id!==0" class="text-secondary pl-1">Solo si desea cambiar la constraseña</small>
+                <small *ngIf="myUser.id!==0" class="text-secondary pl-1">Solo si desea cambiar la constraseña</small>
             </div>
 
             <div *ngIf="errores" class="errores col-12">

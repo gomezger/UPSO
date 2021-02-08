@@ -14,6 +14,7 @@ export class FormComponent extends StatusComponent implements OnInit {
   @Input() title: string;
   @Output() updateTable: EventEmitter<User> = new EventEmitter();
   @ViewChild('closebutton', { static: false }) closebutton: ElementRef;
+  public myUser: User;
 
   constructor(
     protected _router: Router,
@@ -23,21 +24,22 @@ export class FormComponent extends StatusComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.user = (this.user === undefined) ? this._user.dummyUser() : this.user;
+    this.myUser = (this.user === undefined) ? this._user.dummy() : { ...this.user };
   }
 
   confirmar = () => {
-    (this.user.id === 0) ? this.insert() : this.update();
+    (this.myUser.id === 0) ? this.insert() : this.update();
   }
 
   insert() {
     this.setLoading()
     const token = this._user.getToken();
-    this._user.insert(this.user, token).subscribe(
+    this._user.insert(this.myUser, token).subscribe(
       (response) => {
         if (this.validate(response)) {
           this.closebutton.nativeElement.click();
-          this.user = this._user.dummyUser();
+          this.user = this._user.dummy();
+          this.myUser = this._user.dummy();
           this.updateTable.emit(response.user);
         }
       },
@@ -51,11 +53,12 @@ export class FormComponent extends StatusComponent implements OnInit {
   update() {
     this.setLoading()
     const token = this._user.getToken();
-    this._user.update(this.user, token).subscribe(
+    this._user.update(this.myUser, token).subscribe(
       (response) => {
         if (this.validate(response)) {
           this.closebutton.nativeElement.click();
           this.user = response.user;
+          this.myUser = { ...this.user };
           this.updateTable.emit(this.user);
         }
       },

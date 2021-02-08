@@ -2,10 +2,7 @@
   <input class="filtro" type="text" placeholder="filtro" (input)="filtrar($event)"
     placeholder="Filtrar por nombre..." />
 
-  <upso-form-user
-    [title]="'Crear usuario'"
-    (updateTable)="insertElement($event)"
-  ></upso-form-user>
+  <upso-form-user [title]="'Crear usuario'" (updateTable)="insertElement($event)"></upso-form-user>
 
   <table class="table table-hover fixed text-center">
     <thead>
@@ -23,15 +20,8 @@
           <td>{{ user.nombre }}</td>
           <td>{{ user.email }}</td>
           <td>
-            <upso-form-user
-              [title]="'Editar usuario'"
-              [user]="user"
-              (updateTable)="resetFilter()"
-            ></upso-form-user>
-            <upso-delete-user
-              [user]="user"
-              (updateTable)="deleteElement($event)"
-            ></upso-delete-user>
+            <upso-form-user [title]="'Editar usuario'" [user]="user" (updateTable)="updateElement($event)"></upso-form-user>
+            <upso-delete-user [user]="user" (updateTable)="deleteElement($event)"></upso-delete-user>
           </td>
         </tr>
       </ng-template>

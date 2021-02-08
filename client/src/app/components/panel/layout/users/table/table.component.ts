@@ -34,6 +34,11 @@ export class TableComponent implements OnInit {
     this.resetFilter();
   }
 
+  updateElement(user: User): void {
+    this.users.splice(this.users.indexOf(this.users.find((element)=> element.id === user.id)), 1, user);
+    this.resetFilter();
+  }
+
   deleteElement(user: User): void {
     this.users.splice(this.users.indexOf(user), 1); // eliminar usuario
     if (this.users.length / this.itemsPerPage < this.currentPage) {

@@ -91,7 +91,7 @@ export class UserService {
     return (this.isUserAuthenticated()) ? JSON.parse(this._localStorage.getItem('user')) : null;
   }
 
-  public dummyUser(): User {
+  public dummy(): User {
     return new User(0, '', '', '', 'admin', '', '', '');
   }
 
