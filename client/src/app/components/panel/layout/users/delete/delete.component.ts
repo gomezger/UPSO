@@ -25,7 +25,7 @@ export class DeleteComponent extends StatusComponent implements OnInit {
   }
 
 
-  confirmar($e) {
+  confirmar($e): void {
     this.setLoading()
     const token = this._user.getToken();
     this._user.delete(this.user.email, token).subscribe(

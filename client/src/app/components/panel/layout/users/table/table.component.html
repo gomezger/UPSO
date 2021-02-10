@@ -1,6 +1,10 @@
 <div class="div-tabla table-responsive">
-  <input class="filtro" type="text" placeholder="filtro" (input)="filtrar($event)"
-    placeholder="Filtrar por nombre..." />
+  <upso-filter
+    [list]="users"
+    [keys]="keys"
+    (newList)="users_filter = $event"
+  >
+  </upso-filter>
 
   <upso-form-user [title]="'Crear usuario'" (updateTable)="insertElement($event)"></upso-form-user>
 

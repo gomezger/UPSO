@@ -74,6 +74,12 @@ class Kernel extends HttpKernel
         'user.email' => \App\Http\Middleware\Auth\UserEmail::class,
         'user.email.repeat' => \App\Http\Middleware\Auth\UserEmailRepeat::class,
 
+        //news
+        'news.data' => \App\Http\Middleware\News\Data::class,
+        'news.id' => \App\Http\Middleware\News\Id::class,
+
+        //storage
+        'storage.image' => \App\Http\Middleware\Storage\Image::class,
 
     ];
 }

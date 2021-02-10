@@ -1,0 +1,22 @@
+Error: ENOENT: no such file or directory, stat 'x:\www\UPSO\api\vendor\composer\b397823c\laravel-framework-a6680d9\src\Illuminate\Log'
+    at statSync (fs.js:1020:3)
+    at Object.e.statSync (electron/js2c/asar_bundle.js:5:4264)
+    at Object.statSync (c:\Users\Ger\.vscode\extensions\qiu8310.dot-template-vscode-0.1.2\node_modules\graceful-fs\polyfills.js:308:16)
+    at c:\Users\Ger\.vscode\extensions\qiu8310.dot-template-vscode-0.1.2\node_modules\dot-template-core\out\core\Application.js:94:48
+    at Array.forEach (<anonymous>)
+    at Application.<anonymous> (c:\Users\Ger\.vscode\extensions\qiu8310.dot-template-vscode-0.1.2\node_modules\dot-template-core\out\core\Application.js:91:34)
+    at step (c:\Users\Ger\.vscode\extensions\qiu8310.dot-template-vscode-0.1.2\node_modules\dot-template-core\node_modules\tslib\tslib.js:133:27)
+    at Object.next (c:\Users\Ger\.vscode\extensions\qiu8310.dot-template-vscode-0.1.2\node_modules\dot-template-core\node_modules\tslib\tslib.js:114:57)
+    at c:\Users\Ger\.vscode\extensions\qiu8310.dot-template-vscode-0.1.2\node_modules\dot-template-core\node_modules\tslib\tslib.js:107:75
+    at new Promise (<anonymous>)
+    at Object.__awaiter (c:\Users\Ger\.vscode\extensions\qiu8310.dot-template-vscode-0.1.2\node_modules\dot-template-core\node_modules\tslib\tslib.js:103:16)
+    at run (c:\Users\Ger\.vscode\extensions\qiu8310.dot-template-vscode-0.1.2\node_modules\dot-template-core\out\core\Application.js:84:48)
+    at Application.<anonymous> (c:\Users\Ger\.vscode\extensions\qiu8310.dot-template-vscode-0.1.2\node_modules\dot-template-core\out\core\Application.js:153:50)
+    at step (c:\Users\Ger\.vscode\extensions\qiu8310.dot-template-vscode-0.1.2\node_modules\dot-template-core\node_modules\tslib\tslib.js:133:27)
+    at Object.next (c:\Users\Ger\.vscode\extensions\qiu8310.dot-template-vscode-0.1.2\node_modules\dot-template-core\node_modules\tslib\tslib.js:114:57)
+    at c:\Users\Ger\.vscode\extensions\qiu8310.dot-template-vscode-0.1.2\node_modules\dot-template-core\node_modules\tslib\tslib.js:107:75
+    at new Promise (<anonymous>)
+    at Object.__awaiter (c:\Users\Ger\.vscode\extensions\qiu8310.dot-template-vscode-0.1.2\node_modules\dot-template-core\node_modules\tslib\tslib.js:103:16)
+    at Timeout._onTimeout (c:\Users\Ger\.vscode\extensions\qiu8310.dot-template-vscode-0.1.2\node_modules\dot-template-core\out\core\Application.js:144:59)
+    at listOnTimeout (internal/timers.js:549:17)
+    at processTimers (internal/timers.js:492:7)

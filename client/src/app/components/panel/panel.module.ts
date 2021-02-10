@@ -8,14 +8,24 @@ import { AdminGuard } from '../../guards/admin.guard';
 import { FormsModule } from '@angular/forms';
 import { SmallLoadingComponent } from './others/loading/small-loading/small-loading.component';
 import { TitleComponent } from './others/title/title.component';
+import { UploadImageComponent } from './others/upload-image/upload-image.component';
+import { CKEditorModule } from 'ngx-ckeditor';
 import { TableComponent as TableUsersComponent } from './layout/users/table/table.component';
 import { FormComponent as FormUserComponent } from './layout/users/form/form.component';
 import { DeleteComponent as DeleteUserComponent } from './layout/users/delete/delete.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NewsComponent } from './layout/news/news.component';
+import { TableComponent as TableNewsComponent } from './layout/news/table/table.component';
+import { FormComponent as FormNewsComponent } from './layout/news/form/form.component';
+import { DeleteComponent as DeleteNewsComponent } from './layout/news/delete/delete.component';
+import { FilterComponent } from './others/filter/filter.component';
+import { InfoComponent as InfoNewsComponent } from './layout/news/info/info.component';
+import { NoSanitizePipe } from './../../pipes/no-sanitize.pipe';
 
 
 @NgModule({
   declarations: [
+    NoSanitizePipe,
     PanelComponent,
     LoginComponent,
     UsersComponent,
@@ -23,13 +33,21 @@ import { NgxPaginationModule } from 'ngx-pagination';
     TitleComponent,
     TableUsersComponent,
     FormUserComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    NewsComponent,
+    TableNewsComponent,
+    FormNewsComponent,
+    UploadImageComponent,
+    DeleteNewsComponent,
+    FilterComponent,
+    InfoNewsComponent,
   ],
   imports: [
     CommonModule,
     PanelRoutingModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    CKEditorModule
   ],
   providers: [AdminGuard]
 })

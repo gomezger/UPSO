@@ -9,20 +9,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
   @Input() users: Array<User>;
-  @Input() users_filter: Array<User>;
+  public users_filter: Array<User>;
   public itemsPerPage = 10;
   public currentPage = 1;
+  public keys: Array<string>;
 
-  constructor(
-    private _filter: FilterService
-  ) { }
+  constructor() {
+    this.keys = ['nombre', 'email'];
+   }
 
   ngOnInit(): void {
     this.users_filter = [...this.users];
-  }
-
-  filtrar({ target: { value } }) {
-    this.users_filter = this._filter.filtrar(value, this.users, ['nombre', 'email', 'tipo']);
   }
 
   resetFilter() {
