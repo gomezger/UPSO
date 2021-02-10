@@ -19,10 +19,13 @@ import { TableComponent as TableNewsComponent } from './layout/news/table/table.
 import { FormComponent as FormNewsComponent } from './layout/news/form/form.component';
 import { DeleteComponent as DeleteNewsComponent } from './layout/news/delete/delete.component';
 import { FilterComponent } from './others/filter/filter.component';
+import { InfoComponent as InfoNewsComponent } from './layout/news/info/info.component';
+import { NoSanitizePipe } from './../../pipes/no-sanitize.pipe';
 
 
 @NgModule({
   declarations: [
+    NoSanitizePipe,
     PanelComponent,
     LoginComponent,
     UsersComponent,
@@ -37,6 +40,7 @@ import { FilterComponent } from './others/filter/filter.component';
     UploadImageComponent,
     DeleteNewsComponent,
     FilterComponent,
+    InfoNewsComponent,
   ],
   imports: [
     CommonModule,

@@ -24,6 +24,7 @@
           <td>{{ newsItem.titulo }}</td>
           <td>{{ newsItem.created_at | date:'d/MM/yy HH:mm'}}</td>
           <td>
+            <upso-info-news [newsItem]="newsItem"></upso-info-news>
             <upso-form-news [title]="'Editar novedad'" [newsItem]="newsItem" (updateTable)="updateElement($event)"></upso-form-news>
             <upso-delete-news [newsItem]="newsItem" (updateTable)="deleteElement($event)"></upso-delete-news>
           </td>
