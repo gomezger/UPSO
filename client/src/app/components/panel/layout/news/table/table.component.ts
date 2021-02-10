@@ -10,18 +10,19 @@ import { News } from 'src/app/models/news/news';
 export class TableComponent implements OnInit {
   @Input() news: Array<News>;
   public newsFilter: Array<News>;
-  public itemsPerPage = 10;
-  public currentPage = 1;
+  public keys: Array<string>;
+  public itemsPerPage: number;
+  public currentPage: number;
 
-  constructor(
-    protected _filter: FilterService
-  ) { }
+  constructor() {
+    this.keys = ['titulo', 'descripcion'];
+    this.itemsPerPage = 10;
+    this.currentPage = 1;
 
-  ngOnInit(): void {
   }
 
-  filtrar({ target: { value } }): void {
-    this.newsFilter = this._filter.filtrar(value, this.news, ['titulo', 'descripcion']);
+  ngOnInit(): void {
+    this.resetFilter();
   }
 
   resetFilter() {
@@ -34,7 +35,7 @@ export class TableComponent implements OnInit {
   }
 
   updateElement(newsItem: News): void {
-    this.news.splice(this.news.indexOf(this.news.find((element)=> element.id === newsItem.id)), 1, newsItem);
+    this.news.splice(this.news.indexOf(this.news.find((element) => element.id === newsItem.id)), 1, newsItem);
     this.resetFilter();
   }
 

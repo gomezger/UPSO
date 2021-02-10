@@ -1,6 +1,10 @@
 <div class="div-tabla table-responsive">
-  <input class="filtro" type="text" placeholder="filtro" (input)="filtrar($event)"
-    placeholder="Filtrar por nombre..." />
+  <upso-filter
+    [list]="news"
+    [keys]="keys"
+    (newList)="newsFilter = $event"
+  >
+  </upso-filter>
 
   <upso-form-news [title]="'Crear Novedad'" (updateTable)="insertElement($event)"></upso-form-news>
 
@@ -16,9 +20,9 @@
       <div *ngIf="news.length > 0; then thenBlock; else elseBlock"></div>
 
       <ng-template #thenBlock>
-        <tr *ngFor=" let newsItem of news  | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+        <tr *ngFor=" let newsItem of newsFilter  | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
           <td>{{ newsItem.titulo }}</td>
-          <td>{{ newsItem.created_at | date:'d/MM/yy H:m'}}</td>
+          <td>{{ newsItem.created_at | date:'d/MM/yy HH:mm'}}</td>
           <td>
             <upso-form-news [title]="'Editar novedad'" [newsItem]="newsItem" (updateTable)="updateElement($event)"></upso-form-news>
             <upso-delete-news [newsItem]="newsItem" (updateTable)="deleteElement($event)"></upso-delete-news>
