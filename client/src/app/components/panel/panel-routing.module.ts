@@ -1,3 +1,4 @@
+import { NewsComponent } from './layout/news/news.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PanelComponent } from './panel.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
     component: PanelComponent,
 
     children: [
-      { path: 'usuarios', component: UsersComponent }
+      { path: 'usuarios', component: UsersComponent },
+      { path: 'novedades', component: NewsComponent }
     ],
 
     canActivateChild: [AdminGuard],

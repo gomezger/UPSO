@@ -24,6 +24,7 @@
     "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
     "lodash-es": "^4.17.20",
+    "ngx-ckeditor": "^10.0.0",
     "ngx-indexed-db": "^6.1.2",
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.6.3",

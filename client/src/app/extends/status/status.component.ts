@@ -15,7 +15,7 @@ export class StatusComponent {
   /**
    * Setea en true loading. Además elimina la lista de errores
    */
-  protected setLoading(): void{
+  protected setLoading(): void {
     this.loading = true;
     this.errores = null;
   }
@@ -33,7 +33,7 @@ export class StatusComponent {
   /**
    * Setea el true success. Además setea en false loading y elimina la lista de errores
    */
-  protected setSuccess(): void{
+  protected setSuccess(): void {
     this.success = true;
     this.loading = false;
     this.errores = null;
@@ -50,8 +50,9 @@ export class StatusComponent {
   /**
    * Setea un error por defecto
    */
-  protected setDefaultError(){
+  protected setDefaultError(data) {
     this.errores = ['Error al recuperar datos. Intente nuevamente'];
+    console.warn(data);
   }
 
   /**
@@ -60,16 +61,19 @@ export class StatusComponent {
    * @param data response de la api
    */
   protected validate(data: any): boolean {
-    if ( data && data.status && data.status === 'success' ) {
+    if (data && data.status && data.status === 'success') {
       this.setSuccess();
-      if( data.message ) { this.SetMessage(data.message); }
+      if (data.message) { this.SetMessage(data.message); }
       return true;
-    } else if ( data && data.status && data.status === 'error' ) {
+    } else if (data && data.status && data.status === 'error') {
       this.setErrors(data.errors);
-      if( data.message ) { this.SetMessage(data.message); }
+      if (data.message) { this.SetMessage(data.message); }
       return false;
-    } else {
-      this.setDefaultError();
+    } else if (data && data.status && (data.status >= 400 && data.status < 600) && data.error) {
+      this.setErrors((data.error.length && data.error.length > 0) ? data.error : [data.error]);
+    }
+    else {
+      this.setDefaultError(data);
       console.warn(data);
       return false;
     }
@@ -80,12 +84,26 @@ export class StatusComponent {
    * @param data
    */
   protected validateNoLoading(data: any): boolean {
-    if ( data && data.status && data.status === 'success' ) {
+    if (data && data.status && data.status === 'success') {
       return true;
-    } else if ( data && data.status && data.status === 'error' ) {
+    } else if (data && data.status && data.status === 'error') {
       return false;
     } else {
       return false;
+    }
+  }
+
+  protected processError(data: any): void {
+    if ((data.status >= 400 && data.status < 600)) {
+      this.setErrors((
+        data.error.length && data.error.length > 0)
+        ? data.error
+        : (data.message)
+          ? [data.message]
+          : [data.error]
+      );
+    } else {
+      this.setDefaultError(data);
     }
   }
 

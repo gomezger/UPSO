@@ -46,3 +46,28 @@ Route::group(['prefix' => 'user'], function () {
         Route::put('', 'Users\UserController@update')->middleware('user.data', 'user.password'); */
     });
 });
+
+
+/** -----------------------------------------
+ * --------------- NEWS----------------------
+ * -------------------------------------- **/
+Route::group(['prefix' => 'news'], function () {
+    Route::get('', 'News\NewsController@all');
+    Route::post('', 'News\NewsController@insert')->middleware('news.data');
+    Route::put('', 'News\NewsController@update')->middleware('news.data', 'news.id');
+    Route::delete('/{id}', 'News\NewsController@delete')->middleware('news.id');
+
+    Route::group(['middleware' => 'auth:api'], function () {
+    });
+});
+
+/** -----------------------------------------
+ * --------------- STORAGE ------------------
+ * -------------------------------------- **/
+Route::group(['prefix' => 'storage'], function () {
+    Route::post('image', 'Storage\StorageController@upload')->middleware('storage.image');
+
+    Route::group(['middleware' => 'auth:api'], function () {
+
+    });
+});

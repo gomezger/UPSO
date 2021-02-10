@@ -9,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
   @Input() users: Array<User>;
-  @Input() users_filter: Array<User>;
+  public users_filter: Array<User>;
   public itemsPerPage = 10;
   public currentPage = 1;
 
