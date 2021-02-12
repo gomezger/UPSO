@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@300;400;700&display=swap');
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+.contariner {
+	max-width: 1300px;
+}
+
+*:focus {
+	outline: none;
+}
+
+table{
+    min-width: 600px;
+}

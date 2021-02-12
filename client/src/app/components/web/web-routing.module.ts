@@ -1,3 +1,4 @@
+import { IndexComponent } from './index/index.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { fromEventPattern } from 'rxjs';
@@ -9,7 +10,8 @@ const routes: Routes = [
     path: '',
     component: WebComponent,
     children:[
-      {path:'investigators',component:InvestigatorsComponent}
+      {path:'investigators',component:InvestigatorsComponent},
+      { path: '', component: IndexComponent}
     ]
   }
 ];
