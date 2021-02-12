@@ -21,7 +21,7 @@ import { NewnessComponent } from './index/newnesses/newness/newness.component';
   declarations: [
     WebComponent,
     InvestigatorsComponent,
-    InvestigatorComponent
+    InvestigatorComponent,
     IndexComponent,
     HeaderComponent,
     FooterComponent,

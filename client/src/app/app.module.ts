@@ -28,12 +28,8 @@ const dbConfig: DBConfig = {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-<<<<<<< HEAD
     SkeletonLoaderModule,
     NgxIndexedDBModule.forRoot(dbConfig)
-=======
-    NgxIndexedDBModule.forRoot(dbConfig),
->>>>>>> ee8a1c88e1d3efb3807d2a4842d8f467d7d8307e
   ],
   providers: [],
   bootstrap: [AppComponent]
