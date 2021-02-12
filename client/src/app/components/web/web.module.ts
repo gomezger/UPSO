@@ -3,11 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { WebRoutingModule } from './web-routing.module';
 import { WebComponent } from './web.component';
-<<<<<<< HEAD
 import { InvestigatorsComponent } from './investigators/investigators.component';
 import { InvestigatorComponent } from './investigators/investigator/investigator.component';
 import {SkeletonLoaderModule} from './../../modules/skeleton-loader/skeleton-loader.module'
-=======
 import { IndexComponent } from './index/index.component';
 import { HeaderComponent } from './others/header/header.component';
 import { FooterComponent } from './others/footer/footer.component';
@@ -18,15 +16,12 @@ import { NewnessesComponent as NewnessesIndexComponent } from './index/newnesses
 import { OptionComponent } from './index/options/option/option.component';
 import { NewnessComponent } from './index/newnesses/newness/newness.component';
 
->>>>>>> ee8a1c88e1d3efb3807d2a4842d8f467d7d8307e
 
 @NgModule({
   declarations: [
     WebComponent,
-<<<<<<< HEAD
     InvestigatorsComponent,
     InvestigatorComponent
-=======
     IndexComponent,
     HeaderComponent,
     FooterComponent,
@@ -36,7 +31,6 @@ import { NewnessComponent } from './index/newnesses/newness/newness.component';
     NewnessesIndexComponent,
     OptionComponent,
     NewnessComponent,
->>>>>>> ee8a1c88e1d3efb3807d2a4842d8f467d7d8307e
   ],
   imports: [
     CommonModule,
