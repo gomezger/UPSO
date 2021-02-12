@@ -7,7 +7,7 @@ import { WebComponent } from './components/web/web.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DBConfig, NgxIndexedDBModule } from 'ngx-indexed-db';
-
+import {SkeletonLoaderModule} from './modules/skeleton-loader/skeleton-loader.module'
 
 const dbConfig: DBConfig = {
   name: GLOBAL.indexedDB.database,
@@ -29,6 +29,7 @@ const dbConfig: DBConfig = {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    SkeletonLoaderModule,
     NgxIndexedDBModule.forRoot(dbConfig)
   ],
   providers: [],
