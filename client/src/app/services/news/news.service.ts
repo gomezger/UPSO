@@ -33,7 +33,7 @@ export class NewsService {
   }
 
   dummy = (): News => {
-    return new News(0, '', '', '', null, null);
+    return new News(0, '', '', '', '', null, null);
   }
 
 }

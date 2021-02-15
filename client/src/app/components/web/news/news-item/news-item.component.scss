@@ -1,0 +1,98 @@
+.news {
+  min-height     : 60vh;
+  display        : flex;
+  justify-content: center;
+  align-content  : center;
+}
+
+.news .newsItem {
+  padding-top   : 40px;
+  padding-bottom: 30px;
+}
+
+.news .newsItem .image {
+  display   : inline-block;
+  width     : 100%;
+  max-height: 60vh;
+  overflow  : hidden;
+  position  : relative;
+}
+
+.news .newsItem .image img {
+  display: block;
+  width  : 100%;
+}
+
+.news .newsItem .image .date {
+  position   : absolute;
+  bottom     : 0;
+  left       : 0;
+  float      : left;
+  margin     : 0;
+  width      : 100%;
+  background : rgba(230, 230, 230, .65);
+  color      : #1b1b1b;
+  font-size  : 12px;
+  text-align : right;
+  font-weight: 700;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.news .newsItem h4.breadcrumbs_item {
+  margin-top    : 0px;
+  color         : #107eab;
+  text-transform: uppercase;
+  font-size     : 13px;
+  font-style    : italic;
+}
+
+.news .newsItem h1 {
+  margin-top    : 10px;
+  margin-bottom : 25px;
+  font-family   : 'Montserrat', Arial, sans-serif;
+  font-size     : 40px;
+  color         : rgba(3, 20, 34, .9);
+  font-weight   : 500;
+  letter-spacing: -2px;
+}
+
+.news .newsItem .social-share {
+  display: block;
+}
+
+.news .newsItem .description {
+  display    : block;
+  width      : 100%;
+  margin-top : 30px;
+  padding-top: 0;
+  margin     : 15px 0 0;
+  font-size  : 16px;
+  line-height: 30px;
+  color      : #555;
+}
+
+.news .newsItem .description p {
+  margin-bottom: 15px !important;
+}
+
+.news .nav-news {
+  padding-top   : 80px;
+  padding-bottom: 30px;
+}
+
+.news .nav-news .titulo-bloque {
+  width              : 100%;
+  font-size          : 18px;
+  float              : left;
+  clear              : both;
+  text-transform     : uppercase;
+  border-bottom-color: #666;
+  border-width       : 0 0 1px;
+  border-style       : solid;
+  margin             : 0 15px;
+  margin-bottom      : 15px;
+  padding-bottom     : 8px;
+  color              : #333;
+  font-weight        : 700;
+  font-family        : 'Montserrat', Arial, sans-serif;
+}

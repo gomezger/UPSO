@@ -1,0 +1,12 @@
+<div class="newness col-12 pb-4 pb-md-0">
+  <a [routerLink]="['/novedades/', newsItem.id, newsItem.titulo_url ]">
+    <div *ngIf="image" class="image" [style.background-image]=" 'url(' + urlStorage + 'news/' + newsItem.imagen + ')'">
+      <div class="date">
+        26/10/2020
+      </div>
+    </div>
+    <h1 [innerHtml]="getResume(newsItem.titulo, 50, true)"></h1>
+    <p *ngIf="description" [innerHtml]="getResume(newsItem.descripcion, 90, true)">
+    </p>
+  </a>
+</div>

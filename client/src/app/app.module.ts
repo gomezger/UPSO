@@ -1,3 +1,4 @@
+import { NoSanitizePipe } from './pipes/no-sanitize.pipe';
 import { GLOBAL } from './services/config/global';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -22,7 +23,7 @@ const dbConfig: DBConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +32,8 @@ const dbConfig: DBConfig = {
     NgxIndexedDBModule.forRoot(dbConfig),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+  ]
 })
 export class AppModule { }

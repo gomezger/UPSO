@@ -8,12 +8,13 @@
 
   <upso-form-news [title]="'Crear Novedad'" (updateTable)="insertElement($event)"></upso-form-news>
 
-  <table class="table table-hover fixed text-center">
+  <table class="table table-hover fixed text-center text-dark">
     <thead>
       <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Fecha</th>
-        <th scope="col">Acciones</th>
+        <th scope="col" class="column-sm">id</th>
+        <th class="text-left">Nombre</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -21,7 +22,8 @@
 
       <ng-template #thenBlock>
         <tr *ngFor=" let newsItem of newsFilter  | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
-          <td>{{ newsItem.titulo }}</td>
+          <th scope="col" class="text-info column-sm"><b>{{ newsItem.id }}</b></th>
+          <td class="text-left">{{ newsItem.titulo }}</td>
           <td>{{ newsItem.created_at | date:'d/MM/yy HH:mm'}}</td>
           <td>
             <upso-info-news [newsItem]="newsItem"></upso-info-news>

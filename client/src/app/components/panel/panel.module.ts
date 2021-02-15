@@ -25,7 +25,6 @@ import { NoSanitizePipe } from './../../pipes/no-sanitize.pipe';
 
 @NgModule({
   declarations: [
-    NoSanitizePipe,
     PanelComponent,
     LoginComponent,
     UsersComponent,
@@ -41,6 +40,7 @@ import { NoSanitizePipe } from './../../pipes/no-sanitize.pipe';
     DeleteNewsComponent,
     FilterComponent,
     InfoNewsComponent,
+    NoSanitizePipe
   ],
   imports: [
     CommonModule,
