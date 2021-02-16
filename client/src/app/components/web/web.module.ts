@@ -1,4 +1,4 @@
-import { NoSanitizePipe } from './../../pipes/no-sanitize.pipe';
+import { SafeHtmlPipe } from './../../pipes/safe-html.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -34,13 +34,14 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
     NewsComponent,
     LoadingComponent,
     NewsItemComponent,
+    SafeHtmlPipe
   ],
   imports: [
     CommonModule,
     WebRoutingModule,
     NgxPaginationModule,
     ShareButtonsModule,
-    ShareIconsModule
+    ShareIconsModule,
   ]
 })
 export class WebModule { }

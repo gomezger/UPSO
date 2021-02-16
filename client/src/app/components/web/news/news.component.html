@@ -12,7 +12,7 @@
   <div class="container">
 
     <ng-container *ngFor="let newsItem of news | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
-      <div class="news-card col-sm-6 col-md-4 col-xl-3 pl-0 pr-0 mb-1 mb-md-3">
+      <div class="news-card col-sm-6 col-md-4 col-xl-3 mb-1 mb-md-3">
         <upso-news-card [newsItem]="newsItem"></upso-news-card>
       </div>
     </ng-container>

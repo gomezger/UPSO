@@ -47,8 +47,9 @@ import { NoSanitizePipe } from './../../pipes/no-sanitize.pipe';
     PanelRoutingModule,
     FormsModule,
     NgxPaginationModule,
-    CKEditorModule
+    CKEditorModule,
+
   ],
-  providers: [AdminGuard]
+  providers: [AdminGuard, NoSanitizePipe]
 })
 export class PanelModule { }

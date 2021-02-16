@@ -89,10 +89,38 @@
   border-bottom-color: #666;
   border-width       : 0 0 1px;
   border-style       : solid;
-  margin             : 0 15px;
   margin-bottom      : 15px;
   padding-bottom     : 8px;
   color              : #333;
   font-weight        : 700;
   font-family        : 'Montserrat', Arial, sans-serif;
 }
+
+
+
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (max-width: 992px) {
+  .news .newsItem {
+    padding-top: 20px;
+  }
+
+  .news .newsItem h1 {
+    font-size: 30px;
+  }
+
+  .news .nav-news {
+    padding-top   : 20px;
+    padding-bottom: 30px;
+  }
+
+  .news .nav-news .titulo-bloque {
+    width              : 100%;
+    margin             : 0;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 768px) {}
+
+@media only screen and (max-width: 576px) {}
