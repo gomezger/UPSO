@@ -24,13 +24,13 @@ export class NewsComponent extends StatusComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setLoading();
     this.getNews();
     this.currentPage = 1;
     this.itemsPerPage = 12;
   }
 
   getNews(): void {
-    this.setLoading();
     this.news = this._sesion.getItem('news');
 
     this._news.all().subscribe(
