@@ -53,6 +53,7 @@ Route::group(['prefix' => 'user'], function () {
  * -------------------------------------- **/
 Route::group(['prefix' => 'news'], function () {
     Route::get('', 'News\NewsController@all');
+    Route::get('/{id}', 'News\NewsController@find')->middleware('news.id');
     Route::post('', 'News\NewsController@insert')->middleware('news.data');
     Route::put('', 'News\NewsController@update')->middleware('news.data', 'news.id');
     Route::delete('/{id}', 'News\NewsController@delete')->middleware('news.id');

@@ -1,0 +1,27 @@
+<div class="newnesses">
+  <div class="container">
+
+    <div class="group-title col-12">
+      <h1 class="title col-12 pl-0 scroll-reveal-100 d-inline-block animated fadeInDown">Novedades</h1>
+      <img class="pb-1 d-none" src="/assets/img/line-box-2.png">
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="col-12 pt-3 pb-4">
+      <a [routerLink]="['/novedades']" type="button" class="btn btn-sm btn-outline-info">Ver más novedades <i class="fas fa-arrow-right ml-2"></i></a>
+    </div>
+
+
+
+    <div *ngIf="loading && !news" class="news loading text-center">
+      <upso-loading [color]="'danger'"></upso-loading>
+    </div>
+
+    <ng-container *ngFor="let newsItem of news.slice(0,3)">
+      <div class="news-card col-sm-6 col-md-4 mb-1 mb-md-3 float-left">
+        <upso-news-card [newsItem]="newsItem"></upso-news-card>
+      </div>
+    </ng-container>
+
+  </div>
+</div>

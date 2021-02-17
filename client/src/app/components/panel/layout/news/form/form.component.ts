@@ -39,6 +39,7 @@ export class FormComponent extends StatusComponent implements OnInit {
     this._news.insert(this.myNewsItem, token).subscribe(
       (response) => {
         this.closebutton.nativeElement.click();
+        this.setSuccess();
         this.newsItem = this._news.dummy();
         this.myNewsItem = this._news.dummy();
         this.updateTable.emit(response);
@@ -53,6 +54,7 @@ export class FormComponent extends StatusComponent implements OnInit {
     this._news.update(this.myNewsItem, token).subscribe(
       (response) => {
         this.closebutton.nativeElement.click();
+        this.setSuccess();
         this.newsItem = response;
         this.myNewsItem = { ...this.newsItem };
         this.updateTable.emit(this.newsItem);
