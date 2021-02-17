@@ -78,6 +78,10 @@ class Kernel extends HttpKernel
         'news.data' => \App\Http\Middleware\News\Data::class,
         'news.id' => \App\Http\Middleware\News\Id::class,
 
+        //investigators
+        'investigator.data' => \App\Http\Middleware\Investigators\Data::class,
+        'investigator.id' => \App\Http\Middleware\Investigators\Id::class,
+
         //storage
         'storage.image' => \App\Http\Middleware\Storage\Image::class,
 

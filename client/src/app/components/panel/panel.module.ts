@@ -21,6 +21,11 @@ import { DeleteComponent as DeleteNewsComponent } from './layout/news/delete/del
 import { FilterComponent } from './others/filter/filter.component';
 import { InfoComponent as InfoNewsComponent } from './layout/news/info/info.component';
 import { NoSanitizePipe } from './../../pipes/no-sanitize.pipe';
+import { InvestigatorsComponent } from './layout/investigators/investigators.component';
+import { TableComponent as TableInvestigatorsComponent } from './layout/investigators/table/table.component';
+import { FormComponent as FormInvestigatorComponent} from './layout/investigators/form/form.component';
+import { DeleteComponent as DeleteInvertigatorComponent } from './layout/investigators/delete/delete.component';
+import { InfoComponent as InfoInvestigatorComponent } from './layout/investigators/info/info.component';
 
 
 @NgModule({
@@ -40,7 +45,12 @@ import { NoSanitizePipe } from './../../pipes/no-sanitize.pipe';
     DeleteNewsComponent,
     FilterComponent,
     InfoNewsComponent,
-    NoSanitizePipe
+    NoSanitizePipe,
+    InvestigatorsComponent,
+    TableInvestigatorsComponent,
+    FormInvestigatorComponent,
+    DeleteInvertigatorComponent,
+    InfoInvestigatorComponent
   ],
   imports: [
     CommonModule,

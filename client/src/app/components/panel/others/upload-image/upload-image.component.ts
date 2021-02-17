@@ -2,7 +2,7 @@ import { ImageService } from './../../../../services/upload/image.service';
 import { UserService } from './../../../../services/users/user.service';
 import { Router } from '@angular/router';
 import { StatusComponent } from './../../../../extends/status/status.component';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'upso-upload-image',
@@ -14,6 +14,7 @@ export class UploadImageComponent extends StatusComponent implements OnInit {
   public progress = 0;
   public velocidad = 500;
   @Output() uploadSuccess: EventEmitter<string> = new EventEmitter();
+  @Input() disk = 'public';
 
   constructor(
     protected _router: Router,
@@ -35,7 +36,7 @@ export class UploadImageComponent extends StatusComponent implements OnInit {
     this.setLoading();
     this.progressBar(0, 90, true);
     const token = this._user.getToken();
-    this._image.upload(this.file, 'news', token).subscribe(
+    this._image.upload(this.file, this.disk, token).subscribe(
       (response) => {
         this.setSuccess();
         this.uploadSuccess.emit(response);

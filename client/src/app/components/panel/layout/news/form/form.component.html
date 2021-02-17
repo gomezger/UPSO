@@ -34,7 +34,7 @@
 
             <div class="form-group col-12 col-md-6 order-first order-md-2">
               <label for="nombre">Imagen *</label>
-              <upso-upload-image (uploadSuccess)="myNewsItem.imagen = $event"></upso-upload-image>
+              <upso-upload-image [disk]="'news'" (uploadSuccess)="myNewsItem.imagen = $event"></upso-upload-image>
             </div>
 
           </div>

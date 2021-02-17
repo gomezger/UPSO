@@ -37,13 +37,11 @@ Route::group(['prefix' => 'auth'], function () {
  * -------------------------------------- **/
 Route::group(['prefix' => 'user'], function () {
     Route::get('', 'Users\UserController@all');
-    Route::post('', 'Users\UserController@insert')->middleware('user.data', 'user.password', 'user.email.repeat');
-    Route::put('', 'Users\UserController@update')->middleware('user.data');
-    Route::post('/{email}', 'Users\UserController@delete')->middleware('user.email');
 
     Route::group(['middleware' => 'auth:api'], function () {
-        /* Route::post('', 'Users\UserController@insert')->middleware('user.data');
-        Route::put('', 'Users\UserController@update')->middleware('user.data', 'user.password'); */
+        Route::post('', 'Users\UserController@insert')->middleware('user.data', 'user.password', 'user.email.repeat');
+        Route::put('', 'Users\UserController@update')->middleware('user.data');
+        Route::post('/{email}', 'Users\UserController@delete')->middleware('user.email');
     });
 });
 
@@ -54,9 +52,23 @@ Route::group(['prefix' => 'user'], function () {
 Route::group(['prefix' => 'news'], function () {
     Route::get('', 'News\NewsController@all');
     Route::get('/{id}', 'News\NewsController@find')->middleware('news.id');
-    Route::post('', 'News\NewsController@insert')->middleware('news.data');
-    Route::put('', 'News\NewsController@update')->middleware('news.data', 'news.id');
-    Route::delete('/{id}', 'News\NewsController@delete')->middleware('news.id');
+
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::post('', 'News\NewsController@insert')->middleware('news.data');
+        Route::put('', 'News\NewsController@update')->middleware('news.data', 'news.id');
+        Route::delete('/{id}', 'News\NewsController@delete')->middleware('news.id');
+    });
+});
+
+/** -----------------------------------------
+ * ------------ Investigators----------------
+ * -------------------------------------- **/
+Route::group(['prefix' => 'investigators'], function () {
+    Route::get('', 'Investigators\InvestigatorController@all');
+    Route::get('/{id}', 'Investigators\InvestigatorController@find')->middleware('investigator.id');
+    Route::post('', 'Investigators\InvestigatorController@insert')->middleware('investigator.data');
+    Route::put('', 'Investigators\InvestigatorController@update')->middleware('investigator.data', 'investigator.id');
+    Route::delete('/{id}', 'Investigators\InvestigatorController@delete')->middleware('investigator.id');
 
     Route::group(['middleware' => 'auth:api'], function () {
     });

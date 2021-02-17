@@ -2,7 +2,7 @@
 
 namespace App\Repositories\News;
 
-use App\Models\Models\News\News;
+use App\Models\News\News;
 
 class NewsRepo {
 
