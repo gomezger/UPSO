@@ -11,6 +11,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 
 
+
 const dbConfig: DBConfig = {
   name: GLOBAL.indexedDB.database,
   version: 1,
@@ -26,6 +27,7 @@ const dbConfig: DBConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -7,29 +7,39 @@
     border-radius: 5px; 
     box-shadow: 9px 17px 45px -29px
                 rgba(0, 0, 0, 0.44); 
-    display: flex;
+   
+} 
+.img{
+    display:flex;
     align-items: center;
     justify-content: center;
-} 
+}
+.titulo{
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    margin-top: 13px;
+    margin-bottom: 3px;
+    margin-left: 10px;
+}
+.subtitulo{
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
 
-.card-img-top{
-    width: 18rem;
-    height: 18rem;
-    border-radius: 50%;
+.descripcion{
+    margin-left: 10px;
+    margin-bottom: 5px;
 }
 
 .social{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.social a{
-color:rgb(27, 27, 27);
-}
-
-.social a:hover{
-    color:rgb(92, 92, 92);
 }
 
 .social i{

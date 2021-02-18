@@ -20,7 +20,7 @@ export class SkeletonLoaderComponent implements OnInit {
 
   getMyStyles(){
     const myStyles={
-      'width.%':this.Cwidth ? this.Cwidth : '',
+      'width.px':this.Cwidth ? this.Cwidth : '',
       'height.px':this.Cheight ? this.Cheight : '',
       'border-radius': this.circle ? '50%': '' 
     }

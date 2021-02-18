@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {InvestigatorComponent} from './investigator/investigator.component';
 import {Investigator} from '../../../models/investigator'
+import {InvestigatorSkeletonComponent} from './investigator-skeleton/investigator-skeleton.component';
 
 @Component({
   selector: 'upso-investigators',

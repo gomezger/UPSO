@@ -21,6 +21,7 @@ import { LoadingComponent } from './others/loading/loading/loading.component';
 import { NewsItemComponent } from './news/news-item/news-item.component';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { InvestigatorSkeletonComponent } from './investigators/investigator-skeleton/investigator-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
     NewsComponent,
     LoadingComponent,
     NewsItemComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    InvestigatorSkeletonComponent
   ],
   imports: [
     CommonModule,
