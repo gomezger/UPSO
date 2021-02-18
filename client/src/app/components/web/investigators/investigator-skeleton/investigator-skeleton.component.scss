@@ -1,0 +1,48 @@
+.card{ 
+    background-color: #fff; 
+    height: auto; 
+    width: auto; 
+    overflow: hidden; 
+    margin: 12px; 
+    border-radius: 5px; 
+    box-shadow: 9px 17px 45px -29px
+                rgba(0, 0, 0, 0.44); 
+   
+} 
+.img{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.titulo{
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    margin-top: 13px;
+    margin-bottom: 3px;
+    margin-left: 10px;
+}
+.subtitulo{
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.descripcion{
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social i{
+    font-size: 25px;
+    margin: 10px;
+}

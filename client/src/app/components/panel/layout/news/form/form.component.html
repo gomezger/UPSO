@@ -1,0 +1,73 @@
+<a *ngIf="myNewsItem && myNewsItem.id!==0" type="button" title="Editar" class="text-info ml-2" data-toggle="modal"
+  [attr.data-target]="'#modalFormNews-'+myNewsItem.id">
+  <i class="far fa-edit"></i>
+</a>
+
+<div *ngIf="myNewsItem && myNewsItem.id===0" class="btn btn-danger btn-sm float-left float-md-right mb-2 mb-md-0"
+  data-toggle="modal" [attr.data-target]="'#modalFormNews-'+myNewsItem.id">Agregar novedad</div>
+
+<!-- Modal -->
+<div *ngIf="myNewsItem" class="modal fade modal-width" [attr.id]="'modalFormNews-'+myNewsItem.id" tabindex="-1"
+  role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{title}}</h5>
+        <button #closebutton type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #productForm="ngForm">
+        <div class="modal-body text-left">
+          <div class="form-row">
+
+            <div class="form-group col-12 col-md-6 order-first order-md-2">
+              <label for="nombre">Título *</label>
+              <input class="form-control" name="titulo" type="text" #titulo="ngModel" [(ngModel)]="myNewsItem.titulo"
+                required placeholder="Título">
+              <div *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)" class="alerta">
+                <div *ngIf="titulo.errors.required">
+                  Debe ingresar un título
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-12 col-md-6 order-first order-md-2">
+              <label for="nombre">Imagen *</label>
+              <upso-upload-image (uploadSuccess)="myNewsItem.imagen = $event"></upso-upload-image>
+            </div>
+
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-12 mb-3">
+              <label for="imagenInput">Descripción *</label>
+              <ck-editor class="editor" name="descripcion" #descripcion="ngModel" [(ngModel)]="myNewsItem.descripcion"
+                language="es" [fullPage]="true">
+              </ck-editor>
+            </div>
+          </div>
+
+
+          <div class="form-row">
+
+            <div *ngIf="errores" class="errores col-12">
+              <div class="alert alert-danger" *ngFor="let error of errores">{{error}}</div>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button [disabled]="myNewsItem && !myNewsItem.imagen" type="button" class="btn btn-primary"
+            (click)="confirmar()">
+            <div class="spinner-border spinner-border-sm text-light" role="status" *ngIf="loading">
+              <span class="sr-only">Loading...</span>
+            </div>
+            Confirmar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

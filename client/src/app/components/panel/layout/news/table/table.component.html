@@ -1,0 +1,45 @@
+<div class="div-tabla table-responsive">
+  <upso-filter
+    [list]="news"
+    [keys]="keys"
+    (newList)="newsFilter = $event"
+  >
+  </upso-filter>
+
+  <upso-form-news [title]="'Crear Novedad'" (updateTable)="insertElement($event)"></upso-form-news>
+
+  <table class="table table-hover fixed text-center text-dark">
+    <thead>
+      <tr>
+        <th scope="col" class="column-sm">id</th>
+        <th class="text-left">Nombre</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <div *ngIf="news.length > 0; then thenBlock; else elseBlock"></div>
+
+      <ng-template #thenBlock>
+        <tr *ngFor=" let newsItem of newsFilter  | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+          <th scope="col" class="text-info column-sm"><b>{{ newsItem.id }}</b></th>
+          <td class="text-left">{{ newsItem.titulo }}</td>
+          <td>{{ newsItem.created_at | date:'d/MM/yy HH:mm'}}</td>
+          <td>
+            <upso-info-news [newsItem]="newsItem"></upso-info-news>
+            <upso-form-news [title]="'Editar novedad'" [newsItem]="newsItem" (updateTable)="updateElement($event)"></upso-form-news>
+            <upso-delete-news [newsItem]="newsItem" (updateTable)="deleteElement($event)"></upso-delete-news>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template #elseBlock>
+        <tr>
+          <td class="no-data" colspan="3">No existen novedades</td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
+
+  <pagination-controls class="pagination" (pageChange)="currentPage = $event" autoHide="true" responsive="true"
+    directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente" maxSize="6"></pagination-controls>
+</div>

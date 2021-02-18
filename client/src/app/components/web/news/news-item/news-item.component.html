@@ -1,0 +1,54 @@
+<div class="news">
+
+  <div *ngIf="!newsItem" class="text-center col-12 mt-5 mb-5">
+    <upso-loading></upso-loading>
+  </div>
+
+  <div *ngIf="newsItem" class="container pl-0 pr-0">
+    <div class="newsItem col-md-8 float-left">
+      <h4 class="breadcrumbs_item">
+        Novedades
+      </h4>
+      <h1>
+        {{newsItem.titulo}}
+      </h1>
+      <div class="image">
+        <img [src]="urlStorage + 'news/' + newsItem.imagen" />
+        <div class="date p-1 pr-2">
+          {{newsItem.created_at | date:'d'}}
+          {{newsItem.created_at | date:'MMMM '}}
+          {{newsItem.created_at | date:'yyyy - H:mm'}}hs
+        </div>
+      </div>
+
+      <div class="social-share">
+        <share-buttons class="float-left pt-1 d-none d-md-inline-block" [theme]="'material-light'"
+          [include]="['whatsapp','twitter','linkedin','email','copy','facebook','telegram','messenger','reddit']"
+          [show]="5" [showText]="true" [size]="-3" [title]="newsItem.titulo" [description]="newsItem.titulo"
+          [image]="urlStorage + 'news/' + newsItem.imagen" [autoSetMeta]="false"></share-buttons>
+        <share-buttons class="float-left pt-1 d-md-none" [theme]="'material-light'"
+          [include]="['whatsapp','twitter','linkedin','email','copy','facebook','telegram','messenger','reddit']"
+          [show]="4" [showText]="false" [size]="-3" [title]="newsItem.titulo" [description]="newsItem.titulo"
+          [image]="urlStorage + 'news/' + newsItem.imagen" [autoSetMeta]="false"></share-buttons>
+
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="description" [innerHtml]="newsItem.descripcion | safeHtml"></div>
+
+    </div>
+    <div *ngIf="news" class="nav-news col-md-4 float-left">
+      <div class="titulo-bloque"><span class="d-none d-sm-inline-block">Últimas </span> novedades</div>
+      <div class="mb-3" *ngFor="let n of news.slice(0,5)">
+        <upso-news-card *ngIf="n.id != newsItem.id" [description]="false" [newsItem]="n"></upso-news-card>
+      </div>
+
+      <div class="titulo-bloque mt-3">Además ...</div>
+      <div class="mb-1" *ngFor="let n of news.slice(5,9)">
+        <upso-news-card *ngIf="n.id != newsItem.id" [image]="false" [newsItem]="n"></upso-news-card>
+      </div>
+
+    </div>
+  </div>
+</div>

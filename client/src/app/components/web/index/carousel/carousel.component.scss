@@ -1,0 +1,132 @@
+.carousel-inner {
+  position: relative;
+}
+
+.title {
+  background-color: rgba(0, 0, 0, 0.507);
+  position        : absolute;
+  top             : 0;
+
+  h1 {
+    bottom     : 0;
+    color      : #EEE;
+    font-family: 'Montserrat', cursive;
+    font-size  : 70px;
+    font-weight: bold;
+    height     : 200px;
+    left       : 0;
+    margin     : auto;
+    position   : absolute;
+    right      : 0;
+    text-align : left;
+    top        : 0;
+    width      : 100%;
+  }
+
+
+}
+
+
+.carousel-text {
+  display        : flex;
+  flex-direction : column;
+  justify-content: center;
+  height         : calc(100%);
+  position       : absolute;
+  top            : 0;
+  width          : 100%;
+
+  h1,
+  h3 {
+    background-color: rgba(0, 0, 0, 0.507);
+    color           : #EEE;
+    display         : inline-block;
+    font-family     : 'Montserrat', cursive;
+    font-size       : 50px;
+    font-weight     : bold;
+    padding         : 5px 15px;
+    width           : unset !important;
+  }
+
+  h3 {
+    font-size: 25px;
+  }
+
+}
+
+
+
+.carousel-indicators li {
+  width           : 10px !important;
+  height          : 10px !important;
+  border-radius   : 50% !important;
+  background-color: #f3dd6198;
+}
+
+.carousel-control {
+  // display: none;
+}
+
+@media only screen and (max-width: 1366px) {
+  .carousel-control {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (max-width: 992px) {
+
+  .title h1 {
+    font-size: 20px;
+    height   : 50px;
+  }
+
+  .carousel-indicators {
+    //display: none;
+  }
+
+  .carousel-text {
+    h1 {
+      font-size: 40px;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+  .carousel-text {
+    h1 {
+      font-size: 29px;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+  }
+
+  .carousel-indicators li {
+    width : 5px !important;
+    height: 5px !important;
+    margin-bottom: -15px;
+  }
+
+}
+
+@media only screen and (max-width: 576px) {
+
+  .carousel-text {
+    h1 {
+      font-size: 20px;
+    }
+
+    h3 {
+      font-size: 15px;
+    }
+  }
+}
