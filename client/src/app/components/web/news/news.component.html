@@ -5,7 +5,14 @@
 </div>
 
 <div *ngIf="loading && !news" class="news loading text-center">
-  <upso-loading [color]="'danger'"></upso-loading>
+  <div class="container">
+
+    <div *ngFor="let i of [].constructor(4)" class="d-inline-block skeleton col-sm-6 col-md-3 pl-2 pr-2 pb-4">
+      <upso-skeleton-loader class="d-block pb-2" [Cwidth]="100" [Cheight]="200"></upso-skeleton-loader>
+      <upso-skeleton-loader class="d-block" [Cwidth]="100" [Cheight]="25"></upso-skeleton-loader>
+    </div>
+
+  </div>
 </div>
 
 <div *ngIf="news" class="news">
@@ -18,8 +25,9 @@
     </ng-container>
 
     <div class="col-12 text-center">
-      <pagination-controls class="pagination d-inline-block pt-3" (pageChange)="currentPage = $event" autoHide="true" responsive="true"
-      directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente" maxSize="6"></pagination-controls>
+      <pagination-controls class="pagination d-inline-block pt-3" (pageChange)="currentPage = $event" autoHide="true"
+        responsive="true" directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente" maxSize="6">
+      </pagination-controls>
     </div>
 
   </div>
