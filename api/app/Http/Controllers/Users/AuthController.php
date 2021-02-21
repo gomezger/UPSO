@@ -6,8 +6,9 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\Users\UserRepo;
-use App\Helpers\Response\Response;
+use App\Helpers\Response\JSONResponse as Response;
 use App\Http\Controllers\Controller;
+use Laravel\Passport\Client as OClient;
 
 class AuthController extends Controller
 {
@@ -17,7 +18,7 @@ class AuthController extends Controller
         $data['password'] = bcrypt($data['password']);
         $user = UserRepo::insert($data);
 
-        return Response::success('Usuario creado', 'usuario', $user);
+        return Response::success($user);
     }
 
     public function login(Request $request)
@@ -26,13 +27,15 @@ class AuthController extends Controller
         $data = $request->all();
         $credentials = request(['email', 'password']);
         if (!Auth::attempt($credentials))
-            return Response::error("401", "Error login", ['Email o contraseña incorrecto/s']);
+            return Response::error("401", ['Email o contraseña incorrecto/s']);
 
         $user = $request->user();
         $tokenResult = $user->createToken('Personal Access Token');
+
         $token = $tokenResult->token;
+        $days = 1;
         if ($request->remember_me) {
-            $token->expires_at = Carbon::now()->addWeeks(1);
+            $token->expires_at = Carbon::now()->addDays($days);
         }
         $token->save();
 
@@ -40,11 +43,11 @@ class AuthController extends Controller
         $expires = Carbon::parse($tokenResult->token->expires_at)->toDateTimeString();
 
         return Response::success(
-            "Usuario logueado",
             [
                 "access_token" => $tokenResult->accessToken,
                 "token_type" => 'Bearer',
                 "expires_at" => $expires,
+                "expires_time" =>  $days,
                 "user" => $user
             ]
         );
