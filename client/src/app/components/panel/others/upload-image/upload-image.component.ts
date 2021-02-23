@@ -1,4 +1,4 @@
-import { ImageService } from './../../../../services/upload/image.service';
+import { FileService } from '../../../../services/upload/file.service';
 import { UserService } from './../../../../services/users/user.service';
 import { Router } from '@angular/router';
 import { StatusComponent } from './../../../../extends/status/status.component';
@@ -15,11 +15,12 @@ export class UploadImageComponent extends StatusComponent implements OnInit {
   public velocidad = 500;
   @Output() uploadSuccess: EventEmitter<string> = new EventEmitter();
   @Input() disk = 'public';
+  @Input() typeFile = 'public';
 
   constructor(
     protected _router: Router,
     protected _user: UserService,
-    protected _image: ImageService
+    protected _file: FileService
   ) {
     super(_router);
   }
@@ -36,7 +37,7 @@ export class UploadImageComponent extends StatusComponent implements OnInit {
     this.setLoading();
     this.progressBar(0, 90, true);
     const token = this._user.getToken();
-    this._image.upload(this.file, this.disk, token).subscribe(
+    this._file.upload(this.file, this.disk, this.typeFile, token).subscribe(
       (response) => {
         this.setSuccess();
         this.uploadSuccess.emit(response);

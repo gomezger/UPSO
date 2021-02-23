@@ -66,19 +66,50 @@ Route::group(['prefix' => 'news'], function () {
 Route::group(['prefix' => 'investigators'], function () {
     Route::get('', 'Investigators\InvestigatorController@all');
     Route::get('/{id}', 'Investigators\InvestigatorController@find')->middleware('investigator.id');
-    Route::post('', 'Investigators\InvestigatorController@insert')->middleware('investigator.data');
-    Route::put('', 'Investigators\InvestigatorController@update')->middleware('investigator.data', 'investigator.id');
-    Route::delete('/{id}', 'Investigators\InvestigatorController@delete')->middleware('investigator.id');
 
     Route::group(['middleware' => 'auth:api'], function () {
+        Route::post('', 'Investigators\InvestigatorController@insert')->middleware('investigator.data');
+        Route::put('', 'Investigators\InvestigatorController@update')->middleware('investigator.data', 'investigator.id');
+        Route::delete('/{id}', 'Investigators\InvestigatorController@delete')->middleware('investigator.id');
     });
 });
+
+/** -----------------------------------------
+ * --------------- Papers ------------------
+ * -------------------------------------- **/
+Route::group(['prefix' => 'papers'], function () {
+    Route::get('', 'Papers\PapersController@all');
+    Route::get('/{id}', 'Papers\PapersController@find')->middleware('paper.id');
+
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::post('', 'Papers\PapersController@insert')->middleware('paper.data');
+        Route::put('', 'Papers\PapersController@update')->middleware('paper.data', 'paper.id');
+        Route::delete('/{id}', 'Papers\PapersController@delete')->middleware('paper.id');
+    });
+});
+
+
+/** -----------------------------------------
+ * ---------------- Projects ----------------
+ * -------------------------------------- **/
+Route::group(['prefix' => 'projects'], function () {
+    Route::get('', 'Projects\ProjectController@all');
+    Route::get('/{id}', 'Projects\ProjectController@find')->middleware('project.id');
+
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::post('', 'Projects\ProjectController@insert')->middleware('project.data');
+        Route::put('', 'Projects\ProjectController@update')->middleware('project.data', 'project.id');
+        Route::delete('/{id}', 'Projects\ProjectController@delete')->middleware('project.id');
+    });
+});
+
 
 /** -----------------------------------------
  * --------------- STORAGE ------------------
  * -------------------------------------- **/
 Route::group(['prefix' => 'storage'], function () {
-    Route::post('image', 'Storage\StorageController@upload')->middleware('storage.image');
+    Route::post('image', 'Storage\StorageController@uploadImage')->middleware('storage.image');
+    Route::post('pdf', 'Storage\StorageController@uploadPdf')->middleware('storage.pdf');
 
     Route::group(['middleware' => 'auth:api'], function () {
 

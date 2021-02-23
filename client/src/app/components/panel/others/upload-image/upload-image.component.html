@@ -5,7 +5,8 @@
       ? (file.name.length>34)
         ? file.name.substr(0,10) + '...' + file.name.substr(file.name.length-20,file.name.length-1)
         : file.name
-      : 'Debe ingresar una imagen' }}
+      : 'Debe ingresar el archivo'
+    }}
   </div>
   <label class="col-4 boton" for="inputfile">
     <input class="upload-btn" name="inputfile" type="file" (change)="fileChanged($event)">
@@ -21,7 +22,4 @@
       {{ (progress===100) ? 'Completado' : progress + '%' }}
     </div>
   </div>
-
-
-
 </div>

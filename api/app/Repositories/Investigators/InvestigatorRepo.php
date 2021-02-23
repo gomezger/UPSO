@@ -7,7 +7,7 @@ use App\Models\Investigators\Investigator;
 class InvestigatorRepo {
 
     public static function find($id){
-        return Investigator::find($id);
+        return Investigator::find($id)->load('papers');
     }
 
     public static function all(){

@@ -56,7 +56,7 @@
           <div class="form-row">
             <div class="form-group col-12 order-first order-md-2">
               <label for="nombre">Imagen *</label>
-              <upso-upload-image [disk]="'investigators'" (uploadSuccess)="myInvestigator.imagen = $event"></upso-upload-image>
+              <upso-upload-image [disk]="'investigators'" [typeFile]="'image'"  (uploadSuccess)="myInvestigator.imagen = $event"></upso-upload-image>
             </div>
           </div>
 
@@ -75,7 +75,7 @@
           </div>
 
           <div class="form-row">
-            <div class="form-group col-12 mb-3">
+            <div class="form-group col-12 mt-2 mb-3">
               <label for="imagenInput">Descripción *</label>
               <textarea class="form-control" name="descripcion" type="text" #descripcion="ngModel"
                 [(ngModel)]="myInvestigator.descripcion" required rows="4"

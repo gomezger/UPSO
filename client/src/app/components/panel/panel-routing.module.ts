@@ -1,3 +1,5 @@
+import { ProjectsComponent } from './layout/projects/projects.component';
+import { PapersComponent } from './layout/papers/papers.component';
 import { InvestigatorsComponent } from './layout/investigators/investigators.component';
 import { NewsComponent } from './layout/news/news.component';
 import { NgModule } from '@angular/core';
@@ -18,7 +20,9 @@ const routes: Routes = [
     children: [
       { path: 'usuarios', component: UsersComponent },
       { path: 'novedades', component: NewsComponent },
-      { path: 'investigadores', component: InvestigatorsComponent }
+      { path: 'investigadores', component: InvestigatorsComponent },
+      { path: 'publicaciones', component: PapersComponent },
+      { path: 'proyectos', component: ProjectsComponent }
     ],
 
     canActivateChild: [AdminGuard],
