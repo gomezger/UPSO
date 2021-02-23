@@ -19,9 +19,9 @@ export class UserService {
   ) { }
 
   public login(email: string, password: string): Observable<any> {
-    let data = {
-      email: email,
-      password: password,
+    const data = {
+      email,
+      password,
       remember_me: true
     };
     return this._api.post('auth/login', data, null);
@@ -31,15 +31,11 @@ export class UserService {
     this.deleteLoginData();
   }
 
-  public registro(nombre: string, apellido: string, email: string, password: string, password_confirmation: string, tipo: string): Observable<any> {
-    const data = {
-      email: email,
-      nombre: nombre,
-      apellido: apellido,
-      password: password,
-      password_confirmation: password_confirmation,
-      tipo: tipo
-    };
+  public registro(
+    nombre: string, apellido: string, email: string, password: string, password_confirmation: string, tipo: string
+  ): Observable<any> {
+
+    const data = { email, nombre, apellido, password, password_confirmation, tipo };
     return this._api.post('auth/signup', data, null);
   }
 
@@ -48,10 +44,11 @@ export class UserService {
   }
 
   public setLoginData(data: any): void {
-    this._localStorage.setItem('token', data.access_token);
-    this._localStorage.setItem('expires_at', data.expires_at);
-    this._localStorage.setItem('user', JSON.stringify(data.user));
-    this._localStorage.setItem('isLoggedin', 'true');
+    const { access_token, expires_time, expires_at, user } = data;
+    this._localStorage.setItem('token', access_token, expires_time);
+    this._localStorage.setItem('expires_at', expires_at, expires_time);
+    this._localStorage.setItem('user', JSON.stringify(user), expires_time);
+    this._localStorage.setItem('isLoggedin', 'true', expires_time);
   }
 
   private deleteLoginData(): void {

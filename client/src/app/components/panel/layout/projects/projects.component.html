@@ -1,0 +1,12 @@
+<upso-title [title]="'Proyectos'" ></upso-title>
+
+<div *ngIf="loading" class="spinner-border text-danger" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+
+<div class="col-12 mt-2 p-0 float-left" *ngIf="errores">
+  <div class="alert alert-danger" *ngFor="let error of errores">{{error}}</div>
+</div>
+
+<upso-table-projects *ngIf="success" [projects]="projects"></upso-table-projects>
+

@@ -1,0 +1,45 @@
+<div class="div-tabla table-responsive">
+  <upso-filter
+    [list]="projects"
+    [keys]="keys"
+    (newList)="projectsFilter = $event"
+  >
+  </upso-filter>
+
+  <upso-form-project [title]="'Crear Proyecto'" [investigators]="investigators" (updateTable)="insertElement($event)"></upso-form-project>
+
+  <table class="table table-hover fixed text-center text-dark">
+    <thead>
+      <tr>
+        <th scope="col" class="column-sm">id</th>
+        <th class="text-left">Título</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <div *ngIf="projects.length > 0; then thenBlock; else elseBlock"></div>
+
+      <ng-template #thenBlock>
+        <tr *ngFor=" let project of projectsFilter  | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+          <th scope="col" class="text-info column-sm"><b>{{ project.id }}</b></th>
+          <td class="text-left">{{ project.titulo }}</td>
+          <td>{{ project.created_at | date:'d/MM/yy HH:mm'}}</td>
+          <td>
+            <upso-info-project [project]="project"></upso-info-project>
+            <upso-form-project [title]="'Editar proyecto'"  [investigators]="investigators"  [project]="project" (updateTable)="updateElement($event)"></upso-form-project>
+            <upso-delete-project [project]="project" (updateTable)="deleteElement($event)"></upso-delete-project>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template #elseBlock>
+        <tr>
+          <td class="no-data" colspan="4">No existen projectos</td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
+
+  <pagination-controls class="pagination" (pageChange)="currentPage = $event" autoHide="true" responsive="true"
+    directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente" maxSize="6"></pagination-controls>
+</div>

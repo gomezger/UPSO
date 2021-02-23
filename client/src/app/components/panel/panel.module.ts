@@ -5,7 +5,7 @@ import { PanelComponent } from './panel.component';
 import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './layout/users/users.component';
 import { AdminGuard } from '../../guards/admin.guard';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 import { SmallLoadingComponent } from './others/loading/small-loading/small-loading.component';
 import { TitleComponent } from './others/title/title.component';
 import { UploadImageComponent } from './others/upload-image/upload-image.component';
@@ -21,6 +21,23 @@ import { DeleteComponent as DeleteNewsComponent } from './layout/news/delete/del
 import { FilterComponent } from './others/filter/filter.component';
 import { InfoComponent as InfoNewsComponent } from './layout/news/info/info.component';
 import { NoSanitizePipe } from './../../pipes/no-sanitize.pipe';
+import { InvestigatorsComponent } from './layout/investigators/investigators.component';
+import { TableComponent as TableInvestigatorsComponent } from './layout/investigators/table/table.component';
+import { FormComponent as FormInvestigatorComponent} from './layout/investigators/form/form.component';
+import { DeleteComponent as DeleteInvertigatorComponent } from './layout/investigators/delete/delete.component';
+import { InfoComponent as InfoInvestigatorComponent } from './layout/investigators/info/info.component';
+import { PapersComponent } from './layout/papers/papers.component';
+import { TableComponent as TablePapersComponent } from './layout/papers/table/table.component';
+import { FormComponent as FormPaperComponent } from './layout/papers/form/form.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { MultiselectDropdownComponent } from './others/multiselect-dropdown/multiselect-dropdown.component';
+import { DeleteComponent as DeletePapersComponent } from './layout/papers/delete/delete.component';
+import { ProjectsComponent } from './layout/projects/projects.component';
+import { TableComponent as TableProjectComponent } from './layout/projects/table/table.component';
+import { FormComponent as FormProjectComponent } from './layout/projects/form/form.component';
+import { DeleteComponent as DeleteProjectComponent  } from './layout/projects/delete/delete.component';
+import { InfoComponent as InfoProjectComponent } from './layout/projects/info/info.component';
+import { InfoComponent as InfoPaperComponent } from './layout/papers/info/info.component';
 
 
 @NgModule({
@@ -40,7 +57,23 @@ import { NoSanitizePipe } from './../../pipes/no-sanitize.pipe';
     DeleteNewsComponent,
     FilterComponent,
     InfoNewsComponent,
-    NoSanitizePipe
+    NoSanitizePipe,
+    InvestigatorsComponent,
+    TableInvestigatorsComponent,
+    FormInvestigatorComponent,
+    DeleteInvertigatorComponent,
+    InfoInvestigatorComponent,
+    PapersComponent,
+    TablePapersComponent,
+    FormPaperComponent,
+    MultiselectDropdownComponent,
+    DeletePapersComponent,
+    ProjectsComponent,
+    TableProjectComponent,
+    FormProjectComponent,
+    DeleteProjectComponent,
+    InfoProjectComponent,
+    InfoPaperComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +81,8 @@ import { NoSanitizePipe } from './../../pipes/no-sanitize.pipe';
     FormsModule,
     NgxPaginationModule,
     CKEditorModule,
-
+    ReactiveFormsModule,
+    MatSliderModule,
   ],
   providers: [AdminGuard, NoSanitizePipe]
 })

@@ -37,13 +37,11 @@ Route::group(['prefix' => 'auth'], function () {
  * -------------------------------------- **/
 Route::group(['prefix' => 'user'], function () {
     Route::get('', 'Users\UserController@all');
-    Route::post('', 'Users\UserController@insert')->middleware('user.data', 'user.password', 'user.email.repeat');
-    Route::put('', 'Users\UserController@update')->middleware('user.data');
-    Route::post('/{email}', 'Users\UserController@delete')->middleware('user.email');
 
     Route::group(['middleware' => 'auth:api'], function () {
-        /* Route::post('', 'Users\UserController@insert')->middleware('user.data');
-        Route::put('', 'Users\UserController@update')->middleware('user.data', 'user.password'); */
+        Route::post('', 'Users\UserController@insert')->middleware('user.data', 'user.password', 'user.email.repeat');
+        Route::put('', 'Users\UserController@update')->middleware('user.data');
+        Route::post('/{email}', 'Users\UserController@delete')->middleware('user.email');
     });
 });
 
@@ -54,19 +52,64 @@ Route::group(['prefix' => 'user'], function () {
 Route::group(['prefix' => 'news'], function () {
     Route::get('', 'News\NewsController@all');
     Route::get('/{id}', 'News\NewsController@find')->middleware('news.id');
-    Route::post('', 'News\NewsController@insert')->middleware('news.data');
-    Route::put('', 'News\NewsController@update')->middleware('news.data', 'news.id');
-    Route::delete('/{id}', 'News\NewsController@delete')->middleware('news.id');
 
     Route::group(['middleware' => 'auth:api'], function () {
+        Route::post('', 'News\NewsController@insert')->middleware('news.data');
+        Route::put('', 'News\NewsController@update')->middleware('news.data', 'news.id');
+        Route::delete('/{id}', 'News\NewsController@delete')->middleware('news.id');
     });
 });
+
+/** -----------------------------------------
+ * ------------ Investigators----------------
+ * -------------------------------------- **/
+Route::group(['prefix' => 'investigators'], function () {
+    Route::get('', 'Investigators\InvestigatorController@all');
+    Route::get('/{id}', 'Investigators\InvestigatorController@find')->middleware('investigator.id');
+
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::post('', 'Investigators\InvestigatorController@insert')->middleware('investigator.data');
+        Route::put('', 'Investigators\InvestigatorController@update')->middleware('investigator.data', 'investigator.id');
+        Route::delete('/{id}', 'Investigators\InvestigatorController@delete')->middleware('investigator.id');
+    });
+});
+
+/** -----------------------------------------
+ * --------------- Papers ------------------
+ * -------------------------------------- **/
+Route::group(['prefix' => 'papers'], function () {
+    Route::get('', 'Papers\PapersController@all');
+    Route::get('/{id}', 'Papers\PapersController@find')->middleware('paper.id');
+
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::post('', 'Papers\PapersController@insert')->middleware('paper.data');
+        Route::put('', 'Papers\PapersController@update')->middleware('paper.data', 'paper.id');
+        Route::delete('/{id}', 'Papers\PapersController@delete')->middleware('paper.id');
+    });
+});
+
+
+/** -----------------------------------------
+ * ---------------- Projects ----------------
+ * -------------------------------------- **/
+Route::group(['prefix' => 'projects'], function () {
+    Route::get('', 'Projects\ProjectController@all');
+    Route::get('/{id}', 'Projects\ProjectController@find')->middleware('project.id');
+
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::post('', 'Projects\ProjectController@insert')->middleware('project.data');
+        Route::put('', 'Projects\ProjectController@update')->middleware('project.data', 'project.id');
+        Route::delete('/{id}', 'Projects\ProjectController@delete')->middleware('project.id');
+    });
+});
+
 
 /** -----------------------------------------
  * --------------- STORAGE ------------------
  * -------------------------------------- **/
 Route::group(['prefix' => 'storage'], function () {
-    Route::post('image', 'Storage\StorageController@upload')->middleware('storage.image');
+    Route::post('image', 'Storage\StorageController@uploadImage')->middleware('storage.image');
+    Route::post('pdf', 'Storage\StorageController@uploadPdf')->middleware('storage.pdf');
 
     Route::group(['middleware' => 'auth:api'], function () {
 

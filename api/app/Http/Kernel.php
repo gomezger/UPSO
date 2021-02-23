@@ -78,8 +78,21 @@ class Kernel extends HttpKernel
         'news.data' => \App\Http\Middleware\News\Data::class,
         'news.id' => \App\Http\Middleware\News\Id::class,
 
+        //investigators
+        'investigator.data' => \App\Http\Middleware\Investigators\Data::class,
+        'investigator.id' => \App\Http\Middleware\Investigators\Id::class,
+
+        //papers
+        'paper.data' => \App\Http\Middleware\Papers\Data::class,
+        'paper.id' => \App\Http\Middleware\Papers\Id::class,
+
+        //projects
+        'project.data' => \App\Http\Middleware\Projects\Data::class,
+        'project.id' => \App\Http\Middleware\Projects\Id::class,
+
         //storage
         'storage.image' => \App\Http\Middleware\Storage\Image::class,
+        'storage.pdf' => \App\Http\Middleware\Storage\PDF::class,
 
     ];
 }

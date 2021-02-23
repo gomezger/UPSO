@@ -1,6 +1,6 @@
 export class Investigator {
     constructor(
-        public id:number,
+        public id: number,
         public nombre:String,
         public titulo:String,
         public descripcion:String,

@@ -2,20 +2,20 @@
 
 namespace App\Repositories\News;
 
-use App\Models\Models\News\News;
+use App\Models\News\News as NewsItem;
 
-class NewsRepo {
+class News {
 
     public static function find($id){
-        return News::find($id);
+        return NewsItem::find($id);
     }
 
     public static function all(){
-        return News::orderBy('created_at','DESC')->get();
+        return NewsItem::orderBy('created_at','DESC')->get();
     }
 
     public static function insert($data){
-        return News::create($data);
+        return NewsItem::create($data);
     }
 
     public static function update($id, $data){

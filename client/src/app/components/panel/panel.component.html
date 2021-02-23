@@ -5,8 +5,11 @@
     <div class="border-right sidebar-wrapper text-left" id="sidebar-wrapper">
       <div class="sidebar-heading">Administrador</div>
       <div class="list-group list-group-flush text-left">
+        <a [routerLink]="['/panel/novedades']" class="item" (click)="click()"><i class="fas fa-newspaper mr-2"></i> Novedades</a>
+        <a [routerLink]="['/panel/publicaciones']" class="item" (click)="click()"><i class="fas fa-sticky-note mr-2"></i> Publicaciones</a>
+        <a [routerLink]="['/panel/investigadores']" class="item" (click)="click()"><i class="fas fa-file-user mr-2"></i> Investigadores</a>
+        <a [routerLink]="['/panel/proyectos']" class="item" (click)="click()"><i class="fas fa-project-diagram mr-2"></i> Proyectos</a>
         <a [routerLink]="['/panel/usuarios']" class="item" (click)="click()"><i class="fad fa-user mr-2"></i> Usuarios</a>
-        <a [routerLink]="['/panel/novedades']" class="item" (click)="click()"><i class="far fa-newspaper mr-2"></i> Novedades</a>
         <a  class="item exit" data-toggle="modal" (click)="logout()"><i class="fal fa-sign-out-alt mr-2"></i> Cerrar Sesión</a>
       </div>
     </div>
