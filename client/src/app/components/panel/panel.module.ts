@@ -29,7 +29,6 @@ import { InfoComponent as InfoInvestigatorComponent } from './layout/investigato
 import { PapersComponent } from './layout/papers/papers.component';
 import { TableComponent as TablePapersComponent } from './layout/papers/table/table.component';
 import { FormComponent as FormPaperComponent } from './layout/papers/form/form.component';
-import { MatSliderModule } from '@angular/material/slider';
 import { MultiselectDropdownComponent } from './others/multiselect-dropdown/multiselect-dropdown.component';
 import { DeleteComponent as DeletePapersComponent } from './layout/papers/delete/delete.component';
 import { ProjectsComponent } from './layout/projects/projects.component';
@@ -81,8 +80,7 @@ import { InfoComponent as InfoPaperComponent } from './layout/papers/info/info.c
     FormsModule,
     NgxPaginationModule,
     CKEditorModule,
-    ReactiveFormsModule,
-    MatSliderModule,
+    ReactiveFormsModule
   ],
   providers: [AdminGuard, NoSanitizePipe]
 })
