@@ -1,21 +1,24 @@
-<div class="container row">
+<div *ngIf="listaInvestigadores" class="container row">
+<div *ngFor="let investigator of listaInvestigadores" class="col-md-4">
+    <upso-investigator [investigator]="investigator"></upso-investigator>
+</div>
+</div>
+
+<div *ngIf="!listaInvestigadores" class="container row">
     <div class="col-md-4">
-        <upso-investigator></upso-investigator>
+        <upso-investigator-skeleton></upso-investigator-skeleton>
     </div>
     <div class="col-md-4">
-        <upso-investigator></upso-investigator>
+        <upso-investigator-skeleton></upso-investigator-skeleton>
     </div>
     <div class="col-md-4">
-        <upso-investigator></upso-investigator>
+        <upso-investigator-skeleton></upso-investigator-skeleton>
     </div>
     <div class="col-md-4">
-        <upso-investigator></upso-investigator>
+        <upso-investigator-skeleton></upso-investigator-skeleton>
     </div>
     <div class="col-md-4">
-        <upso-investigator></upso-investigator>
-    </div>
-    <div class="col-md-4">
-        <upso-investigator></upso-investigator>
+        <upso-investigator-skeleton></upso-investigator-skeleton>
     </div>
     <div class="col-md-4">
         <upso-investigator-skeleton></upso-investigator-skeleton>

@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
-import {Investigator} from '../../../../models/investigator'
+import {Investigator} from '../../../../models/investigator';
+import {GLOBAL} from '../../../../services/config/global';
 @Component({
   selector: 'upso-investigator',
   templateUrl: './investigator.component.html',
@@ -8,9 +9,9 @@ import {Investigator} from '../../../../models/investigator'
 
 export class InvestigatorComponent implements OnInit {
   @Input() investigator:Investigator;
+  public url_storage:String;
   constructor() {
-    this.investigator= new Investigator(1,"Juan Carlos","Dr. En ciencias de la Computacion","Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt repellat modi nihil. Consectetur, tenetur sed dolorem excepturi saepe dicta libero ea laboriosam, velit maxime neque corrupti aliquid magni? Voluptatibus, veniam.","juancarlos","www.juancarlos.com","juancarlos@gmail.com",null,null);
-    
+    this.url_storage=GLOBAL.url_storage;
   }
 
   ngOnInit(): void {

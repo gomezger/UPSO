@@ -7,6 +7,7 @@ export class Investigator {
         public linkedin:String,
         public pagina:String,
         public mail:String,
+        public imagen:String,
         public created_at: Date,
         public updated_at: Date
         ){}
