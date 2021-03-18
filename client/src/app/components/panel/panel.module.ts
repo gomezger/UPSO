@@ -80,7 +80,11 @@ import { InfoComponent as InfoPaperComponent } from './layout/papers/info/info.c
     FormsModule,
     NgxPaginationModule,
     CKEditorModule,
+<<<<<<< HEAD
     ReactiveFormsModule,
+=======
+    ReactiveFormsModule
+>>>>>>> 125a33f0fe07d871f5ba43cbb6acab932ae11d98
   ],
   providers: [AdminGuard, NoSanitizePipe]
 })
