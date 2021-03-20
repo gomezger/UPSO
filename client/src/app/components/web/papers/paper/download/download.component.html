@@ -1,0 +1,46 @@
+<button class="btn btn-info col-12" data-toggle="modal" data-target="#exampleModalCenter">
+  <span class="mr-2"><i class="fad fa-download"></i></span>
+  <span>Descargar publicación</span>
+</button>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Descargar Publicación</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-left">
+        <form>
+          <div class="form-group">
+            <div class="form-group">
+              <label for="inputNombre">Nombre</label>
+              <input type="text" class="form-control" id="inputNombre"  name="nombre" #nombre="ngModel" [(ngModel)]="downloadPaper.nombre">
+            </div>
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" name="email" #email="ngModel" [(ngModel)]="downloadPaper.email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="inputNacimiento">Fecha nacimiento</label>
+            <input type="date" class="form-control" id="inputNacimiento" name="nacimiento" #nacimiento="ngModel" [(ngModel)]="downloadPaper.nacimiento">
+          </div>
+          <div class="form-group">
+            <label for="inputProfesion">Profesión</label>
+            <input type="text" class="form-control" id="inputProfesion" name="profesion" #profesion="ngModel" [(ngModel)]="downloadPaper.profesion">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="dummy()">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="confirmar()">
+          <span class="mr-2" *ngIf="loading"><i class="fas fa-spinner-third fa-spin"></i></span>
+          <span>Confirmar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -25,7 +25,7 @@ class Data
             array(
                 'titulo'       => 'required|string|max:191',
                 'pdf'       => 'required|string|max:191',
-                'descripcion' => 'required|string|max:191',
+                'descripcion' => 'required|string',
                 'investigators' => 'required'
             )
         );

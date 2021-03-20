@@ -1,3 +1,5 @@
+import { PaperComponent } from './papers/paper/paper.component';
+import { PapersComponent } from './papers/papers.component';
 import { NewsComponent } from './news/news.component';
 import { NewsItemComponent } from './news/news-item/news-item.component';
 import { IndexComponent } from './index/index.component';
@@ -18,6 +20,13 @@ const routes: Routes = [
         children: [
           { path: '', component: NewsComponent },
           { path: ':id/:titulo_url', component: NewsItemComponent }
+        ]
+      },
+      {
+        path: 'publicaciones',
+        children: [
+          { path: '', component: PapersComponent },
+          { path: ':id/:titulo_url', component: PaperComponent }
         ]
       }
     ]

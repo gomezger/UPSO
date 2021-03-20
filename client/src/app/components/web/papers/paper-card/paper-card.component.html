@@ -1,0 +1,13 @@
+<div class="paper">
+  <h2>
+    <span><a class="title" [routerLink]="['/publicaciones/',paper.id,paper.titulo_url]">{{paper.titulo}}</a></span>
+    <span></span>
+  </h2>
+  <p>
+    <b>Integrantes:</b>
+    <span *ngFor="let investigator of paper.investigators; let i = index">
+      {{investigator.nombre}}{{ (paper.investigators.length-1 === i) ? '. ' : ', '}}
+    </span>
+  </p>
+</div>
+

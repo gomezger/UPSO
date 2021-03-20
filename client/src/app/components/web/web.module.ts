@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { SafeHtmlPipe } from './../../pipes/safe-html.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgModule } from '@angular/core';
@@ -22,6 +23,13 @@ import { NewsItemComponent } from './news/news-item/news-item.component';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { InvestigatorSkeletonComponent } from './investigators/investigator-skeleton/investigator-skeleton.component';
+import { PapersComponent } from './papers/papers.component';
+import { PaperComponent } from './papers/paper/paper.component';
+import { PaperCardComponent } from './papers/paper-card/paper-card.component';
+import { InvestigatorSmallCardComponent } from './investigators/investigator-small-card/investigator-small-card.component';
+import { DownloadComponent as DownloadPaperComponent } from './papers/paper/download/download.component';
+import { CommentsComponent as CommentsPaperComponent } from './papers/paper/comments/comments.component';
+import { FormComponent as CommentFormComponent } from './papers/paper/comments/form/form.component';
 
 @NgModule({
   declarations: [
@@ -41,11 +49,19 @@ import { InvestigatorSkeletonComponent } from './investigators/investigator-skel
     LoadingComponent,
     NewsItemComponent,
     SafeHtmlPipe,
-    InvestigatorSkeletonComponent
+    InvestigatorSkeletonComponent,
+    PapersComponent,
+    PaperComponent,
+    PaperCardComponent,
+    InvestigatorSmallCardComponent,
+    DownloadPaperComponent,
+    CommentsPaperComponent,
+    CommentFormComponent
   ],
   imports: [
     CommonModule,
     WebRoutingModule,
+    FormsModule,
     SkeletonLoaderModule,
     NgxPaginationModule,
     ShareButtonsModule,
