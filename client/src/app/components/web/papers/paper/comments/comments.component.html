@@ -1,33 +1,31 @@
-<div class="row pl-0 pr-0">
-  <div class="col-12 pl-0 pr-0">
+<div class="col-12 pl-0 pr-0">
 
-    <div class="add-comment col-12 text-right mt-3 mb-1">
-      <upso-comment-form></upso-comment-form>
-    </div>
-
-    <ng-container
-      *ngFor="let i of [].constructor(5)  | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
-      <div class="media g-mb-30 media-comment">
-        <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
-          <div class="g-mb-15 mb-2">
-            <h5 class="h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
-            <small><span class="g-color-gray-dark-v4">5 days ago</span></small>
-          </div>
-
-          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
-            odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-            Donec lacinia congue
-            felis in faucibus ras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-
-        </div>
-      </div>
-    </ng-container>
-
-    <div class="add-comment col-12 text-center mb-2">
-      <pagination-controls class="pagination d-inline-block pt-3" (pageChange)="currentPage = $event" autoHide="true"
-        responsive="true" directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente" maxSize="6">
-      </pagination-controls>
-    </div>
-
+  <div class="add-comment col-12 text-right mt-3 mb-1">
+    <upso-comment-form></upso-comment-form>
   </div>
+
+  <ng-container
+    *ngFor="let i of [].constructor(5)  | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+    <div class="media g-mb-30 media-comment">
+      <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+        <div class="g-mb-15 mb-2">
+          <h5 class="h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
+          <small><span class="g-color-gray-dark-v4">5 days ago</span></small>
+        </div>
+
+        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+          odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+          Donec lacinia congue
+          felis in faucibus ras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+
+      </div>
+    </div>
+  </ng-container>
+
+  <div class="add-comment col-12 text-center mb-2">
+    <pagination-controls class="pagination d-inline-block pt-3" (pageChange)="currentPage = $event" autoHide="true"
+      responsive="true" directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente" maxSize="6">
+    </pagination-controls>
+  </div>
+
 </div>
