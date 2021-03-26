@@ -86,6 +86,21 @@ Route::group(['prefix' => 'papers'], function () {
         Route::put('', 'Papers\PapersController@update')->middleware('paper.data', 'paper.id');
         Route::delete('/{id}', 'Papers\PapersController@delete')->middleware('paper.id');
     });
+
+});
+
+/** -----------------------------------------
+ * ----------- Papers Comment ---------------
+ * -------------------------------------- **/
+Route::group(['prefix' => 'comments/papers'], function () {
+
+    Route::post('', 'Papers\PapersCommentsController@insert')->middleware('paper.comment.data'); // porque es alguien no logueado
+
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::get('', 'Papers\PapersCommentsController@all'); // solo el admin puede ver todos los mensajes
+        Route::put('', 'Papers\PapersCommentsController@update')->middleware('paper.comment.data', 'paper.comment.id'); // solo puede el admin
+        Route::delete('/{id}', 'Papers\PapersCommentsController@delete')->middleware('paper.comment.id'); // solo puede el admin
+    });
 });
 
 

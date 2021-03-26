@@ -24,12 +24,23 @@
   width           : 15rem;
 }
 
+.sub-item {
+  position        : relative;
+  background-color: #ac2929;
+  color           : white;
+  font-size       : 16px;
+  padding         : 12px 20px;
+  margin-top      : 0px;
+  padding-left     : 2rem;
+  width           : 15rem;
+}
+
 .sidebar-wrapper .exit {
   border-top   : 1px solid white;
   border-bottom: 1px solid white;
 }
 
-.sidebar-wrapper .item:hover {
+.sidebar-wrapper .item:hover, .sub-item:hover {
   text-decoration : none;
   background-color: #920505;
   cursor          : pointer;
@@ -77,9 +88,9 @@
   }
 }
 
-.column-sm{
+.column-sm {
   text-align: center;
-  width: 50px !important;
+  width     : 50px !important;
 }
 
 /* Tabla */

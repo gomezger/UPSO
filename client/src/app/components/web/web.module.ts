@@ -30,6 +30,7 @@ import { InvestigatorSmallCardComponent } from './investigators/investigator-sma
 import { DownloadComponent as DownloadPaperComponent } from './papers/paper/download/download.component';
 import { CommentsComponent as CommentsPaperComponent } from './papers/paper/comments/comments.component';
 import { FormComponent as CommentFormComponent } from './papers/paper/comments/form/form.component';
+import { CommentComponent } from './papers/paper/comments/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { FormComponent as CommentFormComponent } from './papers/paper/comments/f
     InvestigatorSmallCardComponent,
     DownloadPaperComponent,
     CommentsPaperComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    CommentComponent
   ],
   imports: [
     CommonModule,

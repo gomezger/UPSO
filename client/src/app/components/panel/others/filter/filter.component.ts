@@ -18,12 +18,22 @@ export class FilterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.textPlaceholder = 'Filtrar por ' + this.keys.slice(0, this.keys.length - 1).join(', ') ;
-    this.textPlaceholder += (this.keys.length === 1) ? this.keys[0] : ' o ' + this.keys[this.keys.length - 1];
+    const keys = this.acomodar(this.keys);
+    this.textPlaceholder = 'Filtrar por ' + keys.slice(0, keys.length - 1).join(', ');
+    this.textPlaceholder += (keys.length === 1) ? keys[0] : ' o ' + keys[keys.length - 1];
   }
 
   filtrar({ target: { value } }): void {
     this.newList.emit(this._filter.filtrar(value, this.list, this.keys));
+  }
+
+  acomodar(keys: Array<string>): Array<string> {
+    let res = [];
+    for (const key of keys) {
+      const aux = key.split('.');
+      res = [...res, aux[aux.length - 1]];
+    }
+    return res;
   }
 
 }

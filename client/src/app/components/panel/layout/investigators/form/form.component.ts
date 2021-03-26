@@ -34,7 +34,6 @@ export class FormComponent extends StatusComponent implements OnInit {
 
   private insert(): void {
     this.setLoading();
-    console.log(this.myInvestigator);
     const token = this._user.getToken();
     this._investigator.insert(this.myInvestigator, token).subscribe(
       (response) => {
@@ -62,4 +61,5 @@ export class FormComponent extends StatusComponent implements OnInit {
       (error) => this.processError(error)
     );
   }
+
 }

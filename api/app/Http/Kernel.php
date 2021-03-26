@@ -86,6 +86,10 @@ class Kernel extends HttpKernel
         'paper.data' => \App\Http\Middleware\Papers\Data::class,
         'paper.id' => \App\Http\Middleware\Papers\Id::class,
 
+        //papers comments
+        'paper.comment.data' => \App\Http\Middleware\Papers\PapersComments\Data::class,
+        'paper.comment.id' => \App\Http\Middleware\Papers\PapersComments\Id::class,
+
         //projects
         'project.data' => \App\Http\Middleware\Projects\Data::class,
         'project.id' => \App\Http\Middleware\Projects\Id::class,

@@ -1,13 +1,16 @@
-<button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#addCommentModalCenter">Agregar comentario</button>
+<button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#addCommentModalCenter">
+  <span class="mr-2"><i class="far fa-plus"></i></span>
+  <span>Agregar comentario</span>
+</button>
 
 
-<div class="modal fade" id="addCommentModalCenter" tabindex="-1" role="dialog" aria-labelledby="addCommentModalCenterTitle"
-  aria-hidden="true">
+<div *ngIf="comment" class="modal fade" id="addCommentModalCenter" tabindex="-1" role="dialog"
+  aria-labelledby="addCommentModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Agregar Comentario</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" #closebutton class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -16,21 +19,31 @@
           <div class="form-group">
             <div class="form-group">
               <label for="inputNombre">Nombre</label>
-              <input type="text" class="form-control" id="inputNombre" >
+              <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+                [(ngModel)]="comment.nombre">
             </div>
             <label for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" name="email"
+              #email="ngModel" [(ngModel)]="comment.email">
           </div>
           <div class="form-group">
             <label for="inputProfesion">Profesión</label>
-            <input type="text" class="form-control" id="inputProfesion">
+            <input type="text" class="form-control" id="inputProfesion" name="profesion" #profesion="ngModel"
+              [(ngModel)]="comment.profesion">
           </div>
           <div class="form-group">
             <label for="inputComentario">Comentario</label>
-            <textarea class="form-control" id="inputComentario" rows="5"></textarea>
+            <textarea class="form-control" id="inputComentario" rows="5" name="descripcion" #descripcion="ngModel"
+              [(ngModel)]="comment.descripcion"></textarea>
           </div>
         </form>
+        <div class="form-row">
+
+          <div *ngIf="errores" class="errores col-12">
+            <div class="alert alert-danger" *ngFor="let error of errores">{{error}}</div>
+          </div>
+
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="dummy()">Cerrar</button>
