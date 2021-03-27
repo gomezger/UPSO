@@ -1,6 +1,6 @@
 import { Paper } from './paper';
 
-export class DownloadPaper {
+export class PaperDownload {
   constructor(
     public id: number,
     public email: string,

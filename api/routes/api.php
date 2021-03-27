@@ -103,6 +103,21 @@ Route::group(['prefix' => 'comments/papers'], function () {
     });
 });
 
+/** -----------------------------------------
+ * ----------- Papers Download ---------------
+ * -------------------------------------- **/
+Route::group(['prefix' => 'downloads/papers'], function () {
+
+    Route::get('/{id}', 'Papers\PapersDownloadController@find')->middleware('paper.download.id'); // porque es alguien no logueado
+    Route::post('', 'Papers\PapersDownloadController@insert')->middleware('paper.download.data'); // porque es alguien no logueado
+    Route::put('', 'Papers\PapersDownloadController@update')->middleware('paper.download.data', 'paper.download.id'); // solo puede el admin
+
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::get('', 'Papers\PapersDownloadController@all'); // solo el admin puede ver todos los mensajes
+        Route::delete('/{id}', 'Papers\PapersDownloadController@delete')->middleware('paper.comment.id'); // solo puede el admin
+    });
+});
+
 
 /** -----------------------------------------
  * ---------------- Projects ----------------

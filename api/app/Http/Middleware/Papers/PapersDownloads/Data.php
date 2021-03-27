@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware\Papers\PapersComments;
+namespace App\Http\Middleware\Papers\PapersDownloads;
 
 use App\Helpers\Validator\Validator;
 use Closure;
@@ -26,7 +26,7 @@ class Data
                 'nombre'       => 'required|string|max:191',
                 'email'       => 'required|email|string|max:191',
                 'profesion'       => 'required|string|max:191',
-                'descripcion' => 'required|string',
+                'nacimiento' => 'required|string|date_format:Y-m-d',
                 'paper_id' => 'required|exists:papers,id'
             )
         );
