@@ -1,0 +1,104 @@
+<section class="sumate d-inline-block col-12 p-0">
+    <div class="float-left title col-12 p-0">
+        <div class="gradient float-left col-12 p-0 pb-3">
+        <div class="container text-center pt-3">
+            <h2 class="animated fadeInDown">Contacto</h2>
+        </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <form #contactForm="ngForm" (ngSubmit)="onSubmitContacto()" class="mt-1 mt-md-3 col-12 col-md-10 col-lg-9 col-xl-7 float-left text-left p-0">
+            <div class="col-12 col-md-12 form-group d-inline-block p-0 pr-1">
+                <label for="nombreInput">Nombre y apellido *</label>
+                <input type="text" class="form-control" id="nombreInput" name="nombre" #nombre="ngModel"  [(ngModel)]="myContacto.nombre" required>
+                <div class="alert alert-danger mt-2" role="alert" *ngIf="nombre.touched && !nombre.valid">
+                    Por favor, ingrese su Nombre y Apellido.
+                </div>
+            </div>
+            <div class="col-12 col-md-6 form-group d-inline-block p-0 pr-1">
+                <label for="telefonoInput">Teléfono</label>
+                <input type="text" class="form-control" id="telefonoInput" name="telelfono" #telefono="ngModel" [(ngModel)]="myContacto.phone" >
+                
+            </div>
+            <div class="col-12 col-md-6 form-group d-inline-block p-0">
+                <label for="emailInput">Email *</label>
+                <input type="email" class="form-control" id="emailInput" placeholder="correo@dominio.com" name="email" #email="ngModel" [(ngModel)]="myContacto.from" required>
+                
+            </div>
+            <div class="alert alert-danger mt-2 " role="alert" *ngIf="email.touched && !email.valid">
+                Verifique su correo electronico.
+            </div>
+            <div class="col-12 col-md-12 form-group d-inline-block p-0 pl-1">
+                <label for="mensajeInput">Mensaje *</label>
+                <textarea class="form-control" id="mensajeInput" row="6" placeholder="Deja tu mensaje acá" name="mensaje" #mensaje="ngModel" [(ngModel)]="myContacto.msj"></textarea>
+
+            </div>
+            <button type="submit" class="col-12 btn btn-primary boton" [disabled]="!contactForm.valid">Enviar información</button>
+
+            <div *ngIf="exito" class="alert alert-primary mt-3" role="alert" >
+                Su mensaje ha sido enviado, nos comunicaremos con usted a la brevedad.
+            </div>
+        </form>
+        
+        <div class="datos  mt-2 mt-md-4 col-12 col-lg-3 col-xl-5 p-0 pl-0 pl-lg-5 float-left">
+            <div class="titulo mt-4 mt-md-0">
+                Datos de contacto
+        </div>
+        <div class="borde corto clearfix mt-1 mb-4"></div>
+    
+        <div class="redes float-left p-0 pt-3 ">
+                <a 
+                    *ngIf="info"
+                    class="dato text-dark clearfix" 
+                    target="_blank">
+                    <i class="fad fa-map-marker-alt mr-3"></i>{{info.city}}
+                </a>
+                <div 
+                    class="dato text-dark clearfix d-none" 
+                    >
+                    <span><i class="fad fa-clock mr-3"></i>Horarios:</span>
+                    <div 
+                        class="horary" 
+                        *ngFor="let horary of info.horaries"
+                    >
+                        <i class="fad fa-angle-right ml-4 mr-3"></i><small>{{horary.day}}: {{horary.hour}}</small>
+                    </div>
+                </div>
+                <a 
+                    *ngIf="info"
+                    [attr.href]="info.social.facebook.url"
+                    class="dato text-dark clearfix" 
+                    target="_blank">
+                        <i class="fab fa-facebook-square mr-3"></i>{{info.social.facebook.name}}
+                </a>
+                <a 
+                    *ngIf="info"
+                    [attr.href]="info.social.instagram.url"
+                    class="dato text-dark clearfix" 
+                    target="_blank">
+                        <i class="fab fa-instagram mr-3"></i>{{info.social.instagram.name}}
+                </a>
+                <a 
+                    *ngIf="info"
+                    [attr.href]="'https://api.whatsapp.com/send?phone='+info.social.whatsapp.cod.int+info.social.whatsapp.cod.nac+info.social.whatsapp.number"                 
+                    class="dato text-dark clearfix" target="_blank">
+                        <i class="fab fa-whatsapp mr-3"></i>Enviar mensaje
+                </a>
+                <a 
+                    *ngIf="info"
+                    [attr.href]="'tel:'+info.phone.cod.int+info.phone.cod.nac+info.phone.number"                 
+                    class="dato text-dark clearfix" target="_blank">
+                        <i class="fas fa-phone mr-3"></i>({{info.phone.cod.nac}}) {{info.phone.number}}
+                </a>
+                <a 
+                    *ngFor="let mail of info.mails"
+                    [attr.href]="'mailto:'+mail"                  
+                    class="dato text-dark clearfix" target="_blank">
+                        <i class="fas fa-at mr-3"></i>{{mail}}
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>

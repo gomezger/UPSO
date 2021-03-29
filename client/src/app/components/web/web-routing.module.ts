@@ -12,6 +12,7 @@ import { InvestigatorsComponent } from './investigators/investigators.component'
 import {ProyectsComponent} from './proyects/proyects.component';
 import {ProyectComponent} from './proyects/proyect/proyect.component';
 import { FileComponent as DownloadPaperFileComponent } from './papers/paper/download/file/file.component';
+import {ContactComponent} from './contact/contact.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,9 @@ const routes: Routes = [
           {path:'',component:ProyectsComponent},
           {path: ':id/:titulo_url', component: ProyectComponent}
         ]
+      },
+      {
+        path:'contacto',component:ContactComponent
       },
       {path: '**', component: Cod404Component}
     ]

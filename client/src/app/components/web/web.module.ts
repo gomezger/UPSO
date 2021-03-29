@@ -38,6 +38,7 @@ import { ProyectComponent } from './proyects/proyect/proyect.component';
 import { CommentComponent } from './papers/paper/comments/comment/comment.component';
 import { FileComponent as DownloadPaperFileComponent } from './papers/paper/download/file/file.component';
 import { Cod404Component } from './errors/cod404/cod404.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { Cod404Component } from './errors/cod404/cod404.component';
     CommentComponent,
     DownloadPaperFileComponent,
     IndexAboutUsComponent,
-    Cod404Component
+    Cod404Component,
+    ContactComponent
   ],
   imports: [
     CommonModule,
