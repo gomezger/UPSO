@@ -1,0 +1,34 @@
+<div class="title">
+    <div class="container">
+        Proyectos
+    </div>
+</div>
+
+<div *ngIf="loading && !projects" class="projects loading text-center">
+    <div class="container">
+  
+      <div *ngFor="let i of [].constructor(4)" class="d-inline-block skeleton col-12 pl-0 pr-0 mb-5">
+        <upso-skeleton-loader class="d-block pb-2" [Cwidth]="100" [type]="'%'" [Cheight]="70"></upso-skeleton-loader>
+        <upso-skeleton-loader class="d-block" [Cwidth]="100" [type]="'%'" [Cheight]="20"></upso-skeleton-loader>
+      </div>
+  
+    </div>
+</div>
+
+<div *ngIf="success && projects" class="projects">
+    <div class="container">
+  
+      <ng-container *ngFor="let project of projects | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+        <div class="paper-card col-12 pl-0 pr-0 mb-1 mb-md-3">
+          <upso-proyect-card [project]="project"></upso-proyect-card>
+        </div>
+      </ng-container>
+  
+      <div class="col-12 text-center">
+        <pagination-controls class="pagination d-inline-block pt-3" (pageChange)="currentPage = $event" autoHide="true"
+          responsive="true" directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente" maxSize="6">
+        </pagination-controls>
+      </div>
+  
+    </div>
+  </div>

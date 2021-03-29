@@ -30,6 +30,10 @@ import { InvestigatorSmallCardComponent } from './investigators/investigator-sma
 import { DownloadComponent as DownloadPaperComponent } from './papers/paper/download/download.component';
 import { CommentsComponent as CommentsPaperComponent } from './papers/paper/comments/comments.component';
 import { FormComponent as CommentFormComponent } from './papers/paper/comments/form/form.component';
+import { ProyectsComponent } from './proyects/proyects.component';
+import { ProyectSkeletonComponent } from './proyects/proyect-skeleton/proyect-skeleton.component';
+import { ProyectCardComponent } from './proyects/proyect-card/proyect-card.component';
+import { ProyectComponent } from './proyects/proyect/proyect.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +60,11 @@ import { FormComponent as CommentFormComponent } from './papers/paper/comments/f
     InvestigatorSmallCardComponent,
     DownloadPaperComponent,
     CommentsPaperComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    ProyectsComponent,
+    ProyectSkeletonComponent,
+    ProyectCardComponent,
+    ProyectComponent
   ],
   imports: [
     CommonModule,

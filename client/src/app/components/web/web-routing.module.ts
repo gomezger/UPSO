@@ -6,7 +6,9 @@ import { IndexComponent } from './index/index.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WebComponent } from './web.component';
-import { InvestigatorsComponent } from './investigators/investigators.component'
+import { InvestigatorsComponent } from './investigators/investigators.component';
+import {ProyectsComponent} from './proyects/proyects.component';
+import {ProyectComponent} from './proyects/proyect/proyect.component';
 
 const routes: Routes = [
   {
@@ -14,7 +16,7 @@ const routes: Routes = [
     component: WebComponent,
     children: [
       { path: '', component: IndexComponent },
-      { path: 'investigators', component: InvestigatorsComponent },
+      { path: 'investigadores', component: InvestigatorsComponent },
       {
         path: 'novedades',
         children: [
@@ -27,6 +29,13 @@ const routes: Routes = [
         children: [
           { path: '', component: PapersComponent },
           { path: ':id/:titulo_url', component: PaperComponent }
+        ]
+      },
+      {
+        path:'proyectos',
+        children:[
+          {path:'',component:ProyectsComponent},
+          {path: ':id/:titulo_url', component: ProyectComponent}
         ]
       }
     ]
