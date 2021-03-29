@@ -1,3 +1,5 @@
+import { DownloadsComponent } from './layout/downloads/downloads.component';
+import { CommentsComponent } from './layout/comments/comments.component';
 import { ProjectsComponent } from './layout/projects/projects.component';
 import { PapersComponent } from './layout/papers/papers.component';
 import { InvestigatorsComponent } from './layout/investigators/investigators.component';
@@ -21,7 +23,16 @@ const routes: Routes = [
       { path: 'usuarios', component: UsersComponent },
       { path: 'novedades', component: NewsComponent },
       { path: 'investigadores', component: InvestigatorsComponent },
-      { path: 'publicaciones', component: PapersComponent },
+
+      {
+        path: 'publicaciones', children: [
+          { path: '', component: PapersComponent },
+          { path: 'comments', component: CommentsComponent },
+          { path: 'downloads', component: DownloadsComponent }
+        ]
+      },
+
+
       { path: 'proyectos', component: ProjectsComponent }
     ],
 

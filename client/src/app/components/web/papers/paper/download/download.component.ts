@@ -1,7 +1,7 @@
+import { PaperDownload } from './../../../../../models/papers/paper-download';
 import { Router } from '@angular/router';
 import { DownloadService } from './../../../../../services/papers/download.service';
 import { StatusComponent } from './../../../../../extends/status/status.component';
-import { DownloadPaper } from './../../../../../models/papers/download-paper';
 import { Paper } from './../../../../../models/papers/paper';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -12,7 +12,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DownloadComponent extends StatusComponent implements OnInit {
   @Input() paper: Paper;
-  public downloadPaper: DownloadPaper;
+  public paperDownload: PaperDownload;
 
   constructor(
     private _download: DownloadService,
@@ -26,12 +26,16 @@ export class DownloadComponent extends StatusComponent implements OnInit {
 
   confirmar(): void{
     this.setLoading();
-    console.log(this.downloadPaper);
+    this._download.insert(this.paperDownload).subscribe({
+      next: paperDownload => this.paperDownload = paperDownload,
+      error: error => this.processError(error),
+      complete: () => this.setSuccess()
+    });
   }
 
   dummy(): void {
-    this.downloadPaper = this._download.dummy();
-    this.downloadPaper.paper_id = this.paper.id;
-    this.downloadPaper.paper = this.paper;
+    this.paperDownload = this._download.dummy();
+    this.paperDownload.paper_id = this.paper.id;
+    this.paperDownload.paper = this.paper;
   }
 }

@@ -86,6 +86,14 @@ class Kernel extends HttpKernel
         'paper.data' => \App\Http\Middleware\Papers\Data::class,
         'paper.id' => \App\Http\Middleware\Papers\Id::class,
 
+        //papers comments
+        'paper.comment.data' => \App\Http\Middleware\Papers\PapersComments\Data::class,
+        'paper.comment.id' => \App\Http\Middleware\Papers\PapersComments\Id::class,
+
+        //papers downloads
+        'paper.download.data' => \App\Http\Middleware\Papers\PapersDownloads\Data::class,
+        'paper.download.id' => \App\Http\Middleware\Papers\PapersDownloads\Id::class,
+
         //projects
         'project.data' => \App\Http\Middleware\Projects\Data::class,
         'project.id' => \App\Http\Middleware\Projects\Id::class,
@@ -93,6 +101,9 @@ class Kernel extends HttpKernel
         //storage
         'storage.image' => \App\Http\Middleware\Storage\Image::class,
         'storage.pdf' => \App\Http\Middleware\Storage\PDF::class,
+
+        //message
+        'contact.message' => \App\Http\Middleware\Avisos\Message::class,
 
     ];
 }

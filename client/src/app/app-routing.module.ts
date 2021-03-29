@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: 'panel', loadChildren: () => import('./components/panel/panel.module').then(m => m.PanelModule) },
   { path: '', loadChildren: () => import('./components/web/web.module').then(m => m.WebModule) },
-  { path: '*', loadChildren: () => import('./components/web/web.module').then(m => m.WebModule) },
   { path: '**', loadChildren: () => import('./components/web/web.module').then(m => m.WebModule) }
 ];
 

@@ -1,3 +1,4 @@
+import { PaperComment } from './paper-comment';
 import { Investigator } from '../investigator';
 
 export class Paper {
@@ -9,6 +10,7 @@ export class Paper {
     public descripcion: string,
     public created_at: string,
     public updated_at: string,
-    public investigators: Array<Investigator>
+    public investigators: Array<Investigator>,
+    public comments: Array<PaperComment>
   ) { }
 }

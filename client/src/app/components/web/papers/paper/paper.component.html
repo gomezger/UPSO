@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<div *ngIf="paper" class="paper animated fadeIn">
+<div *ngIf="paper" class="paper">
   <div class="col-12 top">
     <div class="container">
       <h1>{{paper.titulo}}</h1>
@@ -49,7 +49,7 @@
     <div class="container d-flex flex-wrap align-items-start">
 
       <div class="col-12 col-md-8 pl-0 pr-0 pr-md-5 d-inline-block">
-        <div class="abstract mt-4 mb-3" [innerHtml]="paper.descripcion"></div>
+        <div class="abstract mt-4 mb-3" [innerHtml]="paper.descripcion | safeHtml"></div>
       </div>
 
       <div class="col-12 col-md-4 pl-0 pr-0 d-inline-block mt-4 text-right">
@@ -82,9 +82,11 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="clearfix"></div>
+
+  <div class="row m-0">
     <div class="container">
-      <upso-paper-comments></upso-paper-comments>
+      <upso-paper-comments [paper]="paper"></upso-paper-comments>
     </div>
   </div>
 

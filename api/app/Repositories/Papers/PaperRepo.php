@@ -7,11 +7,11 @@ use App\Models\Papers\Paper;
 class PaperRepo {
 
     public static function find($id){
-        return Paper::find($id)->load('investigators');
+        return Paper::find($id)->load('investigators', 'comments');
     }
 
     public static function all(){
-        return Paper::orderBy('created_at','DESC')->get()->load('investigators');
+        return Paper::orderBy('created_at','DESC')->get()->load('investigators', 'comments');
     }
 
     public static function insert($data){

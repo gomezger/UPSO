@@ -1,3 +1,5 @@
+import { Cod404Component } from './errors/cod404/cod404.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { PaperComponent } from './papers/paper/paper.component';
 import { PapersComponent } from './papers/papers.component';
 import { NewsComponent } from './news/news.component';
@@ -9,6 +11,7 @@ import { WebComponent } from './web.component';
 import { InvestigatorsComponent } from './investigators/investigators.component';
 import {ProyectsComponent} from './proyects/proyects.component';
 import {ProyectComponent} from './proyects/proyect/proyect.component';
+import { FileComponent as DownloadPaperFileComponent } from './papers/paper/download/file/file.component';
 
 const routes: Routes = [
   {
@@ -17,6 +20,7 @@ const routes: Routes = [
     children: [
       { path: '', component: IndexComponent },
       { path: 'investigadores', component: InvestigatorsComponent },
+      { path: 'nosotros', component: AboutUsComponent },
       {
         path: 'novedades',
         children: [
@@ -28,6 +32,7 @@ const routes: Routes = [
         path: 'publicaciones',
         children: [
           { path: '', component: PapersComponent },
+          { path: 'download/:download_id', component: DownloadPaperFileComponent },
           { path: ':id/:titulo_url', component: PaperComponent }
         ]
       },
@@ -37,9 +42,10 @@ const routes: Routes = [
           {path:'',component:ProyectsComponent},
           {path: ':id/:titulo_url', component: ProyectComponent}
         ]
-      }
+      },
+      {path: '**', component: Cod404Component}
     ]
-  }
+  },
 ];
 
 @NgModule({

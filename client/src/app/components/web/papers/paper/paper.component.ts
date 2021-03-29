@@ -48,7 +48,7 @@ export class PaperComponent extends StatusComponent implements OnInit {
       next: (response) => {
         this.setSuccess();
         this.paper = response;
-        this._sesion.setItem('papers', [response, ...papers]);
+        this._sesion.setItem('papers', [response, ...(papers && papers.length) ? papers : []]);
 
         if (tituloUrl !== this.paper.titulo_url) {
           this._router.navigate(['/publicaciones/', id, this.paper.titulo_url]);

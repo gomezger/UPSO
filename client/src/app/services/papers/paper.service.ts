@@ -33,6 +33,6 @@ export class PaperService {
   }
 
   dummy = (): Paper => {
-    return new Paper(0, '', '', '', '', '', '', []);
+    return new Paper(0, '', '', '', '', '', '', [], []);
   }
 }

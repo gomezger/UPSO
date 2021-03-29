@@ -1,14 +1,15 @@
 import { Paper } from './paper';
+export class PaperComment {
 
-export class DownloadPaper {
   constructor(
     public id: number,
-    public email: string,
-    public nombre: string,
-    public nacimiento: Date,
-    public profesion: string,
     public paper_id: number,
+    public nombre: string,
+    public email: string,
+    public descripcion: string,
+    public profesion: string,
     public paper: Paper,
+    public aprobado: boolean,
     public created_at: Date,
     public updated_at: Date
   ) { }

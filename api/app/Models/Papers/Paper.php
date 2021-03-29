@@ -19,5 +19,8 @@ class Paper extends Model
         return $this->belongsToMany(Investigator::class, 'papers_investigators', 'paper_id', 'investigator_id');
     }
 
-
+    public function comments()
+    {
+        return $this->hasMany(PaperComment::class)->where('aprobado', '>', '0')->orderBy('created_at', 'ASC');
+    }
 }

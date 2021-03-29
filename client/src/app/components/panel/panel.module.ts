@@ -37,6 +37,13 @@ import { FormComponent as FormProjectComponent } from './layout/projects/form/fo
 import { DeleteComponent as DeleteProjectComponent  } from './layout/projects/delete/delete.component';
 import { InfoComponent as InfoProjectComponent } from './layout/projects/info/info.component';
 import { InfoComponent as InfoPaperComponent } from './layout/papers/info/info.component';
+import { CommentsComponent } from './layout/comments/comments.component';
+import { DownloadsComponent } from './layout/downloads/downloads.component';
+import { TableComponent as CommentsTableComponent } from './layout/comments/table/table.component';
+import { InfoComponent as CommentInfoComponent } from './layout/comments/info/info.component';
+import { StatusComponent as CommentStatusComponent } from './layout/comments/status/status.component';
+import { TableComponent as DownloadsTableComponent } from './layout/downloads/table/table.component';
+import { InfoComponent as InfoDownloadComponent } from './layout/downloads/info/info.component';
 
 
 @NgModule({
@@ -72,7 +79,14 @@ import { InfoComponent as InfoPaperComponent } from './layout/papers/info/info.c
     FormProjectComponent,
     DeleteProjectComponent,
     InfoProjectComponent,
-    InfoPaperComponent
+    InfoPaperComponent,
+    CommentsComponent,
+    DownloadsComponent,
+    CommentsTableComponent,
+    CommentInfoComponent,
+    CommentStatusComponent,
+    DownloadsTableComponent,
+    InfoDownloadComponent
   ],
   imports: [
     CommonModule,
