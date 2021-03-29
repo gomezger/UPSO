@@ -102,5 +102,8 @@ class Kernel extends HttpKernel
         'storage.image' => \App\Http\Middleware\Storage\Image::class,
         'storage.pdf' => \App\Http\Middleware\Storage\PDF::class,
 
+        //message
+        'contact.message' => \App\Http\Middleware\Avisos\Message::class,
+
     ];
 }

@@ -9,13 +9,13 @@ use Illuminate\Http\Request;
 class MensajeController extends Controller
 {
 
-    public function enviarPaper(Request $request){
+      public function enviarCorreo(Request $request){
 
         $data = $request->all();
 
         //enviar notificacion
-        $avisos = AvisosFactory::init('papers', $data['correo']);
-        $avisos->enviarPaper(
+        $avisos = AvisosFactory::init('contact', $data['correo']);
+        $avisos->sendContactMessage(
             array(
                 'nombre' => $data['nombre'],
                 'apellido' => $data['apellido'],
@@ -24,27 +24,7 @@ class MensajeController extends Controller
                 'mensaje' => $data['mensaje']
             )
         );
-
-        return Response::success('Mensaje enviado');
-    }
-
-
-    public function enviarCorreo(Request $request){
-
-        $data = $request->all();
-
-        //enviar notificacion
-        $avisos = AvisosFactory::init('usuarios', $data['correo']);
-        $avisos->enviarMensaje(
-            array(
-                'nombre' => $data['nombre'],
-                'apellido' => $data['apellido'],
-                'correo' => $data['correo'],
-                'telefono' => $data['telefono'],
-                'mensaje' => $data['mensaje']
-            )
-        );
-
+        $avisos->sendAll();
         return Response::success('Mensaje enviado');
     }
 }

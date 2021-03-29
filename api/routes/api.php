@@ -147,8 +147,16 @@ Route::group(['prefix' => 'storage'], function () {
 });
 
 /**
- *
+ * para enviar todos los mensajes
  */
 Route::group (['prefix' => '/avisos'], function () {
     Route::get('send-all', 'Avisos\AvisosController@sendAll');
+});
+
+
+/**
+ * Mensajes
+ */
+Route::group (['prefix' => '/contact'], function () {
+    Route::post('message', 'Avisos\MensajeController@enviarCorreo')->middleware('contact.message');
 });
