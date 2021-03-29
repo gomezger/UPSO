@@ -7,12 +7,13 @@ import { WebRoutingModule } from './web-routing.module';
 import { WebComponent } from './web.component';
 import { InvestigatorsComponent } from './investigators/investigators.component';
 import { InvestigatorComponent } from './investigators/investigator/investigator.component';
-import {SkeletonLoaderModule} from './../../modules/skeleton-loader/skeleton-loader.module'
+import { SkeletonLoaderModule } from './../../modules/skeleton-loader/skeleton-loader.module'
 import { IndexComponent } from './index/index.component';
 import { HeaderComponent } from './others/header/header.component';
 import { FooterComponent } from './others/footer/footer.component';
 import { CarouselComponent } from './index/carousel/carousel.component';
-import { AboutUsComponent } from './index/about-us/about-us.component';
+import { AboutUsComponent as IndexAboutUsComponent } from './index/about-us/about-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { OptionsComponent } from './index/options/options.component';
 import { NewsComponent as NewnessesIndexComponent } from './index/news/news.component';
 import { OptionComponent } from './index/options/option/option.component';
@@ -32,6 +33,7 @@ import { CommentsComponent as CommentsPaperComponent } from './papers/paper/comm
 import { FormComponent as CommentFormComponent } from './papers/paper/comments/form/form.component';
 import { CommentComponent } from './papers/paper/comments/comment/comment.component';
 import { FileComponent as DownloadPaperFileComponent } from './papers/paper/download/file/file.component';
+import { Cod404Component } from './errors/cod404/cod404.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { FileComponent as DownloadPaperFileComponent } from './papers/paper/down
     CommentsPaperComponent,
     CommentFormComponent,
     CommentComponent,
-    DownloadPaperFileComponent
+    DownloadPaperFileComponent,
+    IndexAboutUsComponent,
+    Cod404Component
   ],
   imports: [
     CommonModule,

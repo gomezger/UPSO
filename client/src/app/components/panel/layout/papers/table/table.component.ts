@@ -23,7 +23,7 @@ export class TableComponent extends StatusComponent implements OnInit {
     protected _investigator: InvestigatorService
   ) {
     super(_router);
-    this.keys = ['titulo', 'descripcion','hola.chau'];
+    this.keys = ['titulo', 'descripcion'];
     this.itemsPerPage = 10;
     this.currentPage = 1;
   }
