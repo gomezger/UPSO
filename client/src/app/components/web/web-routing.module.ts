@@ -6,7 +6,8 @@ import { IndexComponent } from './index/index.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WebComponent } from './web.component';
-import { InvestigatorsComponent } from './investigators/investigators.component'
+import { InvestigatorsComponent } from './investigators/investigators.component';
+import { FileComponent as DownloadPaperFileComponent } from './papers/paper/download/file/file.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
         path: 'publicaciones',
         children: [
           { path: '', component: PapersComponent },
+          { path: 'download/:download_id', component: DownloadPaperFileComponent },
           { path: ':id/:titulo_url', component: PaperComponent }
         ]
       }

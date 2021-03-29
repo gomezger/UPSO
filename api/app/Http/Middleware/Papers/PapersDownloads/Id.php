@@ -24,7 +24,7 @@ class Id
 
         Validator::validator(
             ["id" => $id],
-            ["id" => 'required|exists:papers_comments,id']
+            ["id" => 'required|exists:papers_downloads,id']
         );
 
         return $next($request);

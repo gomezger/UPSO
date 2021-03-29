@@ -36,6 +36,13 @@
         <div class="alert alert-info" *ngIf="success">
           Enviaremos un mail a {{paperDownload.email}} para que puedas descargar la publicación
         </div>
+        <div class="form-row">
+
+          <div *ngIf="errores" class="errores col-12">
+            <div class="alert alert-danger" *ngFor="let error of errores">{{error}}</div>
+          </div>
+
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="dummy()">Cerrar</button>

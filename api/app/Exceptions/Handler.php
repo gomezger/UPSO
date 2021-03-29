@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Helpers\Avisos\Avisos;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -52,6 +53,21 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof \App\Exceptions\ExceptionManager) {
             return \App\Helpers\Response\JSONResponse::error($exception->getErrorCode(), $exception->getErrors());
+
+        }else if ($exception->getMessage() !== '' && $exception->getMessage() !== 'Unauthenticated') {
+
+            $avisos = new Avisos('hola@toyomecrepuestos.com');
+            $avisos->fatal_error(
+                'Error en la web',
+                [
+                    'message' => $exception->getMessage(),
+                    'code' => $exception->getCode(),
+                    'file' => $exception->getFile(),
+                    'line' => $exception->getLine(),
+                    'trace' => $exception->getTrace(),
+                    'trace_string' => $exception->getTraceAsString(),
+                ]
+            );
         }
         return parent::render($request, $exception);
     }

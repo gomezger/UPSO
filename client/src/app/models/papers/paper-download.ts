@@ -7,6 +7,7 @@ export class PaperDownload {
     public nombre: string,
     public nacimiento: Date,
     public profesion: string,
+    public download: boolean,
     public paper_id: number,
     public paper: Paper,
     public created_at: Date,

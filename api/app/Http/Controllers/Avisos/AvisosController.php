@@ -14,7 +14,7 @@ class AvisosController extends Controller
     protected $correo_negocio, $correo_soporte, $correo_cliente, $nombre_negocio, $correo_noreply, $correo_send;
 
     public function __construct(){
-        $this->support = config('from.support');
+        $this->support = config('mail.from.support');
     }
 
     /**
@@ -34,15 +34,8 @@ class AvisosController extends Controller
     }
 
     private function send ($from, $to, $subject, $name, $view, $data, $file){
-
-        try{
-            Mail::to($to)->send(new AvisoMail($from, $subject, $name, $view, $data, $file));
-            return true;
-        }catch(\Exception $e){
-            $avisos = new Avisos($this->support);
-            $avisos->fatal_error('Error en la web', []);
-        }
-
+        Mail::to($to)->send(new AvisoMail($from, $subject, $name, $view, $data, $file));
+        return true;
     }
 
 }

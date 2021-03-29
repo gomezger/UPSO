@@ -145,3 +145,10 @@ Route::group(['prefix' => 'storage'], function () {
 
     });
 });
+
+/**
+ *
+ */
+Route::group (['prefix' => '/avisos'], function () {
+    Route::get('send-all', 'Avisos\AvisosController@sendAll');
+});

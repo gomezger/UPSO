@@ -11,7 +11,10 @@
         </p>
 
         <p style="width: 100%; padding-bottom: 0px; float: left; text-align: center">
-            <a style="background-color: #ba4545; padding: 10px; border-radius: 5px; color: #FEFEFE; margin: 7px 0; display: inline-block" href="{{ config('app.web_url') }}/papers/download/{{$data['id']}}">Descargar</a>
+            <a
+                style="background-color: #ba4545; padding: 10px; border-radius: 5px; color: #FEFEFE; margin: 7px 0; display: inline-block"
+                href="{{ config('app.web_url') }}/publicaciones/download/{{ $data['id'] }}"
+            >Descargar</a>
         </p>
 
         <p style="width: 100%; padding-bottom: 0px; float: left;">
@@ -19,7 +22,7 @@
         </p>
 
         <p style="width: 100%; padding-bottom: 0px; float: left;">
-            <small>Si tiene problemas para hacer clic en el botón "Descargar", copie y pegue la siguiente URL en su navegador web: <a href="{{ config('app.web_url') }}/papers/download/{{$data['id']}}">{{ config('app.web_url') }}/papers/download/{{$data['id']}}</a></small>
+            <small>Si tiene problemas para hacer clic en el botón "Descargar", copie y pegue la siguiente URL en su navegador web: <a href="{{ config('app.web_url') }}/publicaciones/download/{{$data['id']}}">{{ config('app.web_url') }}/publicaciones/download/{{$data['id']}}</a></small>
         </p>
 
     </div>

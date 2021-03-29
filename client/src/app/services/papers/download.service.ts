@@ -16,12 +16,16 @@ export class DownloadService {
     return this._api.get('downloads/papers', token);
   }
 
+  find = (id: string): Observable<any> => {
+    return this._api.get('downloads/papers/' + id);
+  }
+
   insert = (paperDownload: PaperDownload): Observable<any> => {
     return this._api.post('downloads/papers/', paperDownload);
   }
 
-  update = (paperDownload: PaperDownload, token: string): Observable<any> => {
-    return this._api.put('downloads/papers/', paperDownload, token);
+  update = (paperDownload: PaperDownload): Observable<any> => {
+    return this._api.put('downloads/papers/', paperDownload);
   }
 
   delete = (id: number, token: string): Observable<any> => {
@@ -30,7 +34,7 @@ export class DownloadService {
 
 
   public dummy(): PaperDownload {
-    return new PaperDownload(0, '', '', null, '', 0, null, null, null);
+    return new PaperDownload(0, '', '', null, '', false, 0, null, null, null);
   }
 
 }

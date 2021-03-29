@@ -6,21 +6,24 @@ use App\Mail\AvisoMail;
 use App\Repositories\Avisos\AvisosRepo;
 use Illuminate\Support\Facades\Mail;
 
-class Avisos {
+class Avisos
+{
 
     protected string $support;
     protected string $email;
     protected string $name;
     protected string $user;
 
-    public function __construct(string $user){
+    public function __construct(string $user)
+    {
         $this->email = config('mail.from.address');
         $this->name = config('mail.from.name');
         $this->support = config('mail.from.support');
         $this->user = $user;
     }
 
-    public function insert($from, $to, $subject, $name, $view, $data, $file = NULL){
+    public function insert($from, $to, $subject, $name, $view, $data, $file = NULL)
+    {
         AvisosRepo::insert(
             array(
                 'from' => $from,
@@ -34,7 +37,8 @@ class Avisos {
         );
     }
 
-    public function fatal_error($subject, $data) {
+    public function fatal_error($subject, $data)
+    {
         AvisosRepo::insert(
             array(
                 'from' => $this->email,
@@ -47,16 +51,16 @@ class Avisos {
         );
     }
 
-
     /**
      * Envia todos los mails encolados (eestan en espera)
      */
-    public function sendAll(){
+    public function sendAll()
+    {
         $avisos = AvisosRepo::sinEnviar();
-        foreach($avisos as $aviso){
-            if($this->send($aviso->from,$aviso->to,$aviso->subject,$aviso->name,$aviso->view,json_decode($aviso->data,true),$aviso->file))
+        foreach ($avisos as $aviso) {
+            if ($this->send($aviso->from, $aviso->to, $aviso->subject, $aviso->name, $aviso->view, json_decode($aviso->data, true), $aviso->file))
                 AvisosRepo::update(
-                    Array(
+                    array(
                         "id" => $aviso->id,
                         "enviado" => true
                     )
@@ -64,16 +68,9 @@ class Avisos {
         }
     }
 
-    private function send ($from, $to, $subject, $name, $view, $data, $file){
-
-        try{
-            Mail::to($to)->send(new AvisoMail($from, $subject, $name, $view, $data, $file));
-            return true;
-        }catch(\Exception $e){
-            $avisos = new Avisos($this->support);
-            $avisos->fatal_error('Error en la web', []);
-        }
-
+    private function send($from, $to, $subject, $name, $view, $data, $file)
+    {
+        Mail::to($to)->send(new AvisoMail($from, $subject, $name, $view, $data, $file));
+        return true;
     }
-
 }

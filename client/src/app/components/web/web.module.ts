@@ -31,6 +31,7 @@ import { DownloadComponent as DownloadPaperComponent } from './papers/paper/down
 import { CommentsComponent as CommentsPaperComponent } from './papers/paper/comments/comments.component';
 import { FormComponent as CommentFormComponent } from './papers/paper/comments/form/form.component';
 import { CommentComponent } from './papers/paper/comments/comment/comment.component';
+import { FileComponent as DownloadPaperFileComponent } from './papers/paper/download/file/file.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { CommentComponent } from './papers/paper/comments/comment/comment.compon
     DownloadPaperComponent,
     CommentsPaperComponent,
     CommentFormComponent,
-    CommentComponent
+    CommentComponent,
+    DownloadPaperFileComponent
   ],
   imports: [
     CommonModule,
