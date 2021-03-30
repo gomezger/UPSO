@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {GLOBAL} from '../../services/config/global';
 import { Observable } from 'rxjs';
+import {ApiService} from './../../services/config/api.service'
 
 
 
@@ -10,21 +9,19 @@ import { Observable } from 'rxjs';
 })
 export class MailSenderService {
   private url:string;
-  constructor(private _http: HttpClient) { 
-    this.url=GLOBAL.url_api;
+  constructor(private _api: ApiService) { 
   }
 
   public sendMail(name,from,phone,msj):Observable<any>{
-    const headers = new HttpHeaders();
     let subject = 'Mensaje a UPSO INVESTIGACION de: ' + name; 
     let body={
-      name:name,
-      from:from,
-      phone:phone,
-      msj:msj,
-      subject:subject
+      nombre:name,
+      correo:from,
+      telefono:phone,
+      mensaje:msj,
+      subject
     }
-    return this._http.post(this.url+'/contact',JSON.stringify(body),{headers:headers}) 
+    return this._api.post('contact/message',body); 
   }
 
 }

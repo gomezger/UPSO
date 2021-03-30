@@ -12,6 +12,6 @@ class AvisosContacto extends Avisos
 
     public function sendContactMessage($data)
     {
-        return $this->insert($this->user, $this->email, 'Consulta desde la web', $this->name, 'avisos.contact.message', $data);
+        return $this->insert($this->user, $this->email, 'Consulta desde la web', $this->name, 'contact.message', $data);
     }
 }

@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Mail;
 class Avisos
 {
 
-    protected string $support;
-    protected string $email;
-    protected string $name;
-    protected string $user;
+    protected  $support;
+    protected  $email;
+    protected  $name;
+    protected  $user;
 
     public function __construct(string $user)
     {

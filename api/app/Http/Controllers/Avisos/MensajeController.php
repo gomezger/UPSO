@@ -18,7 +18,6 @@ class MensajeController extends Controller
         $avisos->sendContactMessage(
             array(
                 'nombre' => $data['nombre'],
-                'apellido' => $data['apellido'],
                 'correo' => $data['correo'],
                 'telefono' => $data['telefono'],
                 'mensaje' => $data['mensaje']

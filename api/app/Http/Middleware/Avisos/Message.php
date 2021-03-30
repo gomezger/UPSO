@@ -21,7 +21,6 @@ class Message
             $request->all(),
             array(
                 'nombre'       => 'required|string|max:191',
-                'apellido'       => 'required|string|max:191',
                 'correo'       => 'required|string|max:191',
                 'telefono'       => 'required|string|max:191',
                 'mensaje' => 'required|string'

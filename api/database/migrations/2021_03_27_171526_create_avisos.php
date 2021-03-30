@@ -20,7 +20,7 @@ class CreateAvisos extends Migration
             $table->string('subject');
             $table->string('name');
             $table->string('view');
-            $table->text('data')->default('{}');
+            $table->text('data');
             $table->boolean('enviado')->default(0);
             $table->string('file')->nullable();
             $table->timestamps();

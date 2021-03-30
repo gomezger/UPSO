@@ -8,7 +8,6 @@
 
         <p style="width: 100%; padding-bottom: 5px; float: left;">
             <b>Nombre:</b> {!! $nombre !!}<br />
-            <b>Apellido:</b> {!! $apellido !!}<br />
             <b>Correo:</b> {!! $correo !!}<br />
             <b>Teléfono:</b> {!! $telefono !!}<br />
             <b>Mensaje:</b> {!! $mensaje !!}<br />
