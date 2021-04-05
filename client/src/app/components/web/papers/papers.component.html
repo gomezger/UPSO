@@ -17,7 +17,7 @@
   </div>
 </div>
 
-<div *ngIf="success && papers" class="papers">
+<div *ngIf="success && papers" class="papers animated fadeIn">
   <div class="container">
 
     <ng-container *ngFor="let paper of papers | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">

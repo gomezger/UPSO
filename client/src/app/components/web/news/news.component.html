@@ -15,7 +15,7 @@
   </div>
 </div>
 
-<div *ngIf="news" class="news">
+<div *ngIf="news" class="news animated fadeIn">
   <div class="container">
 
     <ng-container *ngFor="let newsItem of news | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">

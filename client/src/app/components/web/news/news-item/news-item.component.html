@@ -1,10 +1,37 @@
 <div class="news">
 
   <div *ngIf="!newsItem" class="text-center col-12 mt-5 mb-5">
-    <upso-loading></upso-loading>
+    <div class="container">
+
+      <div class=" d-flex flex-wrap align-items-start  mt-3 ">
+        <div class="col-12 col-md-8 pl-0 pr-0d-inline-block">
+          <upso-skeleton-loader class="d-block" [Cwidth]="20" [type]="'%'" [Cheight]="20"></upso-skeleton-loader>
+          <upso-skeleton-loader class="d-block mt-3 mb-3 pb-1" [Cwidth]="100" [type]="'%'" [Cheight]="50"></upso-skeleton-loader>
+
+          <upso-skeleton-loader class="d-block mt-3 mb-5 pb-1" [Cwidth]="100" [type]="'%'" [Cheight]="300"></upso-skeleton-loader>
+
+          <ng-container *ngFor="let i of [].constructor(2)">
+            <upso-skeleton-loader *ngFor="let i of [].constructor(4)" class="d-block mt-0 mb-1" [Cwidth]="100" [type]="'%'" [Cheight]="20"></upso-skeleton-loader>
+            <upso-skeleton-loader  class="d-block mt-0 mb-4" [Cwidth]="70" [type]="'%'" [Cheight]="20"></upso-skeleton-loader>
+          </ng-container>
+
+        </div>
+
+        <div class="col-12 col-md-4 d-inline-block">
+          <upso-skeleton-loader class="d-block mt-0 mb-3 pb-1" [Cwidth]="100" [type]="'%'" [Cheight]="28"></upso-skeleton-loader>
+
+
+          <upso-skeleton-loader class="d-block mt-3 mb-3 pb-1" [Cwidth]="100" [type]="'%'" [Cheight]="200"></upso-skeleton-loader>
+          <upso-skeleton-loader class="d-block mt-3 mb-3 pb-1" [Cwidth]="100" [type]="'%'" [Cheight]="200"></upso-skeleton-loader>
+          <upso-skeleton-loader class="d-block mt-3 mb-3 pb-1" [Cwidth]="100" [type]="'%'" [Cheight]="200"></upso-skeleton-loader>
+
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <div *ngIf="newsItem" class="container pl-0 pr-0">
+  <div *ngIf="newsItem" class="container pl-0 pr-0 animated fadeIn">
     <div class="newsItem col-md-8 float-left">
       <h4 class="breadcrumbs_item">
         Novedades
