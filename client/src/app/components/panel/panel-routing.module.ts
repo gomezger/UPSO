@@ -20,6 +20,7 @@ const routes: Routes = [
     component: PanelComponent,
 
     children: [
+      { path: '', component: NewsComponent },
       { path: 'usuarios', component: UsersComponent },
       { path: 'novedades', component: NewsComponent },
       { path: 'investigadores', component: InvestigatorsComponent },

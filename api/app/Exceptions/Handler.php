@@ -56,7 +56,7 @@ class Handler extends ExceptionHandler
 
         }else if ($exception->getMessage() !== '' && $exception->getMessage() !== 'Unauthenticated') {
 
-            $avisos = new Avisos('hola@toyomecrepuestos.com');
+            $avisos = new Avisos(config('mail.from.support'));
             $avisos->fatal_error(
                 'Error en la web',
                 [
