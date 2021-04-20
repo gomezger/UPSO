@@ -21,11 +21,11 @@ export class DownloadService {
   }
 
   insert = (paperDownload: PaperDownload): Observable<any> => {
-    return this._api.post('downloads/papers/', paperDownload);
+    return this._api.post('downloads/papers', paperDownload);
   }
 
   update = (paperDownload: PaperDownload): Observable<any> => {
-    return this._api.put('downloads/papers/', paperDownload);
+    return this._api.put('downloads/papers', paperDownload);
   }
 
   delete = (id: number, token: string): Observable<any> => {

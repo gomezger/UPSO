@@ -8,7 +8,7 @@
   <div *ngIf="success && !paperDownload.download" class="col-12 success text-center">
     <!-- <span class="d-inline-block text-danger"><i class="fad fa-spinner-third fa-spin fa-7x"></i></span>-->
     <h5 class="d-inline-block text-danger">{{paperDownload.paper.titulo}}</h5>
-    <a [href]="url" alter="_blank" download="true" class="btn btn-lg btn-info mt-5">Descargar</a>
+    <a [href]="url" alter="_blank" [download]="paperDownload.paper.titulo" class="btn btn-lg btn-info mt-5">Descargar</a>
   </div>
 
   <div *ngIf="success && paperDownload.download" class="col-12 success text-center">
