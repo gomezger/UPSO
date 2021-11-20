@@ -50,23 +50,6 @@
         <div class="redes float-left p-0 pt-3 ">
                 <a 
                     *ngIf="info"
-                    class="dato text-dark clearfix" 
-                    target="_blank">
-                    <i class="fad fa-map-marker-alt mr-3"></i>{{info.city}}
-                </a>
-                <div 
-                    class="dato text-dark clearfix d-none" 
-                    >
-                    <span><i class="fad fa-clock mr-3"></i>Horarios:</span>
-                    <div 
-                        class="horary" 
-                        *ngFor="let horary of info.horaries"
-                    >
-                        <i class="fad fa-angle-right ml-4 mr-3"></i><small>{{horary.day}}: {{horary.hour}}</small>
-                    </div>
-                </div>
-                <a 
-                    *ngIf="info"
                     [attr.href]="info.social.facebook.url"
                     class="dato text-dark clearfix" 
                     target="_blank">
@@ -78,12 +61,6 @@
                     class="dato text-dark clearfix" 
                     target="_blank">
                         <i class="fab fa-instagram mr-3"></i>{{info.social.instagram.name}}
-                </a>
-                <a 
-                    *ngIf="info"
-                    [attr.href]="'https://api.whatsapp.com/send?phone='+info.social.whatsapp.cod.int+info.social.whatsapp.cod.nac+info.social.whatsapp.number"                 
-                    class="dato text-dark clearfix" target="_blank">
-                        <i class="fab fa-whatsapp mr-3"></i>Enviar mensaje
                 </a>
                 <a 
                     *ngIf="info"

@@ -6,14 +6,14 @@
     database: 'database-template',
     table : 'table-storage'
   }
-};
- */
+}; */
+
 export let GLOBAL = {
-  url_api: 'https://upso.ml/api/public/',
-  api: 'https://upso.ml/api/public/api/',
-  url_storage:  'https://upso.ml/api/storage/app/public/',
+  url_api: 'https://geccif.upso.edu.ar/api/public/',
+  api: 'https://geccif.upso.edu.ar/api/public/api/',
+  url_storage:  'https://geccif.upso.edu.ar/api/storage/app/public/',
   indexedDB: {
-    database: 'database-template',
+    database: 'database-upso',
     table : 'table-storage'
   }
 };

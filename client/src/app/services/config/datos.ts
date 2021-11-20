@@ -1,40 +1,23 @@
 export const DATOS = {
-  city: "Sarmiento 1221, Bahía Blanca",
+  city: "Ciudad de Cali 320, Bahía Blanca",
     phone: {
         cod: {
             int : "54",
             nac : "0291"
         },
-        number: "4555744"
+        number: "4592550"
     },
     social:{
         facebook: {
-            name: "mariaguerreromuebles",
-            url : "https://www.facebook.com/mariaguerreromuebles"
+            name: "upsouniversidad",
+            url : "https://www.facebook.com/upsouniversidad"
         },
         instagram: {
-            name: "mariaguerreromuebles",
-            url : "https://www.instagram.com/mariaguerreromuebles/"
-        },
-        whatsapp: {
-            cod: {
-                int : "54",
-                nac : "291"
-            },
-            number: "5743429"
+            name: "upsouniversidad",
+            url : "https://www.instagram.com/upsouniversidad/"
         },
     },
     mails: [
-        "mariaguerrerodeco@hotmail.com" 
-    ],
-    horaries: [
-        {
-            day: "Lunes a Jueves",
-            hour: "9hs a 12hs y 15hs a 20hs"
-        },
-        {
-            day: "Sábado",
-            hour: "9hs a 12hs"
-        }
+        "info@upso.edu.ar" 
     ]
 }

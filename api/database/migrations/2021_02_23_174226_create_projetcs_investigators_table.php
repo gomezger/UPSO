@@ -22,7 +22,7 @@ class CreateProjetcsInvestigatorsTable extends Migration
 
         Schema::table('projects_investigators', function (Blueprint $table) {
 
-            $table->foreign('project_id')
+            /* $table->foreign('project_id')
 			  ->references('id')->on('projects')
 			  ->onDelete('cascade')
 			  ->onUpdate('cascade');
@@ -30,7 +30,7 @@ class CreateProjetcsInvestigatorsTable extends Migration
               $table->foreign('investigator_id')
 			  ->references('id')->on('investigators')
 			  ->onDelete('cascade')
-			  ->onUpdate('cascade');
+			  ->onUpdate('cascade'); */
 
         });
     }

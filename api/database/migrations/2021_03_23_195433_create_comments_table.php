@@ -21,10 +21,10 @@ class CreateCommentsTable extends Migration
             $table->boolean('aprobado')->default(1);
             $table->timestamps();
 
-            $table->foreign('paper_id')
+            /* $table->foreign('paper_id')
 			  ->references('id')->on('papers')
 			  ->onDelete('cascade')
-			  ->onUpdate('cascade');
+			  ->onUpdate('cascade'); */
         });
     }
 

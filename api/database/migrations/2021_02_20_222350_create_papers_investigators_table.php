@@ -21,7 +21,7 @@ class CreatePapersInvestigatorsTable extends Migration
         });
 
 
-        Schema::table('papers_investigators', function (Blueprint $table) {
+        /* Schema::table('papers_investigators', function (Blueprint $table) {
 
             $table->foreign('paper_id')
 			  ->references('id')->on('papers')
@@ -33,7 +33,7 @@ class CreatePapersInvestigatorsTable extends Migration
 			  ->onDelete('cascade')
 			  ->onUpdate('cascade');
 
-        });
+        }); */
     }
 
     /**

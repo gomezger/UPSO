@@ -23,10 +23,10 @@ class CreatePaperDownload extends Migration
             $table->boolean('download')->default(0);
             $table->timestamps();
 
-            $table->foreign('paper_id')
+            /* $table->foreign('paper_id')
 			  ->references('id')->on('papers')
 			  ->onDelete('cascade')
-			  ->onUpdate('cascade');
+			  ->onUpdate('cascade'); */
         });
     }
 
