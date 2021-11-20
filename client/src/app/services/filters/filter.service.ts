@@ -14,10 +14,15 @@ export class FilterService {
       : colection.filter((element) => this.filtarAux(element, value, keys));
   }
 
-  private filtarAux = (element: User, value: string, keys: Array<string>): boolean => {
-    for (let key of keys) {
-      if (element[key] && element[key].toLowerCase().search(value.toLowerCase()) !== -1)
+  private filtarAux = (element: any, value: string, keys: Array<string>): boolean => {
+    for (const keyGroup of keys) {
+      let dato = element;
+      for (const key of keyGroup.split('.')){
+        dato = (dato[key]) ? dato[key] : undefined;
+      }
+      if (dato && dato.toLowerCase().search(value.toLowerCase()) !== -1){
         return true;
+      }
     }
     return false;
   }

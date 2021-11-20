@@ -10,7 +10,15 @@ use Illuminate\Http\Request;
 class StorageController extends Controller
 {
 
-    public function upload(Request $request)
+    public function uploadImage(Request $request)
+    {
+        $file = $request->file('file', null);
+        $disk = $request->input('disk', 'public');
+
+        return Response::success(FileUploader::upload($file, $disk));
+    }
+
+    public function uploadPDF(Request $request)
     {
         $file = $request->file('file', null);
         $disk = $request->input('disk', 'public');

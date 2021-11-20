@@ -1,0 +1,11 @@
+<div class="card" >
+  <img class="card-img-top d-inline-block mr-5" [src]="url_storage+'investigators/'+investigator.imagen">
+  <div class="body d-inline-block">
+    <h5 class="title d-block">{{investigator.nombre}}</h5>
+    <div class="social d-block text-left">
+      <a *ngIf="investigator.linkedin" [href]="investigator.linkedin" target="_blank" class="mr-2 d-inline-block text-info"><i class="fab fa-linkedin"></i></a>
+      <a *ngIf="investigator.pagina" [href]="investigator.pagina" target="_blank" class="mr-2 d-inline-block text-info"><i class="fas fa-link"></i></a>
+      <a *ngIf="investigator.mail" [href]="'mailto:' + investigator.mail" target="_blank" class="mr-2 d-inline-block text-info"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</div>

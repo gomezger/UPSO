@@ -1,0 +1,22 @@
+<div class="col-12 pl-0 pr-0">
+
+  <div class="add-comment col-12 text-right mt-3 mb-1">
+    <upso-comment-form (update)="update($event)" [paper]="paper"></upso-comment-form>
+  </div>
+
+  <ng-container
+    *ngFor="let comment of paper.comments  | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+    <upso-paper-comment [comment]="comment"></upso-paper-comment>
+  </ng-container>
+
+  <div *ngIf="paper.comments && paper.comments.length===0" class="text-center text-secondary col-12 mt-3 mb-3">
+    No hay comentarios
+  </div>
+
+  <div class="add-comment col-12 text-center mb-2">
+    <pagination-controls class="pagination d-inline-block pt-3" (pageChange)="currentPage = $event" autoHide="true"
+      responsive="true" directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente" maxSize="6">
+    </pagination-controls>
+  </div>
+
+</div>

@@ -1,14 +1,14 @@
 <div class="card" >
-    <img class="card-img-top" src="https://thispersondoesnotexist.com/image"  alt="Card image cap">
+    <img class="card-img-top" [src]="url_storage+'investigators/'+investigator.imagen"  alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{investigator.nombre}}</h5>
       <h6 class="">{{investigator.titulo}}</h6>
       <p class="card-text">{{investigator.descripcion}}</p>
       <hr>
       <div class="social">
-        <a href="www.facebook.com"><i class="fas fa-envelope"></i></a>
-        <a href=""><i class="fas fa-link"></i></a>
-        <a href=""><i class="fab fa-linkedin"></i></a>
+        <a *ngIf="investigator.mail" [href]="'mailto:'+investigator.mail"><i class="fas fa-envelope"></i></a>
+        <a *ngIf="investigator.pagina" [href]="investigator.pagina"><i class="fas fa-link"></i></a>
+        <a  *ngIf="investigator.linkedin"[href]="investigator.linkedin"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
  

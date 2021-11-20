@@ -1,0 +1,47 @@
+<div class="div-tabla table-responsive">
+  <upso-filter
+    [list]="investigators"
+    [keys]="keys"
+    (newList)="investigatorsFilter = $event"
+  >
+  </upso-filter>
+
+  <upso-form-investigator [title]="'Crear investigador'" (updateTable)="insertElement($event)"></upso-form-investigator>
+
+  <table class="table table-hover fixed text-left text-dark">
+    <thead>
+      <tr>
+        <th scope="col" class="column-sm">id</th>
+        <th class="text-left">Nombre</th>
+        <th>Título</th>
+        <th>E-mail</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <div *ngIf="investigators.length > 0; then thenBlock; else elseBlock"></div>
+
+      <ng-template #thenBlock>
+        <tr *ngFor=" let investigator of investigatorsFilter  | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+          <th scope="col" class="text-info column-sm"><b>{{ investigator.id }}</b></th>
+          <td class="text-left">{{ investigator.nombre }}</td>
+          <td class="text-left">{{ investigator.titulo }}</td>
+          <td class="text-left">{{ investigator.mail }}</td>
+          <td>
+            <upso-info-investigator [investigator]="investigator"></upso-info-investigator>
+            <upso-form-investigator [title]="'Editar investigador'" [investigator]="investigator" (updateTable)="updateElement($event)"></upso-form-investigator>
+            <upso-delete-investigator [investigator]="investigator" (updateTable)="deleteElement($event)"></upso-delete-investigator>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template #elseBlock>
+        <tr>
+          <td class="no-data" colspan="5">No existen investigadores</td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
+
+  <pagination-controls class="pagination" (pageChange)="currentPage = $event" autoHide="true" responsive="true"
+    directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente" maxSize="6"></pagination-controls>
+</div>

@@ -1,0 +1,35 @@
+<a *ngIf="comment && comment.id!==0" type="button" title="Información" class="text-info ml-2" data-toggle="modal"
+  [attr.data-target]="'#modalInfoPaperComment-'+comment.id">
+  <i class="fal fa-info-circle"></i>
+</a>
+
+<!-- Modal -->
+<div *ngIf="comment" class="modal fade modal-width" [attr.id]="'modalInfoPaperComment-'+comment.id" tabindex="-1"
+  role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Información</h5>
+        <button #closebutton type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #productForm="ngForm">
+        <div class="modal-body text-left">
+
+          <p><b>Nombre</b>: {{comment.nombre}}</p>
+          <p><b>Email</b>: {{comment.email}}</p>
+          <p><b>Profesión</b>: {{comment.profesion}}</p>
+          <p><b>Publicación</b>: {{comment.paper.titulo}}</p>
+
+          <p><b>Descripción</b>: </p>
+          <div class="col-12 bg-light p-2 pb-0" [innerHTML]="comment.descripcion | noSanitize"></div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

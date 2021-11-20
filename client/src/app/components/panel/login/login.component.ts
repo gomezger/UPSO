@@ -10,13 +10,13 @@ import { UserService } from 'src/app/services/users/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent extends StatusComponent implements OnInit {
-	public usuario: User;
-	public identity: User;
-	public token: string;
+  public usuario: User;
+  public identity: User;
+  public token: string;
 
   constructor(
-		protected _router: Router,
-		protected _activatedRouter: ActivatedRoute,
+    protected _router: Router,
+    protected _activatedRouter: ActivatedRoute,
     protected _usuario: UserService
   ) {
     super(_router);
@@ -26,26 +26,24 @@ export class LoginComponent extends StatusComponent implements OnInit {
   }
 
   /**
-     * Inicia sesion con los datos cargados.
-     * Utiliza los datos que se guardaron el la variable usuario.
-     * Si es exitoso, guarda en el local storage el objeto usuario y el token.
-     */
-	async handleSubmit(e){
-		// evito que recargue pantalla el submit
-		e.preventDefault();
-		this.setLoading();
+   * Inicia sesion con los datos cargados.
+   * Utiliza los datos que se guardaron el la variable usuario.
+   * Si es exitoso, guarda en el local storage el objeto usuario y el token.
+   */
+  handleSubmit(e): void {
+    // evito que recargue pantalla el submit
+    e.preventDefault();
+    this.setLoading();
 
-		//get datos
-		const email = e.target['email'].value;
-		const password = e.target['password'].value;
-		//le paso el usuario que solo tiene la contraseña y el usuario
-		const data = await this._usuario.login(email, password).toPromise();
+    // le paso el usuario que solo tiene la contraseña y el usuario
+    this._usuario.login(e.target.email.value, e.target.password.value).subscribe(
+      (response) => {
+        this._usuario.setLoginData(response);
+        this._router.navigate(['/panel']);
+      },
+      (error) => this.processError(error)
+    );
 
-		if ( this.validate(data) ) {
-			this._usuario.setLoginData(data);
-			this._router.navigate([ '/panel' ]);
-		}
-
-	}
+  }
 
 }

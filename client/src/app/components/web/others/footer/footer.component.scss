@@ -14,6 +14,11 @@ footer a {
   transition-duration: 0.2s;
 }
 
+h4{
+  font-weight: normal;
+  font-size: 18px;
+}
+
 footer a:hover {
   color: #FA944B;
   text-decoration: none;
@@ -124,10 +129,15 @@ ul.social-network li {
 }
 
 
+footer .footer-middle .footer-pad {
+  padding-top: 5px;
+}
+
 
 footer .footer-middle .footer-pad .navbar-brand {
   max-width: 300px;
   width: 100%;
+  padding-top: 5px;
 }
 
 

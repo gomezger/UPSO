@@ -52,7 +52,7 @@ export class NewsItemComponent extends StatusComponent implements OnInit {
       (response) => {
         this.setSuccess();
         this.newsItem = response;
-        this._sesion.setItem('news', [response, ...news]);
+        this._sesion.setItem('news', [response, ...(news && news.length) ? news : []]);
 
         if (tituloUrl !== this.newsItem.titulo_url) {
           this._router.navigate(['/novedades/', id, this.newsItem.titulo_url]);

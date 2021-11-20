@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'upso-about-us',
+  selector: 'upso-index-about-us',
   templateUrl: './about-us.component.html',
   styleUrls: ['./about-us.component.scss']
 })

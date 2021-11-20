@@ -1,0 +1,96 @@
+<div *ngIf="!paper" class="paper loading text-center p-3 pb-3">
+  <div class="container">
+    <upso-skeleton-loader class="d-block mt-3 mb-3 pb-1" [Cwidth]="100" [type]="'%'" [Cheight]="70"></upso-skeleton-loader>
+    <upso-skeleton-loader class="d-block" [Cwidth]="50" [type]="'%'" [Cheight]="20"></upso-skeleton-loader>
+
+    <div class=" d-flex flex-wrap align-items-start  mt-3 ">
+      <div class="col-12 col-md-8 pl-0 pr-0d-inline-block">
+        <upso-skeleton-loader class="d-block mt-3 mb-3 pb-1" [Cwidth]="100" [type]="'%'" [Cheight]="300"></upso-skeleton-loader>
+      </div>
+
+      <div class="col-12 col-md-4 d-inline-block">
+        <upso-skeleton-loader class="d-block mt-3 mb-3 pb-1" [Cwidth]="100" [type]="'%'" [Cheight]="20"></upso-skeleton-loader>
+
+
+        <upso-skeleton-loader class="d-block mt-3 mb-3 pb-1" [Cwidth]="100" [type]="'%'" [Cheight]="50"></upso-skeleton-loader>
+        <upso-skeleton-loader class="d-block mt-3 mb-3 pb-1" [Cwidth]="100" [type]="'%'" [Cheight]="50"></upso-skeleton-loader>
+        <upso-skeleton-loader class="d-block mt-3 mb-3 pb-1" [Cwidth]="100" [type]="'%'" [Cheight]="50"></upso-skeleton-loader>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="paper" class="paper">
+  <div class="col-12 top">
+    <div class="container">
+      <h1>{{paper.titulo}}</h1>
+      <small class="date p-0">
+        {{paper.created_at | date:'d'}}
+        {{paper.created_at | date:'MMMM '}}
+        {{paper.created_at | date:'yyyy - H:mm'}}hs
+      </small>
+    </div>
+  </div>
+
+  <div class="bar d-inline-block">
+    <div class="container">
+      <div class="title">
+        <span class="text-info mr-2"><i class="fad fa-book-open"></i></span>
+        <span class="text">Descripción</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="body col-12 pr-0 pl-0 d-inline-block">
+    <div class="container d-flex flex-wrap align-items-start">
+
+      <div class="col-12 col-md-8 pl-0 pr-0 pr-md-5 d-inline-block">
+        <div class="abstract mt-4 mb-3" [innerHtml]="paper.descripcion | safeHtml"></div>
+      </div>
+
+      <div class="col-12 col-md-4 pl-0 pr-0 d-inline-block mt-4 text-right">
+
+        <div class="mb-4 ">
+          <upso-paper-download [paper]="paper"></upso-paper-download>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-12 investigators">Investigadores</div>
+
+        <ng-container *ngFor="let investigator of paper.investigators">
+          <upso-investigator-small-card [investigator]="investigator"></upso-investigator-small-card>
+        </ng-container>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bar mt-4 d-inline-block">
+    <div class="container">
+      <div class="title">
+        <span class="text-info mr-2"><i class="fad fa-comment"></i></span>
+        <span class="text">Comentarios</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="row m-0">
+    <div class="container">
+      <upso-paper-comments [paper]="paper"></upso-paper-comments>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="clearfix"></div>

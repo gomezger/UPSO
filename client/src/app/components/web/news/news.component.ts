@@ -32,15 +32,14 @@ export class NewsComponent extends StatusComponent implements OnInit {
 
   getNews(): void {
     this.news = this._sesion.getItem('news');
-
-    this._news.all().subscribe(
-      (response) => {
-        this.setSuccess();
+    this._news.all().subscribe({
+      next: response => {
         this.news = response;
         this._sesion.setItem('news', response);
       },
-      (error) => this.processError(error)
-    );
+      complete : () => this.setSuccess(),
+      error : error => this.processError(error)
+    });
   }
 
 }

@@ -25,7 +25,7 @@ export class TableComponent implements OnInit {
     this.resetFilter();
   }
 
-  resetFilter() {
+  resetFilter(): void {
     this.newsFilter = [...this.news];
   }
 

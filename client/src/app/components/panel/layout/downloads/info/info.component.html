@@ -1,0 +1,35 @@
+<a *ngIf="download && download.id!==0" type="button" title="Información" class="text-info ml-2" data-toggle="modal"
+  [attr.data-target]="'#modalInfoPaperDownload-'+download.id">
+  <i class="fal fa-info-circle"></i>
+</a>
+
+<!-- Modal -->
+<div *ngIf="download" class="modal fade modal-width" [attr.id]="'modalInfoPaperDownload-'+download.id" tabindex="-1"
+  role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Información</h5>
+        <button #closebutton type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #productForm="ngForm">
+        <div class="modal-body text-left">
+
+          <p><b>Nombre</b>: {{download.nombre}}</p>
+          <p><b>Email</b>: {{download.email}}</p>
+          <p><b>Profesión</b>: {{download.profesion}}</p>
+          <p><b>Nacimiento</b>: {{download.nacimiento | date:'d/MM/yy'}}</p>
+          <p><b>Publicación</b>: {{download.paper.titulo}}</p>
+          <p><b>Descargó la publicación</b>: {{download.download ? 'si' : 'no'}}</p>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

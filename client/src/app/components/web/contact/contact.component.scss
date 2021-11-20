@@ -1,0 +1,126 @@
+$colorBlueLight: #2242f3c0;
+
+.sombreado{
+    background-color: rgba(232, 232, 243, 0.596);
+}
+
+.title{
+    text-transform: uppercase;
+    font-size     : 45px;
+    padding       : 50px 0;
+    font-family   : 'Montserrat', cursive;
+}
+.title .gradient{
+    float: left;
+    
+}
+
+h2{
+    
+    font-size: 40px;
+    font-family: 'Montserrat', cursive;
+    text-transform: uppercase;
+    padding: 30px 0;
+}
+
+section.products{
+
+}
+
+
+.pagination ::ng-deep .ngx-pagination .current {
+    background: #0205c796;
+}
+
+.datos{ 
+}
+
+.datos .titulo, .sumate .titulo{
+  font-weight: 600;
+  font-size: 23px;
+}
+
+
+.datos .dato{
+  margin-bottom: 10px !important;
+  float: left;
+  clear: both;
+  font-size: 19px;
+}
+
+form{ 
+    border-right: 2px solid #EEE;
+    padding-right: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.form-group{
+    margin-top: 20px;
+}
+
+.form-group label{
+    color: #03162e;
+}
+
+.form-group input, .form-group select, .custom-file-label, .form-group textarea{
+    border: solid 1px #FFF;
+    background-color: rgba(232, 232, 243, 0.384);
+    border-bottom: 1.5px solid #2242f3c0;;
+    border-radius: 0;
+    height: 43px;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus{
+    border-bottom: 1.5px solid #2242f3c0;;
+    transition: 0.5s;
+    //height: 41px;
+}
+
+.form-group textarea{
+  height: 120px;
+}
+
+form .boton{
+    border-radius: 1px;
+    text-transform: uppercase;
+    padding: 10px 5px;
+    margin-top: 40px;
+    background-color:#0024eec0;;
+    border-color: #1b3dffc0;;
+}
+
+form .boton:hover{
+    border-radius: 1px;
+    text-transform: uppercase;
+    padding: 10px 5px;
+    margin-top: 40px;
+    background-color:#0400d6;
+    border-color: #070070;
+}
+
+
+@media only screen and (max-width: 991px) {
+
+    
+    form{ 
+        border-right: 0px solid #EEE;
+        padding-right: 0px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .sumate .portada{
+        background-size: 100% auto ;
+        min-height: 130px;
+    }
+    .sumate .portada .subtitulo{
+        font-size: 12px;
+    }
+    .sumate .portada .titulo{
+        font-size: 28px;
+    }
+	span.blanco{
+		background-color: rgba(255, 255, 255, 0.829);
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}

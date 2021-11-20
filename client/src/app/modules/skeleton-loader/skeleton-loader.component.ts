@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'upso-skeleton-loader',
@@ -8,22 +8,18 @@ import { Component, OnInit,Input } from '@angular/core';
   `,
   styleUrls: ['./skeleton-loader.component.scss']
 })
-export class SkeletonLoaderComponent implements OnInit {
-  @Input() Cwidth;
-  @Input() Cheight;
-  @Input() circle: boolean;    
+export class SkeletonLoaderComponent {
+  @Input() Cwidth: number;
+  @Input() Cheight: number;
+  @Input() circle: boolean;
+  @Input() type = 'px';
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  getMyStyles(){
-    const myStyles={
-      'width.px':this.Cwidth ? this.Cwidth : '',
-      'height.px':this.Cheight ? this.Cheight : '',
-      'border-radius': this.circle ? '50%': '' 
-    }
+  getMyStyles(): {} {
+    const myStyles = { };
+    myStyles['width.' + this.type] = this.Cwidth ? this.Cwidth : '';
+    myStyles['height.px'] = this.Cheight ? this.Cheight : '';
+    myStyles['border-radius'] = this.circle ? '50%' : '';
     return myStyles;
   }
 

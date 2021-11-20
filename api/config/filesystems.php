@@ -62,6 +62,20 @@ return [
             'visibility' => 'public',
         ],
 
+        'investigators' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/investigators'),
+            'url' => env('APP_URL').'/storage/investigators',
+            'visibility' => 'public',
+        ],
+
+        'papers' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/papers'),
+            'url' => env('APP_URL').'/storage/papers',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

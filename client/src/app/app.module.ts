@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NoSanitizePipe } from './pipes/no-sanitize.pipe';
 import { GLOBAL } from './services/config/global';
 import { BrowserModule } from '@angular/platform-browser';
@@ -26,8 +27,8 @@ const dbConfig: DBConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    
+    AppComponent
+
   ],
   imports: [
     BrowserModule,

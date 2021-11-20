@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+.project .top {
+  background   : #f7f8fa;
+  box-shadow   : 0 1px 2px rgb(217 221 227 / 50%);
+  border-top   : 1px solid #e1e4e6;
+  border-bottom: 1px solid #e1e4e6;
+  padding      : 30px;
+}
+
+.project .top h1 {
+  font-size  : 30px;
+  font-family: 'Source Serif Pro', serif;
+}
+
+.project .bar {
+  background   : #f2f2f2;
+  border-bottom: 1px solid #e1e4e6;
+  float        : left;
+  clear        : both;
+  width        : 100%;
+}
+
+.project .bar .title {
+  border-color         : #0098D0;
+  border-bottom-width  : 2px;
+  border-bottom-style  : solid;
+  padding              : 19px 0px;
+  //width              : 115px !important;
+  float                : left;
+  clear                : both;
+  color                : #333;
+}
+
+.papar .bar .title .text {
+  color      : #323232;
+  font-weight: bold;
+  font-family: 'Source Serif Pro', serif;
+}
+
+.project .abstract {
+  font-family          : 'Source Serif Pro', serif;
+  text-align           : justify;
+  font-size            : 1rem;
+  color                : #666;
+  font-feature-settings: "lnum";
+}
+
+.project .body {
+  justify-content: space-around;
+  align-items    : flex-start !important;
+  align-self     : flex-start !important;
+  align-content  : flex-start !important;
+}
+
+.project .investigators {
+  width        : 100%;
+  text-align   : left;
+  font-family  : 'Raleway', sans-serif;
+  border-bottom: dashed 1px #ededed;
+  margin-bottom: 20px;
+  padding      : 5px 0 !important;
+  font-size    : 20px;
+}
+
+
+
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (max-width: 992px) {
+  .project .top {
+    padding      : 10px 0;
+  }
+  .project .top h1 {
+    font-size  : 23px;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {}
+
+@media only screen and (max-width: 576px) {}

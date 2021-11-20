@@ -12,23 +12,23 @@ export class NewsService {
     private _api: ApiService
   ) { }
 
-  all = (): Observable<any> => {
-    return this._api.get('news');
+  all = (): Observable<Array<News>> => {
+    return this._api.get('news').pipe();
   }
 
-  find = (id: number): Observable<any> => {
+  find = (id: number): Observable<News> => {
     return this._api.get('news/' + id);
   }
 
-  insert = (newsItem: News, token: string): Observable<any> => {
+  insert = (newsItem: News, token: string): Observable<News> => {
     return this._api.post('news/', newsItem, token);
   }
 
-  update = (newsItem: News, token: string): Observable<any> => {
+  update = (newsItem: News, token: string): Observable<News> => {
     return this._api.put('news/', newsItem, token);
   }
 
-  delete = (id: number, token: string): Observable<any> => {
+  delete = (id: number, token: string): Observable<News> => {
     return this._api.del('news/' + id, token);
   }
 
