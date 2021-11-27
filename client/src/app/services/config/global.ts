@@ -7,7 +7,7 @@
     table : 'table-storage'
   }
 }; */
-
+ 
 export let GLOBAL = {
   url_api: 'https://geccif.upso.edu.ar/api/public/',
   api: 'https://geccif.upso.edu.ar/api/public/api/',
@@ -17,3 +17,14 @@ export let GLOBAL = {
     table : 'table-storage'
   }
 };
+
+/* export let GLOBAL = {
+  url_api: 'https://upso.ml/api/public/',
+  api: 'https://upso.ml/api/public/api/',
+  url_storage:  'https://upso.ml/api/storage/app/public/',
+  indexedDB: {
+    database: 'database-upso',
+    table : 'table-storage'
+  }
+};
+ */

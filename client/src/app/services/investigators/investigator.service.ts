@@ -21,11 +21,11 @@ export class InvestigatorService {
   }
 
   insert = (investigator: Investigator, token: string): Observable<any> => {
-    return this._api.post('investigators/', investigator, token);
+    return this._api.post('investigators', investigator, token);
   }
 
   update = (investigator: Investigator, token: string): Observable<any> => {
-    return this._api.put('investigators/', investigator, token);
+    return this._api.put('investigators', investigator, token);
   }
 
   delete = (id: number, token: string): Observable<any> => {

@@ -21,11 +21,11 @@ export class ProjectService {
   }
 
   insert = (project: Project, token: string): Observable<any> => {
-    return this._api.post('projects/', project, token);
+    return this._api.post('projects', project, token);
   }
 
   update = (project: Project, token: string): Observable<any> => {
-    return this._api.put('projects/', project, token);
+    return this._api.put('projects', project, token);
   }
 
   delete = (id: number, token: string): Observable<any> => {
