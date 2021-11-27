@@ -12,7 +12,7 @@ class Investigator extends Model
     use HasFactory;
 
     protected $table = 'investigadores';
-    protected $fillable = ['id', 'nombre', 'titulo', 'imagen', 'descripcion', 'linkedin', 'pagina', 'mail'];
+    protected $fillable = ['id', 'nombre', 'titulo', 'imagen', 'descripcion', 'linkedin', 'pagina', 'mail', 'show'];
 
 
     public function papers()

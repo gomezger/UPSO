@@ -21,11 +21,11 @@ export class PaperService {
   }
 
   insert = (paper: Paper, token: string): Observable<any> => {
-    return this._api.post('papers/', paper, token);
+    return this._api.post('papers', paper, token);
   }
 
   update = (paper: Paper, token: string): Observable<any> => {
-    return this._api.put('papers/', paper, token);
+    return this._api.put('papers', paper, token);
   }
 
   delete = (id: number, token: string): Observable<any> => {

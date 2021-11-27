@@ -5,7 +5,7 @@ namespace App\Models\Papers;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class paperDownload extends Model
+class PaperDownload extends Model
 {
     use HasFactory;
 

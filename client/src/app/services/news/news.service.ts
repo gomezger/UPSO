@@ -21,11 +21,11 @@ export class NewsService {
   }
 
   insert = (newsItem: News, token: string): Observable<News> => {
-    return this._api.post('news/', newsItem, token);
+    return this._api.post('news', newsItem, token);
   }
 
   update = (newsItem: News, token: string): Observable<News> => {
-    return this._api.put('news/', newsItem, token);
+    return this._api.put('news', newsItem, token);
   }
 
   delete = (id: number, token: string): Observable<News> => {

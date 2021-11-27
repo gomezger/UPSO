@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 /** -----------------------------------------
  * --------------- AUTH----------------------
  * -------------------------------------- **/
-/* Route::group(['prefix' => 'auth'], function () {
+Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'Users\AuthController@login')->middleware('auth.login');
     Route::post('signup', 'Users\AuthController@signup')->middleware('auth.signup');
 
@@ -30,12 +30,12 @@ use Illuminate\Support\Facades\Route;
         Route::get('logout', 'Users\AuthController@logout');
         Route::get('user', 'Users\AuthController@user');
     });
-}); */
+});
 
 /** -----------------------------------------
  * --------------- USER----------------------
  * -------------------------------------- **/
-/* Route::group(['prefix' => 'user'], function () {
+Route::group(['prefix' => 'user'], function () {
     Route::get('', 'Users\UserController@all');
 
     Route::group(['middleware' => 'auth:api'], function () {
@@ -43,13 +43,13 @@ use Illuminate\Support\Facades\Route;
         Route::put('', 'Users\UserController@update')->middleware('user.data');
         Route::post('/{email}', 'Users\UserController@delete')->middleware('user.email');
     });
-}); */
+});
 
 
 /** -----------------------------------------
  * --------------- NEWS----------------------
  * -------------------------------------- **/
-/* Route::group(['prefix' => 'news'], function () {
+Route::group(['prefix' => 'news'], function () {
     Route::get('', 'News\NewsController@all');
     Route::get('/{id}', 'News\NewsController@find')->middleware('news.id');
 
@@ -58,12 +58,12 @@ use Illuminate\Support\Facades\Route;
         Route::put('', 'News\NewsController@update')->middleware('news.data', 'news.id');
         Route::delete('/{id}', 'News\NewsController@delete')->middleware('news.id');
     });
-}); */
+});
 
 /** -----------------------------------------
  * ------------ Investigators----------------
  * -------------------------------------- **/
-/* Route::group(['prefix' => 'investigators'], function () {
+Route::group(['prefix' => 'investigators'], function () {
     Route::get('', 'Investigators\InvestigatorController@all');
     Route::get('/{id}', 'Investigators\InvestigatorController@find')->middleware('investigator.id');
 
@@ -72,12 +72,12 @@ use Illuminate\Support\Facades\Route;
         Route::put('', 'Investigators\InvestigatorController@update')->middleware('investigator.data', 'investigator.id');
         Route::delete('/{id}', 'Investigators\InvestigatorController@delete')->middleware('investigator.id');
     });
-}); */
+});
 
 /** -----------------------------------------
  * --------------- Papers ------------------
  * -------------------------------------- **/
-/* Route::group(['prefix' => 'papers'], function () {
+Route::group(['prefix' => 'papers'], function () {
     Route::get('', 'Papers\PapersController@all');
     Route::get('/{id}', 'Papers\PapersController@find')->middleware('paper.id');
 
@@ -87,12 +87,12 @@ use Illuminate\Support\Facades\Route;
         Route::delete('/{id}', 'Papers\PapersController@delete')->middleware('paper.id');
     });
 
-}); */
+});
 
 /** -----------------------------------------
  * ----------- Papers Comment ---------------
  * -------------------------------------- **/
-/* Route::group(['prefix' => 'comments/papers'], function () {
+Route::group(['prefix' => 'comments/papers'], function () {
 
     Route::post('', 'Papers\PapersCommentsController@insert')->middleware('paper.comment.data'); // porque es alguien no logueado
 
@@ -101,12 +101,12 @@ use Illuminate\Support\Facades\Route;
         Route::put('', 'Papers\PapersCommentsController@update')->middleware('paper.comment.data', 'paper.comment.id'); // solo puede el admin
         Route::delete('/{id}', 'Papers\PapersCommentsController@delete')->middleware('paper.comment.id'); // solo puede el admin
     });
-}); */
+});
 
 /** -----------------------------------------
  * ----------- Papers Download ---------------
  * -------------------------------------- **/
-/* Route::group(['prefix' => 'downloads/papers'], function () {
+Route::group(['prefix' => 'downloads/papers'], function () {
 
     Route::get('/{id}', 'Papers\PapersDownloadController@find')->middleware('paper.download.id'); // porque es alguien no logueado
     Route::post('', 'Papers\PapersDownloadController@insert')->middleware('paper.download.data'); // porque es alguien no logueado
@@ -117,12 +117,12 @@ use Illuminate\Support\Facades\Route;
         Route::delete('/{id}', 'Papers\PapersDownloadController@delete')->middleware('paper.comment.id'); // solo puede el admin
     });
 });
- */
+
 
 /** -----------------------------------------
  * ---------------- Projects ----------------
  * -------------------------------------- **/
-/* Route::group(['prefix' => 'projects'], function () {
+Route::group(['prefix' => 'projects'], function () {
     Route::get('', 'Projects\ProjectController@all');
     Route::get('/{id}', 'Projects\ProjectController@find')->middleware('project.id');
 
@@ -131,32 +131,32 @@ use Illuminate\Support\Facades\Route;
         Route::put('', 'Projects\ProjectController@update')->middleware('project.data', 'project.id');
         Route::delete('/{id}', 'Projects\ProjectController@delete')->middleware('project.id');
     });
-}); */
+});
 
 
 /** -----------------------------------------
  * --------------- STORAGE ------------------
  * -------------------------------------- **/
-/* Route::group(['prefix' => 'storage'], function () {
+Route::group(['prefix' => 'storage'], function () {
     Route::post('image', 'Storage\StorageController@uploadImage')->middleware('storage.image');
     Route::post('pdf', 'Storage\StorageController@uploadPdf')->middleware('storage.pdf');
 
     Route::group(['middleware' => 'auth:api'], function () {
 
     });
-}); */
+});
 
 /**
  * para enviar todos los mensajes
  */
-/* Route::group (['prefix' => '/avisos'], function () {
+Route::group (['prefix' => '/avisos'], function () {
     Route::get('send-all', 'Avisos\AvisosController@sendAll');
-}); */
+});
 
 
 /**
  * Mensajes
  */
-/* Route::group (['prefix' => '/contact'], function () {
+Route::group (['prefix' => '/contact'], function () {
     Route::post('message', 'Avisos\MensajeController@enviarCorreo')->middleware('contact.message');
-}); */
+});

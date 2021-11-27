@@ -1,6 +1,6 @@
 <div *ngIf="listaInvestigadores" class="container row">
 <div *ngFor="let investigator of listaInvestigadores" class="col-md-4 overflow-hidden animated fadeIn">
-    <upso-investigator [investigator]="investigator"></upso-investigator>
+    <upso-investigator [investigator]="investigator" *ngIf="investigator && investigator.show"></upso-investigator>
 </div>
 </div>
 

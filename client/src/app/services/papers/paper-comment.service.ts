@@ -17,11 +17,11 @@ export class PaperCommentService {
   }
 
   insert = (paperComment: PaperComment): Observable<any> => {
-    return this._api.post('comments/papers/', paperComment);
+    return this._api.post('comments/papers', paperComment);
   }
 
   update = (paperComment: PaperComment, token: string): Observable<any> => {
-    return this._api.put('comments/papers/', paperComment, token);
+    return this._api.put('comments/papers', paperComment, token);
   }
 
   delete = (id: number, token: string): Observable<any> => {
