@@ -22,7 +22,7 @@ class AvisosFactory {
                 return new AvisosContacto($user);
             break;
             default:
-                throw new EnvioException(["El aviso ". $tipo . " no existe"]);
+                return 'hola'; //throw new EnvioException(["El aviso ". $tipo . " no existe"]);
             break;
         }
 

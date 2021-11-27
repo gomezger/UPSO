@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Helpers\Avisos\Avisos;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 

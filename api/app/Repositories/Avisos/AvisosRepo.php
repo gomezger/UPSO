@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Avisos;
 
-use App\models\avisos\Aviso;
+use App\Models\Avisos\Aviso;
 
 class AvisosRepo {
 
