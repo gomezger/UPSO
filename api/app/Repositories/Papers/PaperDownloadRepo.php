@@ -2,12 +2,12 @@
 
 namespace App\Repositories\Papers;
 
-use App\Models\papers\paperDownload;
+use App\Models\Papers\PaperDownload;
 
 class PaperDownloadRepo {
 
     public static function find($id){
-        return paperDownload::find($id)->load('paper');
+        return PaperDownload::find($id)->load('paper');
     }
 
     public static function all(){
