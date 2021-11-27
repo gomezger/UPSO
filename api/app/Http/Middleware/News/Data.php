@@ -22,7 +22,8 @@ class Data
             array(
                 'titulo'       => 'required|string|max:191',
                 'imagen'       => 'required|string|max:191',
-                'descripcion' => 'required|string'
+                'descripcion' => 'required|string',
+                'show'       => 'nullable|boolean',
             )
         );
 

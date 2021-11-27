@@ -27,7 +27,8 @@ class Data
                 'pagina'       => 'nullable|url|string|max:191',
                 'mail'       => 'required|email|string|max:191',
                 'imagen'       => 'required|string|max:191',
-                'descripcion' => 'required|string|max:191'
+                'descripcion' => 'required|string|max:191',
+                'show' => 'required|boolean|max:191'
             )
         );
 

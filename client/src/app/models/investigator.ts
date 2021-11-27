@@ -8,6 +8,7 @@ export class Investigator {
     public pagina: String,
     public mail: String,
     public imagen: String,
+    public show: boolean = true,
     public created_at: Date,
     public updated_at: Date
   ) { }
