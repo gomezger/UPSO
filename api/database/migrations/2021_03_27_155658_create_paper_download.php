@@ -15,7 +15,7 @@ class CreatePaperDownload extends Migration
     {
         Schema::create('papers_downloads', function (Blueprint $table) {
             $table->id();
-            $table->integer('paper_id')->unsigned()->nullable();
+            $table->unsignedBigInteger('paper_id')->unsigned()->nullable();
             $table->string('nombre');
             $table->string('email');
             $table->date('nacimiento');
@@ -23,10 +23,10 @@ class CreatePaperDownload extends Migration
             $table->boolean('download')->default(0);
             $table->timestamps();
 
-            /* $table->foreign('paper_id')
+            $table->foreign('paper_id')
 			  ->references('id')->on('papers')
 			  ->onDelete('cascade')
-			  ->onUpdate('cascade'); */
+			  ->onUpdate('cascade');
         });
     }
 
