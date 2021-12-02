@@ -9,6 +9,7 @@ export class Investigator {
     public mail: String,
     public imagen: String,
     public show: boolean = true,
+    public cv: string,
     public created_at: Date,
     public updated_at: Date
   ) { }

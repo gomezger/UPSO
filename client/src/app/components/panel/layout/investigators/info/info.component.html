@@ -27,6 +27,8 @@
 
           <p><b>Página web</b>: {{ (investigator.pagina) ? investigator.pagina : '-'}}</p>
 
+          <p><b>CV</b>: {{ (investigator.cv) ? investigator.cv : '-'}}</p>
+
           <p><b>Imagen</b>: </p>
           <p class="col-md-6 pl-0"><img class="col-12 pl-0" [src]="urlStorage + 'investigators/' + investigator.imagen" /></p>
 

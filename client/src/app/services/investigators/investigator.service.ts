@@ -33,6 +33,6 @@ export class InvestigatorService {
   }
 
   dummy = (): Investigator => {
-    return new Investigator(0, '', '', '', '', '', '','', true, null, null);
+    return new Investigator(0, '', '', '', '', '', '','', true, '', null, null);
   }
 }

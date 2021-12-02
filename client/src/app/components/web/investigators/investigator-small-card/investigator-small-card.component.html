@@ -3,9 +3,10 @@
   <div class="body d-inline-block">
     <h5 class="title d-block">{{investigator.nombre}}</h5>
     <div class="social d-block text-left">
-      <a *ngIf="investigator.linkedin" [href]="investigator.linkedin" target="_blank" class="mr-2 d-inline-block text-info"><i class="fab fa-linkedin"></i></a>
-      <a *ngIf="investigator.pagina" [href]="investigator.pagina" target="_blank" class="mr-2 d-inline-block text-info"><i class="fas fa-link"></i></a>
-      <a *ngIf="investigator.mail" [href]="'mailto:' + investigator.mail" target="_blank" class="mr-2 d-inline-block text-info"><i class="fas fa-envelope"></i></a>
+      <a title="LinkedIn" *ngIf="investigator.linkedin" [href]="investigator.linkedin" target="_blank" class="mr-2 d-inline-block text-info"><i class="fab fa-linkedin"></i></a>
+      <a title="Página personal"  *ngIf="investigator.pagina" [href]="investigator.pagina" target="_blank" class="mr-2 d-inline-block text-info"><i class="fas fa-link"></i></a>
+      <a title="CV" *ngIf="investigator.cv" [href]="investigator.cv" target="_blank" class="mr-2 d-inline-block text-info"><i class="fas fa-file-user"></i></a>
+      <a title="e-Mail" *ngIf="investigator.mail" [href]="'mailto:' + investigator.mail" target="_blank" class="mr-2 d-inline-block text-info"><i class="fas fa-envelope"></i></a>
     </div>
   </div>
 </div>
