@@ -24,25 +24,27 @@
           <th scope="col" class="text-info column-sm"><b>{{ download.id }}</b></th>
           <td class="text-left">{{ download.nombre }}</td>
           <td class="text-left">
-            {{ download.paper.titulo
+            {{download.paper 
+                ? download.paper.titulo
                   .split(' ')
                   .slice(
-                    0, (download.paper.titulo.split(' ').length>5) ? 5 : download.paper.titulo.split(' ')
+                    0, (download.paper.titulo.split(' ').length>5) ? 5 : download.paper.titulo.split(' ').length
                   )
                   .join(' ')
-                  + '...'
+                  + ( (download.paper.titulo.split(' ').length>5) ? '...' : '') 
+                : 'Publicación eliminada'
+
             }}
           </td>
           <td>{{ download.created_at | date:'d/MM/yy HH:mm'}}</td>
           <td>
-            <upso-info-paper-download [download]="download"></upso-info-paper-download>
-            <!--<upso-status-paper-download [download]="download" (updateTable)="updateElement($event)"></upso-status-paper-download> -->
+            <upso-info-paper-download *ngIf="download.paper" [download]="download"></upso-info-paper-download>
           </td>
         </tr>
       </ng-template>
       <ng-template #elseBlock>
         <tr>
-          <td class="no-data" colspan="3">No existen descargas</td>
+          <td class="no-data" colspan="5">No existen descargas</td>
         </tr>
       </ng-template>
     </tbody>

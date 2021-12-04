@@ -27,7 +27,8 @@ class PapersDownloadController extends Controller
         $avisos = AvisosFactory::init('papers', $paperDownload->email);
         $avisos->sendPaperDownload(['id' => $paperDownload->id]);
         $avisos->sendAll();
-        return Response::success(PaperDownloadRepo::find($paperDownload->id));
+        //return Response::success(PaperDownloadRepo::find($paperDownload->id));
+        return Response::success('hola');
     }
 
     public function update(Request $request)

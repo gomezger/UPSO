@@ -24,19 +24,22 @@
           <th scope="col" class="text-info column-sm"><b>{{ comment.id }}</b></th>
           <td class="text-left">{{ comment.nombre }}</td>
           <td class="text-left">
-            {{ comment.paper.titulo
+            {{ comment.paper 
+                ? comment.paper.titulo
                   .split(' ')
                   .slice(
-                    0, (comment.paper.titulo.split(' ').length>5) ? 5 : comment.paper.titulo.split(' ')
+                    0, (comment.paper.titulo.split(' ').length>5) ? 5 : comment.paper.titulo.split(' ').length
                   )
                   .join(' ')
-                  + '...'
+                  + ( (comment.paper.titulo.split(' ').length>5) ? '...' : '') 
+                : 'Publicación eliminada'
+
             }}
           </td>
           <td>{{ comment.created_at | date:'d/MM/yy HH:mm'}}</td>
           <td>
-            <upso-info-paper-comment [comment]="comment"></upso-info-paper-comment>
-            <upso-status-paper-comment [comment]="comment" (updateTable)="updateElement($event)"></upso-status-paper-comment>
+            <upso-info-paper-comment *ngIf="comment.paper" [comment]="comment"></upso-info-paper-comment>
+            <upso-status-paper-comment *ngIf="comment.paper" [comment]="comment" (updateTable)="updateElement($event)"></upso-status-paper-comment>
           </td>
         </tr>
       </ng-template>

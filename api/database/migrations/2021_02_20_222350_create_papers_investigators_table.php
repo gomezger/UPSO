@@ -20,20 +20,6 @@ class CreatePapersInvestigatorsTable extends Migration
             $table->timestamps();
         });
 
-
-        /* Schema::table('papers_investigators', function (Blueprint $table) {
-
-            $table->foreign('paper_id')
-			  ->references('id')->on('papers')
-			  ->onDelete('cascade')
-			  ->onUpdate('cascade');
-
-              $table->foreign('investigator_id')
-			  ->references('id')->on('investigators')
-			  ->onDelete('cascade')
-			  ->onUpdate('cascade');
-
-        }); */
     }
 
     /**

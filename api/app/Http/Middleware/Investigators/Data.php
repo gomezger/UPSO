@@ -25,9 +25,10 @@ class Data
                 'imagen'       => 'required|string|max:191',
                 'linkedin'       => 'nullable|url|string|max:191',
                 'pagina'       => 'nullable|url|string|max:191',
+                'cv'       => 'nullable|url|string|max:191',
                 'mail'       => 'required|email|string|max:191',
                 'imagen'       => 'required|string|max:191',
-                'descripcion' => 'required|string|max:191',
+                'descripcion' => 'required|string|max:3000',
                 'show' => 'required|boolean|max:191'
             )
         );

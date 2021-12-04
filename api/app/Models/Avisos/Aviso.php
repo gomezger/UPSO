@@ -1,6 +1,6 @@
 <?php
 
-namespace App\models\avisos;
+namespace App\Models\Avisos;
 
 use Illuminate\Database\Eloquent\Model;
 
