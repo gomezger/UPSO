@@ -3,7 +3,7 @@
     <div class="card-body">
       <h5 class="card-title">{{investigator.nombre}}</h5>
       <h6 class="">{{investigator.titulo}}</h6>
-      <p class="card-text">{{investigator.descripcion}}</p>
+      <p class="card-text">{{(readMore) ? investigator.descripcion : investigator.descripcion | slice:0:40}} <span *ngIf="!readMore">...</span> </p>
       <hr>
       <div class="social">
         <a *ngIf="investigator.mail" [href]="'mailto:'+investigator.mail"><i class="fas fa-envelope"></i></a>
@@ -11,8 +11,6 @@
         <a  *ngIf="investigator.linkedin"[href]="investigator.linkedin"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
- 
+    <ngbd-modal-component [investigator]="investigator"></ngbd-modal-component>
   </div>
 
-
-  
