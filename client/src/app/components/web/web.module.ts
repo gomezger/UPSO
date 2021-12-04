@@ -39,6 +39,7 @@ import { CommentComponent } from './papers/paper/comments/comment/comment.compon
 import { FileComponent as DownloadPaperFileComponent } from './papers/paper/download/file/file.component';
 import { Cod404Component } from './errors/cod404/cod404.component';
 import { ContactComponent } from './contact/contact.component';
+import { NgbdModalComponent } from './investigators/my-modal/my-modal.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,9 @@ import { ContactComponent } from './contact/contact.component';
     DownloadPaperFileComponent,
     IndexAboutUsComponent,
     Cod404Component,
-    ContactComponent
+    ContactComponent,
+    NgbdModalComponent
+
   ],
   imports: [
     CommonModule,

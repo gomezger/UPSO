@@ -10,6 +10,7 @@ import {GLOBAL} from '../../../../services/config/global';
 export class InvestigatorComponent implements OnInit {
   @Input() investigator:Investigator;
   public url_storage:String;
+  public readMore:boolean=false;
   constructor() {
     this.url_storage=GLOBAL.url_storage;
   }
