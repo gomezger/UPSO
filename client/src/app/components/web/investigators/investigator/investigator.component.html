@@ -6,6 +6,7 @@
       <p class="card-text">{{(readMore) ? investigator.descripcion : investigator.descripcion | slice:0:40}} <span *ngIf="!readMore">...</span> </p>
       <hr>
       <div class="social">
+        <a  *ngIf="investigator.linkedin"[href]="investigator.cv"><i class="fas fa-address-card"></i></a>
         <a *ngIf="investigator.mail" [href]="'mailto:'+investigator.mail"><i class="fas fa-envelope"></i></a>
         <a *ngIf="investigator.pagina" [href]="investigator.pagina"><i class="fas fa-link"></i></a>
         <a  *ngIf="investigator.linkedin"[href]="investigator.linkedin"><i class="fab fa-linkedin"></i></a>
