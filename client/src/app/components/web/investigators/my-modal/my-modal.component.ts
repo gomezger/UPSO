@@ -17,7 +17,7 @@ import { Investigator } from 'src/app/models/investigator';
     <p>{{investigator.descripcion}}</p>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cerrar</button>
   </div>
 `
 })
