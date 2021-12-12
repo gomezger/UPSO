@@ -24,6 +24,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "@popperjs/core": "^2.9.1",
     "bootstrap": "^4.5.2",
     "jquery": "^3.6.0",

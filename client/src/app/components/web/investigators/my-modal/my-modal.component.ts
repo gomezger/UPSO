@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Investigator } from 'src/app/models/investigator';
+import { Investigator } from '../../../../models/investigator';
 
 @Component({
   selector: 'ngbd-modal-component',
