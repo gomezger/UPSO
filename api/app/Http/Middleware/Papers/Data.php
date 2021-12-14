@@ -24,7 +24,7 @@ class Data
             $data,
             array(
                 'titulo'       => 'required|string|max:191',
-                'pdf'       => 'required|string|max:191',
+                'pdf'       => 'url|string|max:191',
                 'descripcion' => 'required|string',
                 'investigators' => 'required'
             )

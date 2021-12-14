@@ -39,7 +39,7 @@ export class FileComponent extends StatusComponent implements OnInit {
     this._download.find(id).subscribe({
       next: download => {
         this.paperDownload = download;
-        this.url = GLOBAL.url_storage + 'papers/' + this.paperDownload.paper.pdf;
+        this.url = this.paperDownload.paper.pdf;
       },
       complete: () => {
         this.setSuccess();

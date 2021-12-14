@@ -27,7 +27,10 @@ export class DownloadComponent extends StatusComponent implements OnInit {
   confirmar(): void{
     this.setLoading();
     this._download.insert(this.paperDownload).subscribe({
-      next: paperDownload => this.paperDownload = paperDownload,
+      next: paperDownload => {
+        this.paperDownload = paperDownload
+        window.open(this.paper.pdf, '_blank');
+      },
       error: error => this.processError(error),
       complete: () => this.setSuccess()
     });

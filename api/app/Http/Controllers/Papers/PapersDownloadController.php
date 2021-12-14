@@ -24,11 +24,10 @@ class PapersDownloadController extends Controller
     {
         $data =  $request->all();
         $paperDownload = PaperDownloadRepo::insert($data);
-        $avisos = AvisosFactory::init('papers', $paperDownload->email);
-        $avisos->sendPaperDownload(['id' => $paperDownload->id]);
-        $avisos->sendAll();
-        //return Response::success(PaperDownloadRepo::find($paperDownload->id));
-        return Response::success('hola');
+        //$avisos = AvisosFactory::init('papers', $paperDownload->email);
+        //$avisos->sendPaperDownload(['id' => $paperDownload->id]);
+        //$avisos->sendAll();
+        return Response::success(PaperDownloadRepo::find($paperDownload->id));
     }
 
     public function update(Request $request)
