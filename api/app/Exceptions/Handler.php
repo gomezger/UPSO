@@ -56,7 +56,7 @@ class Handler extends ExceptionHandler
 
         }else if ($exception->getMessage() !== '' && $exception->getMessage() !== 'Unauthenticated') {
 
-            $avisos = new Avisos(config('mail.from.support'));
+           /*  $avisos = new Avisos(config('mail.from.support'));
             $avisos->fatal_error(
                 'Error en la web',
                 [
@@ -67,7 +67,7 @@ class Handler extends ExceptionHandler
                     'trace' => $exception->getTrace(),
                     'trace_string' => $exception->getTraceAsString(),
                 ]
-            );
+            ); */
         }
         return parent::render($request, $exception);
     }

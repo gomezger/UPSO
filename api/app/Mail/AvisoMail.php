@@ -11,7 +11,7 @@ class AvisoMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $from_mail, $to, $name, $subject, $data;
+    public $from_mail, $to, $name, $subject, $data, $reply;
 
 
 
@@ -20,14 +20,14 @@ class AvisoMail extends Mailable
      *
      * @return void
      */
-    public function __construct($from_mail, $subject, $name, $view, $data, $file = null)
+    public function __construct($from_mail, $subject, $name, $view, $data)
     {
         $this->from_mail = $from_mail;
         $this->name = $name;
         $this->subject = $subject;
         $this->view = $view;
         $this->data = $data;
-        $this->file = $file;
+        $this->email = config('mail.from.address');
     }
 
     /**
@@ -37,18 +37,11 @@ class AvisoMail extends Mailable
      */
     public function build()
     {
-        if ( is_null($this->file) ){
-            return $this->from($address = $this->from_mail, $name = $this->name)
-                    ->view($this->view)
-                    ->subject($this->subject)
-                    ->with($this->data);
-        } else {
-            return $this->from($address = $this->from_mail, $name = $this->name)
+        return $this->from($address = $this->email, $name = $this->name)
                     ->view($this->view)
                     ->subject($this->subject)
                     ->with($this->data)
-                    ->attachFromStorageDisk('archivos', $this->file);
-        }
+                    ->replyTo($this->from_mail);
 
 
     }

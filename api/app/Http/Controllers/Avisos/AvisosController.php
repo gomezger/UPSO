@@ -15,6 +15,7 @@ class AvisosController extends Controller
 
     public function __construct(){
         $this->support = config('mail.from.support');
+        $this->email = config('mail.from.address');
     }
 
     /**
@@ -34,7 +35,7 @@ class AvisosController extends Controller
     }
 
     private function send ($from, $to, $subject, $name, $view, $data, $file){
-        Mail::to($to)->send(new AvisoMail($from, $subject, $name, $view, $data, $file));
+        Mail::to($this->email)->send(new AvisoMail($from, $subject, $name, $view, $data));
         return true;
     }
 
